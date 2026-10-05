@@ -4,7 +4,7 @@ signal close_requested
 
 func open_details(map: MapDefinition, level: LevelDefinition) -> void:
 	%MapName.text = map.display_name.to_upper()
-	%MapName.add_theme_color_override("font_color", map.accent)
+	ThemeSettings.set_accent(%MapName, map.accent)
 	%LevelTitle.text = "Nível %02d" % level.number
 	%Illustration.texture = map.illustration
 	show()

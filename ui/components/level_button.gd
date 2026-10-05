@@ -7,5 +7,5 @@ var definition: LevelDefinition
 func setup(data: LevelDefinition, accent: Color) -> void:
 	definition = data
 	%Number.text = "%02d" % data.number
-	%Number.add_theme_color_override("font_color", accent)
+	ThemeSettings.set_accent(%Number, accent)
 	accessibility_name = "Nível %d" % data.number

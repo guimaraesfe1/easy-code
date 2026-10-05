@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="theme"]
 [ext_resource type="Script" path="res://app/app.gd" id="script"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" path="res://ui/map_selection/map_selection.tscn" id="maps"]
 [ext_resource type="PackedScene" path="res://ui/level_selection/level_selection.tscn" id="levels"]
 [ext_resource type="PackedScene" path="res://ui/level_details/level_details.tscn" id="details"]
+
+[ext_resource type="PackedScene" path="res://ui/options_menu/options_menu.tscn" id="options"]
 
 [node name="App" type="Control"]
 layout_mode = 3
@@ -103,6 +105,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="OptionsMenu" parent="Margins/Frame/Screens" instance=ExtResource("options")]
+unique_name_in_owner = true
+visible = false
+
 [node name="LevelDetails" parent="." instance=ExtResource("details")]
 unique_name_in_owner = true
 visible = false
@@ -119,3 +125,5 @@ grow_vertical = 2
 [connection signal="map_selected" from="Margins/Frame/Screens/MapSelection" to="." method="_on_map_selected"]
 [connection signal="level_selected" from="Margins/Frame/Screens/LevelSelection" to="." method="_on_level_selected"]
 [connection signal="close_requested" from="LevelDetails" to="." method="_on_details_closed"]
+
+[connection signal="options_requested" from="Margins/Frame/Screens/MainMenu" to="." method="_on_options_requested"]

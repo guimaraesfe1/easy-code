@@ -7,7 +7,9 @@ Jogo educativo em Godot 4. A cena principal é `app/app.tscn`: execute o projeto
 Os layouts são cenas editáveis pelo Inspector:
 
 - `app/app.tscn`: estrutura comum, botão Voltar e navegação entre telas.
-- `ui/main_menu/main_menu.tscn`: menu inicial limpo, com título e botões Jogar/Sair em uma coluna centralizada.
+- `ui/main_menu/main_menu.tscn`: menu inicial com título e botões Jogar, Opções e Sair em uma coluna centralizada.
+- `ui/options_menu/options_menu.tscn`: opção de ativar ou desativar o tema escuro.
+- `ui/theme_settings.gd`: tema global dos menus, cartões, detalhes e pausa; salva a preferência em `user://settings.cfg`.
 - `ui/map_selection/map_selection.tscn`: seleção de mapas.
 - `ui/level_selection/level_selection.tscn`: lista reutilizável de níveis.
 - `ui/level_details/level_details.tscn`: painel modal de detalhes.

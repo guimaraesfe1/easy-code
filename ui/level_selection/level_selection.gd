@@ -10,7 +10,7 @@ func show_map(data: MapDefinition) -> void:
 	definition = data
 	%MapTitle.text = data.display_name
 	%MapIllustration.texture = data.illustration
-	%MapTitle.add_theme_color_override("font_color", data.accent)
+	ThemeSettings.set_accent(%MapTitle, data.accent)
 	for child in %Levels.get_children():
 		%Levels.remove_child(child)
 		child.queue_free()

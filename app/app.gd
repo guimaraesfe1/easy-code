@@ -1,7 +1,7 @@
 extends Control
 ## Navigation only. Screens and components are authored as scenes.
 
-enum Screen { MENU, MAPS, LEVELS }
+enum Screen { MENU, MAPS, LEVELS, OPTIONS }
 
 @export var maps: Array[MapDefinition] = []
 
@@ -21,9 +21,12 @@ func _show_screen(screen: Screen) -> void:
 	%MainMenu.visible = screen == Screen.MENU
 	%MapSelection.visible = screen == Screen.MAPS
 	%LevelSelection.visible = screen == Screen.LEVELS
+	%OptionsMenu.visible = screen == Screen.OPTIONS
 	%Back.visible = screen != Screen.MENU
 	%Header.visible = screen != Screen.MENU
 	match screen:
+		Screen.OPTIONS:
+			%OptionsMenu.focus_default.call_deferred()
 		Screen.MENU:
 			%MainMenu.focus_default.call_deferred()
 		Screen.MAPS:
@@ -33,6 +36,9 @@ func _show_screen(screen: Screen) -> void:
 
 func _on_play_requested() -> void:
 	_show_screen(Screen.MAPS)
+
+func _on_options_requested() -> void:
+	_show_screen(Screen.OPTIONS)
 
 func _on_quit_requested() -> void:
 	get_tree().quit()
@@ -79,7 +85,7 @@ func _on_back_pressed() -> void:
 		_on_details_closed()
 	elif current_screen == Screen.LEVELS:
 		_show_screen(Screen.MAPS)
-	elif current_screen == Screen.MAPS:
+	elif current_screen == Screen.MAPS or current_screen == Screen.OPTIONS:
 		_show_screen(Screen.MENU)
 
 func _input(event: InputEvent) -> void:
