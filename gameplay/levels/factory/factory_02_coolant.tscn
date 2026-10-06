@@ -257,6 +257,7 @@ _data = {"spin": SubResource("r54")}
 [node name="Factory02Coolant" type="Node3D"]
 
 script = ExtResource("e1")
+level_number = 2
 floor_bounds = Rect2(-18, -15, 36, 30)
 walk_bounds = Rect2(-11, -8, 22, 16)
 
@@ -2030,6 +2031,8 @@ position = Vector3(-6.000000, 0.035000, -2.500000)
 mesh = SubResource("r25")
 
 [node name="MachineFortified413" parent="Workstations" instance=ExtResource("e10")]
+fault_type = 1
+fault_origin = Vector3(0.65, 1.2, 0)
 position = Vector3(-6.000000, 0.000000, -4.500000)
 rotation = Vector3(0.000000, 0.000000, 0.000000)
 
@@ -2153,6 +2156,8 @@ position = Vector3(6.000000, 0.035000, 6.500000)
 mesh = SubResource("r40")
 
 [node name="MachineFortified425" parent="Workstations" instance=ExtResource("e10")]
+fault_type = 2
+fault_origin = Vector3(0.65, 1.2, 0)
 position = Vector3(6.000000, 0.000000, 4.500000)
 rotation = Vector3(0.000000, 0.000000, 0.000000)
 

@@ -84,6 +84,11 @@ func _reference_previews() -> void:
 
 func _run() -> void:
 	app = load("res://app/app.tscn").instantiate()
+	# Keep this menu test inside the UI even as more playable scenes are added.
+	for index in app.maps.size():
+		app.maps[index] = app.maps[index].duplicate(true)
+		for level in app.maps[index].levels:
+			level.scene_path = ""
 	root.add_child(app)
 	await _settle()
 	var menu: Control = app.get_node("%MainMenu")
@@ -134,7 +139,9 @@ func _run() -> void:
 			_check(not ids.has(level.id), "Duplicate level ID")
 			ids[level.id] = true
 			var button: Button = levels_screen.buttons[level.id]
-			_check(not button.disabled, "Level must be selectable")
+			_check(button.disabled == not root.get_node("GameProgress").is_level_unlocked(map.id, level.number), "Level availability follows progression")
+			if button.disabled:
+				continue
 			if not level.scene_path.is_empty():
 				continue # Playable scenes are exercised in gameplay_menu_test.gd.
 			await _click(button)

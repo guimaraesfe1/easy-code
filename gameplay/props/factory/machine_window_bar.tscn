@@ -1,5 +1,7 @@
 [gd_scene format=3]
 
+[ext_resource type="Script" path="res://gameplay/props/factory/faulty_machine.gd" id="fault_script"]
+
 [ext_resource type="PackedScene" path="res://assets/factory/machine-window-bar.glb" id="1_wctm6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lxqew"]
@@ -7,6 +9,7 @@ size = Vector3(1.2, 1.2897067, 1.5)
 
 [node name="MachineWindowBar" type="StaticBody3D" unique_id=1853887642]
 collision_mask = 2
+script = ExtResource("fault_script")
 metadata/source_asset = "res://assets/factory/machine-window-bar.glb"
 metadata/collision_kind = "box"
 

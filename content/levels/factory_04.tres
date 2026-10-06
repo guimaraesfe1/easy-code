@@ -6,3 +6,4 @@
 script = ExtResource("1")
 id = &"factory_04"
 number = 4
+scene_path = "res://gameplay/levels/factory/factory_04_diagnostics.tscn"

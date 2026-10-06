@@ -57,6 +57,8 @@ func _on_level_selected(level_id: StringName) -> void:
 		return
 	for level in selected_map.levels:
 		if level.id == level_id:
+			if not GameProgress.is_level_unlocked(selected_map.id, level.number):
+				return
 			selected_level = level_id
 			if not level.scene_path.is_empty():
 				_opening_level = true

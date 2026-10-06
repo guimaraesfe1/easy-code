@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3]
+[gd_scene load_steps=66 format=3]
 
 [ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="game_menu"]
 
@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_fortified.tscn" id="e22"]
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/lever_double.tscn" id="e23"]
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/cone.tscn" id="e24"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/steam_vent.tscn" id="e25"]
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/arrow.tscn" id="e26"]
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/oopi.tscn" id="e27"]
 [ext_resource type="PackedScene" path="res://gameplay/player/player_humanoid.tscn" id="e28"]
@@ -191,6 +190,7 @@ _data = {"transport": SubResource("r35")}
 [node name="Factory01Assembly" type="Node3D"]
 
 script = ExtResource("e1")
+level_number = 1
 floor_bounds = Rect2(-16, -14, 32, 28)
 walk_bounds = Rect2(-9, -7, 18, 14)
 
@@ -1708,6 +1708,7 @@ position = Vector3(0.000000, 0.035000, -1.750000)
 mesh = SubResource("r24")
 
 [node name="Machine350" parent="Workstations" instance=ExtResource("e9")]
+fault_type = 2
 position = Vector3(-6.000000, 0.000000, -3.500000)
 rotation = Vector3(0.000000, 1.570796, 0.000000)
 
@@ -1722,6 +1723,7 @@ rotation = Vector3(0.000000, 1.570796, 0.000000)
 position = Vector3(-2.000000, 1.300000, -3.500000)
 
 [node name="MachineWindow352" parent="Workstations" instance=ExtResource("e11")]
+fault_type = 1
 position = Vector3(2.000000, 0.000000, -3.500000)
 rotation = Vector3(0.000000, 1.570796, 0.000000)
 
@@ -1848,6 +1850,7 @@ position = Vector3(6.500000, 0.000000, 3.200000)
 rotation = Vector3(0.000000, 3.141593, 0.000000)
 
 [node name="MachineFortified372" parent="Workstations" instance=ExtResource("e22")]
+fault_type = 3
 position = Vector3(6.000000, 0.000000, 5.300000)
 rotation = Vector3(0.000000, 0.000000, 0.000000)
 
@@ -1862,9 +1865,6 @@ rotation = Vector3(0.000000, 0.000000, 0.000000)
 [node name="Cone375" parent="Workstations" instance=ExtResource("e24")]
 position = Vector3(7.500000, 0.000000, 1.500000)
 rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="Steam375" parent="Details" instance=ExtResource("e25")]
-position = Vector3(6.000000, 1.600000, 5.300000)
 
 [node name="Arrow376" parent="FloorMarkings" instance=ExtResource("e26")]
 position = Vector3(-0.100000, 0.050000, 3.500000)

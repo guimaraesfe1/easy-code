@@ -2,14 +2,17 @@ extends CanvasLayer
 ## Shared pause controls, including when a level is run directly with F6.
 
 var _leaving := false
+var _interaction_blocked := false
 
 func _input(event: InputEvent) -> void:
+	if _interaction_blocked:
+		return
 	if event.is_action_pressed("ui_cancel") and not event.is_echo():
 		_set_open(not %PauseOverlay.visible)
 		get_viewport().set_input_as_handled()
 
 func _set_open(open: bool) -> void:
-	if _leaving:
+	if _leaving or _interaction_blocked:
 		return
 	%PauseOverlay.visible = open
 	%Gear.visible = not open
@@ -18,6 +21,10 @@ func _set_open(open: bool) -> void:
 		%MainMenu.grab_focus()
 	else:
 		%Gear.grab_focus()
+
+func set_interaction_blocked(blocked: bool) -> void:
+	_interaction_blocked = blocked
+	%Gear.visible = not blocked and not %PauseOverlay.visible
 
 func _on_gear_pressed() -> void:
 	_set_open(true)

@@ -6,3 +6,4 @@
 script = ExtResource("1")
 id = &"factory_05"
 number = 5
+scene_path = "res://gameplay/levels/factory/factory_05_control.tscn"

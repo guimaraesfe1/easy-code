@@ -263,6 +263,7 @@ material = SubResource("r4")
 [node name="Factory03Dispatch" type="Node3D"]
 
 script = ExtResource("e1")
+level_number = 3
 floor_bounds = Rect2(-17, -17, 34, 34)
 walk_bounds = Rect2(-10, -10, 20, 20)
 
@@ -2347,6 +2348,7 @@ position = Vector3(-5.000000, 0.000000, 5.500000)
 rotation = Vector3(0.000000, 0.000000, 0.000000)
 
 [node name="MachineWindowBar460" parent="Workstations" instance=ExtResource("e19")]
+fault_type = 3
 position = Vector3(-8.400000, 0.000000, 5.500000)
 rotation = Vector3(0.000000, 1.570796, 0.000000)
 

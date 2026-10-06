@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_02_coolant.tscn" id="base"]
+
+[node name="Factory05" instance=ExtResource("base")]
+level_number = 5
+
+[node name="MachineFortified413" parent="Workstations"]
+fault_type = 3
+
+[node name="MachineFortified417" parent="Workstations"]
+fault_type = 2
+
+[node name="MachineFortified421" parent="Workstations"]
+fault_type = 1
+
+[node name="MachineFortified425" parent="Workstations"]
+fault_type = 3

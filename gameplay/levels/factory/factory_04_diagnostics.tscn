@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_01_assembly.tscn" id="base"]
+
+[node name="Factory04" instance=ExtResource("base")]
+level_number = 4
+
+[node name="Machine350" parent="Workstations"]
+fault_type = 3
+
+[node name="MachineWindow351" parent="Workstations"]
+fault_type = 2
+
+[node name="MachineWindow352" parent="Workstations"]
+fault_type = 1
+
+[node name="Machine353" parent="Workstations"]
+fault_type = 2
+
+[node name="MachineFortified372" parent="Workstations"]
+fault_type = 3

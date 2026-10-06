@@ -1,0 +1,149 @@
+[gd_scene load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://gameplay/props/factory/modules/machine_fault.gd" id="script"]
+
+[sub_resource type="Gradient" id="SoftParticleGradient"]
+offsets = PackedFloat32Array(0, 0.35, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.85, 1, 1, 1, 0.3, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="SoftParticleTexture"]
+gradient = SubResource("SoftParticleGradient")
+width = 64
+height = 64
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="SmokeMaterial"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("SoftParticleTexture")
+billboard_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="SmokeMesh"]
+material = SubResource("SmokeMaterial")
+size = Vector2(0.8, 0.8)
+
+[sub_resource type="Gradient" id="SmokeColor"]
+offsets = PackedFloat32Array(0, 0.12, 0.55, 1)
+colors = PackedColorArray(0.22, 0.24, 0.26, 0, 0.22, 0.24, 0.26, 0.75, 0.38, 0.4, 0.43, 0.5, 0.5, 0.52, 0.55, 0)
+
+[sub_resource type="Curve" id="SmokeScale"]
+_data = [Vector2(0, 0.35), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="FireMaterial"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("SoftParticleTexture")
+billboard_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="FireMesh"]
+material = SubResource("FireMaterial")
+size = Vector2(0.48, 0.75)
+
+[sub_resource type="Gradient" id="FireColor"]
+offsets = PackedFloat32Array(0, 0.15, 0.45, 0.8, 1)
+colors = PackedColorArray(1, 0.95, 0.55, 0, 1, 0.88, 0.3, 1, 1, 0.4, 0.04, 0.95, 0.85, 0.08, 0.01, 0.6, 0.35, 0.03, 0.01, 0)
+
+[sub_resource type="Curve" id="FireScale"]
+_data = [Vector2(0, 0.45), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.05), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="SparkMaterial"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("SoftParticleTexture")
+billboard_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="SparkMesh"]
+material = SubResource("SparkMaterial")
+size = Vector2(0.045, 0.16)
+
+[sub_resource type="Gradient" id="SparkColor"]
+offsets = PackedFloat32Array(0, 0.25, 0.7, 1)
+colors = PackedColorArray(1, 1, 0.8, 1, 1, 0.8, 0.2, 1, 1, 0.3, 0.02, 0.85, 0.7, 0.08, 0.01, 0)
+
+[sub_resource type="Curve" id="SparkScale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="MachineFault" type="Node3D"]
+script = ExtResource("script")
+
+[node name="Smoke" type="CPUParticles3D" parent="."]
+emitting = false
+cast_shadow = 0
+amount = 28
+lifetime = 3.2
+preprocess = 3.2
+randomness = 0.25
+mesh = SubResource("SmokeMesh")
+emission_shape = 1
+emission_sphere_radius = 0.16
+direction = Vector3(0, 1, 0)
+spread = 18.0
+gravity = Vector3(0.06, 0.12, 0.02)
+initial_velocity_min = 0.45
+initial_velocity_max = 0.85
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+scale_amount_min = 0.8
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("SmokeScale")
+color_ramp = SubResource("SmokeColor")
+
+[node name="Sparks" type="CPUParticles3D" parent="."]
+emitting = false
+cast_shadow = 0
+amount = 24
+lifetime = 0.85
+preprocess = 0.85
+explosiveness = 0.55
+randomness = 0.65
+mesh = SubResource("SparkMesh")
+emission_shape = 1
+emission_sphere_radius = 0.08
+direction = Vector3(0, 1, 0)
+spread = 75.0
+gravity = Vector3(0, -4.8, 0)
+initial_velocity_min = 1.3
+initial_velocity_max = 2.8
+scale_amount_min = 0.7
+scale_amount_max = 1.3
+scale_amount_curve = SubResource("SparkScale")
+color_ramp = SubResource("SparkColor")
+
+[node name="Fire" type="CPUParticles3D" parent="."]
+emitting = false
+cast_shadow = 0
+amount = 34
+lifetime = 0.9
+preprocess = 0.9
+randomness = 0.35
+mesh = SubResource("FireMesh")
+emission_shape = 1
+emission_sphere_radius = 0.18
+direction = Vector3(0, 1, 0)
+spread = 14.0
+gravity = Vector3(0, 0.4, 0)
+initial_velocity_min = 0.65
+initial_velocity_max = 1.25
+scale_amount_min = 0.65
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("FireScale")
+color_ramp = SubResource("FireColor")
+
+[node name="FireLight" type="OmniLight3D" parent="."]
+visible = false
+position = Vector3(0, 0.35, 0)
+light_color = Color(1, 0.35, 0.05, 1)
+light_energy = 0.9
+omni_range = 2.8

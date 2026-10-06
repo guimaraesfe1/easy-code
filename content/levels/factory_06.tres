@@ -6,3 +6,4 @@
 script = ExtResource("1")
 id = &"factory_06"
 number = 6
+scene_path = "res://gameplay/levels/factory/factory_06_final.tscn"

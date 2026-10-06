@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_03_dispatch.tscn" id="base"]
+
+[node name="Factory06" instance=ExtResource("base")]
+level_number = 6
+
+[node name="MachineWindowBar460" parent="Workstations"]
+fault_type = 3
+
+[node name="MachineWindowBar467" parent="Workstations"]
+fault_type = 2
