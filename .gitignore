@@ -1,3 +1,11 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Arquivos incidentais dos pacotes de assets.
+.DS_Store
+Thumbs.db
+
+# A trilha sonora usa os OGG; preserve as variantes originais apenas localmente.
+/assets/background-sounds/**/wav/
+/assets/background-sounds/**/mp3/
