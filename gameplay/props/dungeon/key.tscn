@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/key.glb" id="1_4kyjm"]
+
+[node name="Key" type="Node3D" unique_id=473320090]
+metadata/source_asset = "res://assets/dungeon/key.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=40979086 instance=ExtResource("1_4kyjm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

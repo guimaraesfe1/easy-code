@@ -6,3 +6,4 @@
 script = ExtResource("1")
 id = &"dungeon_05"
 number = 5
+scene_path = "res://gameplay/levels/dungeon/dungeon_05_vault.tscn"

@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/building_structure.tscn" id="e1"]
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/building_roof.tscn" id="e2"]
+
+[node name="Shelter" type="Node3D"]
+
+[node name="Frame" parent="." instance=ExtResource("e1")]
+position = Vector3(0, 0, 0)
+
+[node name="Roof" parent="." instance=ExtResource("e2")]
+position = Vector3(0, 2, 0)

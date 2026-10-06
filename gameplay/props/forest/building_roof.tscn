@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/forest/building-roof.glb" id="1_17jvy"]
+
+[node name="BuildingRoof" type="Node3D" unique_id=518685119]
+metadata/source_asset = "res://assets/forest/building-roof.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1850328609 instance=ExtResource("1_17jvy")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

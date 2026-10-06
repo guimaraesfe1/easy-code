@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/character-human.glb" id="1_3hpyk"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cei3i"]
+height = 1.5
+radius = 0.36
+
+[node name="CharacterHuman" type="StaticBody3D" unique_id=1787813391]
+collision_mask = 2
+metadata/source_asset = "res://assets/dungeon/character-human.glb"
+metadata/collision_kind = "cylinder"
+
+[node name="Visual" type="Node3D" parent="." unique_id=754651124 instance=ExtResource("1_3hpyk")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=19244100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_cei3i")
+
+[node name="AnimationPlayer" parent="Visual" index="1"]
+autoplay = &"idle"
+
+[editable path="Visual"]

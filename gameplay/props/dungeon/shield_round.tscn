@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/shield-round.glb" id="1_fl46s"]
+
+[node name="ShieldRound" type="Node3D" unique_id=878495209]
+metadata/source_asset = "res://assets/dungeon/shield-round.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1033691961 instance=ExtResource("1_fl46s")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

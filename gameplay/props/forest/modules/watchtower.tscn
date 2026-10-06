@@ -1,0 +1,20 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/building_structure.tscn" id="e1"]
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/building_platform.tscn" id="e2"]
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/ladder.tscn" id="e3"]
+[ext_resource type="PackedScene" path="res://gameplay/props/forest/flag.tscn" id="e4"]
+
+[node name="Watchtower" type="Node3D"]
+
+[node name="Base" parent="." instance=ExtResource("e1")]
+position = Vector3(0, 0, 0)
+
+[node name="Deck" parent="." instance=ExtResource("e2")]
+position = Vector3(0, 2, 0)
+
+[node name="Ladder" parent="." instance=ExtResource("e3")]
+position = Vector3(0, 0, 1.12)
+
+[node name="Flag" parent="." instance=ExtResource("e4")]
+position = Vector3(0.95, 2.2, -0.95)

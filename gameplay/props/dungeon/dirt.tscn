@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/dirt.glb" id="1_7e233"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f8tto"]
+size = Vector3(2, 1.8, 2)
+
+[node name="Dirt" type="StaticBody3D" unique_id=1578892131]
+collision_mask = 2
+metadata/source_asset = "res://assets/dungeon/dirt.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=772950928 instance=ExtResource("1_7e233")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1686524301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_f8tto")

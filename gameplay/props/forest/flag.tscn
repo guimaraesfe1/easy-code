@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/forest/flag.glb" id="1_ijdmx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8pjmv"]
+height = 1.5
+radius = 0.14
+
+[node name="Flag" type="StaticBody3D" unique_id=1618692330]
+collision_mask = 2
+metadata/source_asset = "res://assets/forest/flag.glb"
+metadata/collision_kind = "cylinder"
+
+[node name="Visual" type="Node3D" parent="." unique_id=430135725 instance=ExtResource("1_ijdmx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1664326607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_8pjmv")

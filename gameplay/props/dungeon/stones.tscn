@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/stones.glb" id="1_e23ax"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iqbid"]
+height = 0.8
+radius = 0.6
+
+[node name="Stones" type="StaticBody3D" unique_id=805163339]
+collision_mask = 2
+metadata/source_asset = "res://assets/dungeon/stones.glb"
+metadata/collision_kind = "cylinder"
+
+[node name="Visual" type="Node3D" parent="." unique_id=893179976 instance=ExtResource("1_e23ax")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=2083328258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CylinderShape3D_iqbid")

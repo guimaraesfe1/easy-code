@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/dungeon/gate.glb" id="1_s6ywe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kbcf"]
+size = Vector3(1.7, 1.5, 0.4)
+
+[node name="Gate" type="StaticBody3D" unique_id=226446947]
+collision_mask = 2
+metadata/source_asset = "res://assets/dungeon/gate.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1123073608 instance=ExtResource("1_s6ywe")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=144077819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_2kbcf")

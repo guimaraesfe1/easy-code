@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/forest/target.glb" id="1_6g5uc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tx4hs"]
+size = Vector3(1, 1.16, 0.5)
+
+[node name="Target" type="StaticBody3D" unique_id=615598612]
+collision_mask = 2
+metadata/source_asset = "res://assets/forest/target.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1984424713 instance=ExtResource("1_6g5uc")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=96633213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58, -0.09)
+shape = SubResource("BoxShape3D_tx4hs")

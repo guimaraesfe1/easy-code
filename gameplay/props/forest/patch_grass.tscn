@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://assets/forest/patch-grass.glb" id="1_ks1gm"]
+
+[node name="PatchGrass" type="Node3D" unique_id=695338845]
+metadata/source_asset = "res://assets/forest/patch-grass.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1925040892 instance=ExtResource("1_ks1gm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

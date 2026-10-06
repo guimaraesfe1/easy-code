@@ -1,0 +1,147 @@
+[gd_scene format=3]
+
+
+[sub_resource type="StandardMaterial3D" id="r1"]
+resource_name = "Stone"
+albedo_color = Color(0.5, 0.5, 0.62, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="r2"]
+resource_name = "Log"
+albedo_color = Color(0.55, 0.32, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="r3"]
+size = Vector3(0.3, 0.22, 0.24)
+material = SubResource("r1")
+
+[sub_resource type="BoxMesh" id="r4"]
+size = Vector3(0.8, 0.14, 0.16)
+material = SubResource("r2")
+
+[sub_resource type="StandardMaterial3D" id="r5"]
+resource_name = "Flame"
+albedo_color = Color(1, 0.55, 0.15, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.5, 0.12, 1)
+emission_energy_multiplier = 2.2
+
+[sub_resource type="StandardMaterial3D" id="r6"]
+resource_name = "Ember"
+albedo_color = Color(1, 0.85, 0.4, 1)
+roughness = 0.9
+emission_enabled = true
+emission = Color(1, 0.8, 0.35, 1)
+emission_energy_multiplier = 2.6
+
+[sub_resource type="CylinderMesh" id="r7"]
+top_radius = 0.0
+bottom_radius = 0.2
+height = 0.55
+radial_segments = 6
+rings = 1
+material = SubResource("r5")
+
+[sub_resource type="CylinderMesh" id="r8"]
+top_radius = 0.0
+bottom_radius = 0.11
+height = 0.36
+radial_segments = 6
+rings = 1
+material = SubResource("r6")
+
+[sub_resource type="CylinderShape3D" id="r9"]
+radius = 0.7
+height = 0.6
+
+[sub_resource type="Animation" id="r10"]
+resource_name = "flicker"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light:light_energy")
+tracks/0/interp = 1
+tracks/0/keys = {"times": PackedFloat32Array(0, 0.25, 0.5, 0.8, 1.1, 1.35, 1.6), "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1), "update": 0, "values": [1.64, 2, 1.415, 1.865, 1.28, 1.91, 1.64]}
+
+[sub_resource type="AnimationLibrary" id="r11"]
+_data = {"flicker": SubResource("r10")}
+
+[node name="Campfire" type="StaticBody3D"]
+collision_mask = 2
+
+[node name="Stone1" type="MeshInstance3D" parent="."]
+position = Vector3(0.55, 0.1, 0)
+rotation = Vector3(0, 0, 0)
+mesh = SubResource("r3")
+
+[node name="Stone2" type="MeshInstance3D" parent="."]
+position = Vector3(0.3429, 0.1, 0.43)
+rotation = Vector3(0, -0.5976, 0)
+mesh = SubResource("r3")
+
+[node name="Stone3" type="MeshInstance3D" parent="."]
+position = Vector3(-0.1224, 0.1, 0.5362)
+rotation = Vector3(0, -1.1952, 0)
+mesh = SubResource("r3")
+
+[node name="Stone4" type="MeshInstance3D" parent="."]
+position = Vector3(-0.4955, 0.1, 0.2386)
+rotation = Vector3(0, -2.6928, 0)
+mesh = SubResource("r3")
+
+[node name="Stone5" type="MeshInstance3D" parent="."]
+position = Vector3(-0.4955, 0.1, -0.2386)
+rotation = Vector3(0, -3.2904, 0)
+mesh = SubResource("r3")
+
+[node name="Stone6" type="MeshInstance3D" parent="."]
+position = Vector3(-0.1224, 0.1, -0.5362)
+rotation = Vector3(0, -3.888, 0)
+mesh = SubResource("r3")
+
+[node name="Stone7" type="MeshInstance3D" parent="."]
+position = Vector3(0.3429, 0.1, -0.43)
+rotation = Vector3(0, -5.3856, 0)
+mesh = SubResource("r3")
+
+[node name="Log1" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.1, 0)
+rotation = Vector3(0, 0, 0.12)
+mesh = SubResource("r4")
+
+[node name="Log2" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.13, 0)
+rotation = Vector3(0, 1.0472, 0.12)
+mesh = SubResource("r4")
+
+[node name="Log3" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.16, 0)
+rotation = Vector3(0, 2.0944, 0.12)
+mesh = SubResource("r4")
+
+[node name="Flame" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.415, 0)
+mesh = SubResource("r7")
+cast_shadow = 0
+
+[node name="FlameCore" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.32, 0)
+mesh = SubResource("r8")
+cast_shadow = 0
+
+[node name="Light" type="OmniLight3D" parent="."]
+position = Vector3(0, 0.9, 0)
+light_color = Color(1, 0.62, 0.28, 1)
+light_energy = 1.6
+omni_range = 7.5
+omni_attenuation = 1.4
+shadow_enabled = false
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.3, 0)
+shape = SubResource("r9")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "flicker"
+libraries/ = SubResource("r11")

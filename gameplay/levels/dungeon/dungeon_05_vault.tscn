@@ -1,0 +1,2398 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/dirt.tscn" id="e1"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/rocks.tscn" id="e2"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/wall.tscn" id="e3"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/wall_narrow.tscn" id="e4"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/wall_half.tscn" id="e5"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/floor.tscn" id="e6"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/floor_detail.tscn" id="e7"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/wall_opening.tscn" id="e8"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/stairs.tscn" id="e9"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/chest.tscn" id="e10"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/coin.tscn" id="e11"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/stones.tscn" id="e12"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/pot.tscn" id="e13"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/trap.tscn" id="e14"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/modules/brazier.tscn" id="e15"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/column.tscn" id="e16"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/key.tscn" id="e17"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/potion.tscn" id="e18"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/table.tscn" id="e19"]
+[ext_resource type="PackedScene" path="res://gameplay/props/dungeon/barrel.tscn" id="e20"]
+[ext_resource type="Script" path="res://gameplay/levels/exploration_level.gd" id="e21"]
+[ext_resource type="PackedScene" path="res://gameplay/player/player_humanoid.tscn" id="e22"]
+[ext_resource type="PackedScene" path="res://gameplay/camera/factory_camera.tscn" id="e23"]
+[ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="e24"]
+
+[sub_resource type="Environment" id="r1"]
+background_mode = 1
+background_color = Color(0.035, 0.035, 0.06, 1)
+ambient_light_source = 3
+ambient_light_color = Color(1, 0.95, 0.82, 1)
+ambient_light_energy = 0.287
+reflected_light_source = 2
+tonemap_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="r2"]
+resource_name = "Ground"
+albedo_color = Color(0.35, 0.33, 0.38, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="r3"]
+size = Vector3(66, 0.4, 48)
+material = SubResource("r2")
+
+[sub_resource type="BoxShape3D" id="r4"]
+size = Vector3(66, 0.4, 48)
+
+[node name="Dungeon05Vault" type="Node3D"]
+script = ExtResource("e21")
+floor_bounds = Rect2(-29, -20, 58, 40)
+walk_bounds = Rect2(-21, -14, 42, 28)
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource("r1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-1.0821, -0.3491, 0)
+light_color = Color(1, 0.95, 0.84, 1)
+light_energy = 0.304
+shadow_enabled = true
+directional_shadow_max_distance = 60
+shadow_bias = 0.05
+
+[node name="Fill" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.6109, 2.4435, 0)
+light_color = Color(0.5, 0.55, 0.8, 1)
+light_energy = 0.1
+
+[node name="Structure" type="Node3D" parent="."]
+
+[node name="Foundation" type="StaticBody3D" parent="Structure"]
+position = Vector3(0, -0.2, 0)
+collision_layer = 1
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Structure/Foundation"]
+mesh = SubResource("r3")
+
+[node name="Collision" type="CollisionShape3D" parent="Structure/Foundation"]
+shape = SubResource("r4")
+
+[node name="Floor" type="Node3D" parent="Structure"]
+
+[node name="Walls" type="Node3D" parent="Structure"]
+
+[node name="Earth" type="Node3D" parent="Structure"]
+
+[node name="Furniture" type="Node3D" parent="."]
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="Details" type="Node3D" parent="."]
+
+[node name="Characters" type="Node3D" parent="."]
+
+[node name="Waypoints" type="Node3D" parent="."]
+
+[node name="Dirt1" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt2" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt3" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt4" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, -19)
+
+[node name="Dirt5" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, -0.12, -19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt6" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-18, -0.22, -19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt7" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-16, -0.22, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt8" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-14, -0.22, -19)
+
+[node name="Dirt9" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-12, -0.12, -19)
+
+[node name="Dirt10" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-10, 0, -19)
+
+[node name="Dirt11" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, -0.22, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt12" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, 0, -19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt13" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, -19)
+
+[node name="Dirt14" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, -0.22, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt15" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt16" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, -0.22, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt17" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, -0.12, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt18" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, 0, -19)
+
+[node name="Dirt19" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.22, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt20" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, -0.12, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt21" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, 0, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt22" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, -0.22, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt23" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt24" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.12, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt25" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, -0.22, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt26" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.12, -19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt27" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt28" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt29" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, -19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt30" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt31" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt32" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.12, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt33" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, 0, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt34" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, -0.22, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt35" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-18, -0.22, -17)
+
+[node name="Dirt36" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-16, -0.22, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt37" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-14, -0.12, -17)
+
+[node name="Dirt38" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-12, -0.12, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt39" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-10, -0.22, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt40" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, -0.22, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt41" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, -0.12, -17)
+
+[node name="Dirt42" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt43" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, -0.22, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt44" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, -0.12, -17)
+
+[node name="Dirt45" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, 0, -17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt46" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, 0, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt47" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.12, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt48" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.12, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt49" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, -0.12, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt50" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, 0, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt51" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, 0, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt52" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, -0.12, -17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt53" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.22, -17)
+
+[node name="Dirt54" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, -17)
+
+[node name="Dirt55" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.12, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt56" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt57" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, -17)
+
+[node name="Dirt58" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.22, -17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt59" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.12, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt60" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt61" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.22, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt62" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt63" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, 0, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt64" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-18, -0.22, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt65" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-16, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt66" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-14, -0.12, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt67" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-12, -0.22, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt68" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-10, 0, -15)
+
+[node name="Dirt69" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, 0, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt70" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Rubble1" parent="Structure/Earth" instance=ExtResource("e2")]
+position = Vector3(-6.1638, 0, -13.7357)
+rotation = Vector3(0, 0.3486, 0)
+scale = Vector3(0.6582, 0.6582, 0.6582)
+
+[node name="Dirt71" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt72" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, 0, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Rubble2" parent="Structure/Earth" instance=ExtResource("e2")]
+position = Vector3(-1.9418, 0, -13.6953)
+rotation = Vector3(0, 0.4367, 0)
+scale = Vector3(0.6081, 0.6081, 0.6081)
+
+[node name="Dirt73" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt74" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Rubble3" parent="Structure/Earth" instance=ExtResource("e2")]
+position = Vector3(1.9423, 0, -13.6778)
+rotation = Vector3(0, 0.0874, 0)
+scale = Vector3(0.5818, 0.5818, 0.5818)
+
+[node name="Dirt75" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, 0, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Rubble4" parent="Structure/Earth" instance=ExtResource("e2")]
+position = Vector3(3.8543, 0, -13.7214)
+rotation = Vector3(0, 3.8651, 0)
+scale = Vector3(0.5573, 0.5573, 0.5573)
+
+[node name="Dirt76" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, 0, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt77" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt78" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, -0.22, -15)
+
+[node name="Dirt79" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, -0.12, -15)
+
+[node name="Dirt80" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, 0, -15)
+
+[node name="Dirt81" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, -0.12, -15)
+
+[node name="Dirt82" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, 0, -15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt83" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt84" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.22, -15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt85" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, -15)
+
+[node name="Dirt86" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, -15)
+
+[node name="Dirt87" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, -15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt88" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, -13)
+
+[node name="Dirt89" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, -13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt90" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, -13)
+
+[node name="Wall1" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-22, 0, -13)
+
+[node name="WallNarrow1" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-20, 0, -13)
+
+[node name="WallHalf1" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-18, 0, -13)
+
+[node name="WallHalf2" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-16, 0, -13)
+
+[node name="WallHalf3" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-14, 0, -13)
+
+[node name="WallHalf4" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-12, 0, -13)
+
+[node name="Wall2" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-10, 0, -13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt91" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, 0, -13)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt92" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.9, -13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt93" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, 0, -13)
+
+[node name="Wall3" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(10, 0, -13)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallNarrow2" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(12, 0, -13)
+
+[node name="WallHalf5" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(14, 0, -13)
+
+[node name="WallHalf6" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(16, 0, -13)
+
+[node name="WallHalf7" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(18, 0, -13)
+
+[node name="WallHalf8" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(20, 0, -13)
+
+[node name="Wall4" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(22, 0, -13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt94" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt95" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -13)
+
+[node name="Dirt96" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, -13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt97" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.12, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt98" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, -11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt99" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf9" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-22, 0, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor1" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, -11)
+
+[node name="FloorDetail1" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-18, 0.01, -11)
+
+[node name="Floor2" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor3" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, -11)
+
+[node name="Floor4" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall5" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-10, -1.1, -11)
+
+[node name="Dirt100" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, 0, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall6" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(8, -1.1, -11)
+
+[node name="Wall7" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(10, 0, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail2" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(12, 0.01, -11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail3" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(14, 0.01, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor5" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(16, 0.01, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor6" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(18, 0.01, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor7" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(20, 0.01, -11)
+
+[node name="WallHalf10" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(22, -1, -11)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt101" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt102" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt103" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, -11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt104" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt105" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, -9)
+
+[node name="Dirt106" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf11" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-22, 0, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor8" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail4" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-18, 0.01, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail5" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-16, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor9" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor10" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor11" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Doorway1" parent="Structure/Walls" instance=ExtResource("e8")]
+position = Vector3(-10, 0, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor12" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(8, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Doorway2" parent="Structure/Walls" instance=ExtResource("e8")]
+position = Vector3(8, 0, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor13" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(10, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor14" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(12, 0.01, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor15" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(14, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail6" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(16, 0.01, -9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail7" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(18, 0.01, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor16" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(20, 0.01, -9)
+
+[node name="WallHalf12" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(22, -1, -9)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt107" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.12, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt108" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.12, -9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt109" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, -9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt110" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.12, -7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt111" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt112" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.12, -7)
+
+[node name="WallHalf13" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-22, 0, -7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor17" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, -7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor18" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor19" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor20" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, -7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor21" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, -7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall8" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-10, -1.1, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt113" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, -0.9, -7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall9" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(8, -1.1, -7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall10" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(10, -1.1, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor22" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(12, 0.01, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail8" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(14, 0.01, -7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor23" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(16, 0.01, -7)
+
+[node name="Floor24" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(18, 0.01, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor25" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(20, 0.01, -7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="WallHalf14" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(22, -1, -7)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt114" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, -7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt115" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt116" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, -7)
+
+[node name="Dirt117" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt118" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt119" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.12, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall11" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-22, 0, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf15" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-20, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall12" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-18, -1.1, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor26" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall13" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-14, -1.1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow3" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-12, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall14" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-10, -1.1, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt120" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, 0, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Rubble5" parent="Structure/Earth" instance=ExtResource("e2")]
+position = Vector3(-6.7247, 0, -5.0729)
+rotation = Vector3(0, 1.5182, 0)
+scale = Vector3(0.6554, 0.6554, 0.6554)
+
+[node name="Dirt121" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.9, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt122" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.9, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall15" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(10, 0, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf16" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(12, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf17" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(14, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow4" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(16, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf18" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(18, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf19" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(20, -1, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall16" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(22, -1.1, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt123" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt124" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, -5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt125" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, -5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt126" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, -3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt127" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, -3)
+
+[node name="Dirt128" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.12, -3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt129" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, -3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt130" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, 0, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf20" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-18, 0, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor27" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall17" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-14, -1.1, -3)
+
+[node name="WallHalf21" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-12, 0, -3)
+
+[node name="WallNarrow5" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-10, 0, -3)
+
+[node name="WallHalf22" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-8, 0, -3)
+
+[node name="Wall18" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-6, -1.1, -3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall19" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-4, -1.1, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor28" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-2, 0.01, -3)
+
+[node name="Doorway3" parent="Structure/Walls" instance=ExtResource("e8")]
+position = Vector3(-2, 0, -3)
+
+[node name="Wall20" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(0, -1.1, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall21" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(2, -1.1, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall22" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(4, -1.1, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf23" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(6, -1, -3)
+
+[node name="WallHalf24" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(8, 0, -3)
+
+[node name="WallNarrow6" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(10, 0, -3)
+
+[node name="Wall23" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(12, 0, -3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt131" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, 0, -3)
+
+[node name="Dirt132" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, -3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt133" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, 0, -3)
+
+[node name="Dirt134" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, -3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt135" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, 0, -3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt136" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, -3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt137" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt138" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt139" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt140" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, -1)
+
+[node name="Dirt141" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.22, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall24" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-22, 0, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf25" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-20, 0, -1)
+
+[node name="Wall25" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-18, 0, -1)
+
+[node name="Floor29" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail9" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-14, 0.01, -1)
+
+[node name="Floor30" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor31" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail10" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-8, 0.01, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail11" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-6, 0.01, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor32" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-4, 0.01, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor33" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-2, 0.01, -1)
+
+[node name="Floor34" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(0, 0.01, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor35" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(2, 0.01, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail12" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(4, 0.01, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor36" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(6, 0.01, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor37" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(8, 0.01, -1)
+
+[node name="FloorDetail13" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(10, 0.01, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall26" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(12, -1.1, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall27" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(14, 0, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt142" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, -1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt143" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.12, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt144" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt145" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.12, -1)
+
+[node name="Dirt146" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt147" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, -1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt148" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.22, -1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt149" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt150" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.22, 1)
+
+[node name="Dirt151" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.22, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf26" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-22, 0, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor38" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor39" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor40" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor41" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor42" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor43" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor44" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-8, 0.01, 1)
+
+[node name="Floor45" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-6, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor46" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-4, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail14" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-2, 0.01, 1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor47" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(0, 0.01, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor48" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(2, 0.01, 1)
+
+[node name="Floor49" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(4, 0.01, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor50" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(6, 0.01, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="FloorDetail15" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(8, 0.01, 1)
+
+[node name="Floor51" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(10, 0.01, 1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail16" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(12, 0.01, 1)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall28" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(14, -1.1, 1)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf27" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(16, 0, 1)
+
+[node name="WallHalf28" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(18, 0, 1)
+
+[node name="WallNarrow7" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(20, 0, 1)
+
+[node name="Wall29" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(22, 0, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt152" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, 1)
+
+[node name="Dirt153" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, 1)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt154" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, 1)
+
+[node name="Dirt155" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt156" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt157" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Stairs1" parent="Structure/Walls" instance=ExtResource("e9")]
+position = Vector3(-22, 0, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor52" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, 3)
+
+[node name="Floor53" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, 3)
+
+[node name="Floor54" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail17" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-14, 0.01, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor55" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor56" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor57" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-8, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor58" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-6, 0.01, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor59" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-4, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail18" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-2, 0.01, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor60" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(0, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor61" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(2, 0.01, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor62" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(4, 0.01, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor63" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(6, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail19" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(8, 0.01, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor64" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(10, 0.01, 3)
+
+[node name="Floor65" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(12, 0.01, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor66" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(14, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Doorway4" parent="Structure/Walls" instance=ExtResource("e8")]
+position = Vector3(14, 0, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor67" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(16, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail20" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(18, 0.01, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor68" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(20, 0.01, 3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf29" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(22, -1, 3)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt158" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, 3)
+
+[node name="Dirt159" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.12, 3)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt160" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 3)
+
+[node name="Dirt161" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, 5)
+
+[node name="Dirt162" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt163" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf30" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-22, 0, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor69" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-20, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor70" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor71" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor72" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, 5)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor73" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 5)
+
+[node name="Floor74" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor75" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-8, 0.01, 5)
+
+[node name="Floor76" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-6, 0.01, 5)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor77" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-4, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor78" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-2, 0.01, 5)
+
+[node name="Floor79" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(0, 0.01, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor80" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(2, 0.01, 5)
+
+[node name="Floor81" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(4, 0.01, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor82" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(6, 0.01, 5)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail21" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(8, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor83" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(10, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor84" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(12, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall30" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(14, -1.1, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor85" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(16, 0.01, 5)
+
+[node name="FloorDetail22" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(18, 0.01, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor86" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(20, 0.01, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallNarrow8" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(22, -1, 5)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt164" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt165" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.12, 5)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt166" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 5)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt167" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt168" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.22, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt169" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall31" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-22, 0, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf31" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-20, -1, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall32" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-18, -1.1, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor87" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail23" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-14, 0.01, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor88" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor89" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor90" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-8, 0.01, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor91" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-6, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor92" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-4, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor93" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-2, 0.01, 7)
+
+[node name="Floor94" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(0, 0.01, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor95" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(2, 0.01, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail24" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(4, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor96" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(6, 0.01, 7)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor97" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(8, 0.01, 7)
+
+[node name="Floor98" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(10, 0.01, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor99" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(12, 0.01, 7)
+
+[node name="WallHalf32" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(14, -1, 7)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="WallHalf33" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(16, -1, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf34" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(18, -1, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow9" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(20, -1, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall33" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(22, -1.1, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt170" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, 7)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt171" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt172" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 7)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt173" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, 9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt174" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.22, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt175" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.12, 9)
+
+[node name="Dirt176" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, 9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Wall34" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-20, 0, 9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="WallNarrow10" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-18, 0, 9)
+
+[node name="Wall35" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-16, -1.1, 9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Wall36" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-14, -1.1, 9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor100" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Doorway5" parent="Structure/Walls" instance=ExtResource("e8")]
+position = Vector3(-12, 0, 9)
+
+[node name="Wall37" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-10, -1.1, 9)
+
+[node name="WallHalf35" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-8, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf36" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-6, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf37" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-4, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf38" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-2, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf39" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(0, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf40" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(2, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf41" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(4, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf42" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(6, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf43" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(8, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow11" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(10, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf44" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(12, -1, 9)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall38" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(14, -1.1, 9)
+
+[node name="Dirt177" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, -0.12, 9)
+
+[node name="Dirt178" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.22, 9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt179" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, 9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt180" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.22, 9)
+
+[node name="Dirt181" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, 9)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt182" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, 9)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt183" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 9)
+
+[node name="Dirt184" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.12, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt185" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.22, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt186" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 11)
+
+[node name="Dirt187" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, 11)
+
+[node name="WallHalf45" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-20, 0, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor101" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Floor102" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="FloorDetail25" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-14, 0.01, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor103" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-12, 0.01, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="FloorDetail26" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-10, 0.01, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf46" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-8, -1, 11)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt188" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, -0.22, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt189" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, -0.12, 11)
+
+[node name="Dirt190" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, -0.22, 11)
+
+[node name="Dirt191" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt192" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, -0.22, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt193" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, -0.22, 11)
+
+[node name="Dirt194" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.12, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt195" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.12, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt196" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, 0, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt197" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, 0, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt198" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, -0.22, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt199" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt200" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.12, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt201" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, 11)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt202" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.22, 11)
+
+[node name="Dirt203" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, 11)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt204" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt205" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 11)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt206" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, 13)
+
+[node name="Dirt207" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, 13)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt208" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt209" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, 0, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="WallNarrow12" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-20, 0, 13)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Floor104" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-18, 0.01, 13)
+
+[node name="Floor105" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-16, 0.01, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Floor106" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-14, 0.01, 13)
+
+[node name="FloorDetail27" parent="Structure/Floor" instance=ExtResource("e7")]
+position = Vector3(-12, 0.01, 13)
+
+[node name="Floor107" parent="Structure/Floor" instance=ExtResource("e6")]
+position = Vector3(-10, 0.01, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="WallNarrow13" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-8, -1, 13)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="Dirt210" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, 0, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt211" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, 13)
+
+[node name="Dirt212" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, 0, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt213" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt214" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, -0.12, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt215" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, 0, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt216" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.22, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt217" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.22, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt218" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, -0.12, 13)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt219" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, -0.22, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt220" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, 0, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt221" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, -0.22, 13)
+
+[node name="Dirt222" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, 0, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt223" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, 0, 13)
+
+[node name="Dirt224" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.12, 13)
+
+[node name="Dirt225" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.22, 13)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt226" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.12, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt227" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.22, 13)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt228" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, 0, 15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt229" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, 0, 15)
+
+[node name="Dirt230" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt231" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall39" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-20, 0, 15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="WallHalf47" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-18, -1, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow14" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-16, -1, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf48" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-14, -1, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallNarrow15" parent="Structure/Walls" instance=ExtResource("e4")]
+position = Vector3(-12, -1, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="WallHalf49" parent="Structure/Walls" instance=ExtResource("e5")]
+position = Vector3(-10, -1, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Wall40" parent="Structure/Walls" instance=ExtResource("e3")]
+position = Vector3(-8, -1.1, 15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt232" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, 0, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt233" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt234" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, 0, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt235" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, 15)
+
+[node name="Dirt236" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, -0.22, 15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt237" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, -0.12, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt238" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.22, 15)
+
+[node name="Dirt239" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, -0.22, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt240" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, -0.22, 15)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt241" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, 0, 15)
+
+[node name="Dirt242" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, -0.22, 15)
+
+[node name="Dirt243" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt244" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, 0, 15)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt245" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, -0.22, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt246" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, -0.22, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt247" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, 15)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt248" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, 15)
+
+[node name="Dirt249" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 15)
+
+[node name="Dirt250" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt251" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.12, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt252" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, -0.22, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt253" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, -0.12, 17)
+
+[node name="Dirt254" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, 0, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt255" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-18, -0.12, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt256" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-16, 0, 17)
+
+[node name="Dirt257" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-14, -0.22, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt258" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-12, 0, 17)
+
+[node name="Dirt259" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-10, -0.12, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt260" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, -0.22, 17)
+
+[node name="Dirt261" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, -0.22, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt262" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, 0, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt263" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, 0, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt264" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, 17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt265" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, -0.12, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt266" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, -0.12, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt267" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.12, 17)
+
+[node name="Dirt268" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, 0, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt269" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, 0, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt270" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, -0.12, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt271" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, -0.22, 17)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt272" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, -0.12, 17)
+
+[node name="Dirt273" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.12, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt274" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, -0.12, 17)
+
+[node name="Dirt275" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, 0, 17)
+
+[node name="Dirt276" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, 0, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt277" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, 0, 17)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt278" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, 0, 17)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt279" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-28, -0.22, 19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt280" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-26, -0.22, 19)
+
+[node name="Dirt281" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-24, 0, 19)
+
+[node name="Dirt282" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-22, 0, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt283" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-20, -0.12, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt284" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-18, -0.12, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt285" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-16, 0, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt286" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-14, 0, 19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt287" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-12, 0, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt288" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-10, -0.22, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt289" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-8, 0, 19)
+
+[node name="Dirt290" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-6, 0, 19)
+
+[node name="Dirt291" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-4, -0.22, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt292" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(-2, 0, 19)
+
+[node name="Dirt293" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(0, 0, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt294" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(2, 0, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt295" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(4, -0.12, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt296" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(6, -0.12, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt297" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(8, 0, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt298" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(10, 0, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt299" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(12, 0, 19)
+
+[node name="Dirt300" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(14, -0.12, 19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt301" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(16, 0, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Dirt302" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(18, -0.22, 19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt303" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(20, -0.12, 19)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Dirt304" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(22, 0, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt305" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(24, -0.12, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt306" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(26, -0.22, 19)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Dirt307" parent="Structure/Earth" instance=ExtResource("e1")]
+position = Vector3(28, -0.12, 19)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Rocks1" parent="Furniture" instance=ExtResource("e2")]
+position = Vector3(-1.9318, 0, -11.104)
+rotation = Vector3(0, 3.3141, 0)
+scale = Vector3(0.9183, 0.9183, 0.9183)
+
+[node name="Chest1" parent="Furniture" instance=ExtResource("e10")]
+position = Vector3(-18, 0, -9)
+rotation = Vector3(0, -0.0148, 0)
+
+[node name="Coin1" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-13.8375, 0.03, -9.3056)
+rotation = Vector3(0, 5.7089, 0)
+scale = Vector3(0.87, 0.87, 0.87)
+
+[node name="Coin2" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-13.9607, 0.03, -8.8793)
+rotation = Vector3(0, 4.8487, 0)
+scale = Vector3(0.8728, 0.8728, 0.8728)
+
+[node name="Stones1" parent="Furniture" instance=ExtResource("e12")]
+position = Vector3(1.65, 0, -9.35)
+rotation = Vector3(0, 1.445, 0)
+scale = Vector3(0.8111, 0.8111, 0.8111)
+
+[node name="Coin3" parent="Details" instance=ExtResource("e11")]
+position = Vector3(11.4679, 0.03, -9.1948)
+rotation = Vector3(0, 3.262, 0)
+scale = Vector3(0.897, 0.897, 0.897)
+
+[node name="Coin4" parent="Details" instance=ExtResource("e11")]
+position = Vector3(11.473, 0.03, -8.5799)
+rotation = Vector3(0, 3.5785, 0)
+scale = Vector3(0.8764, 0.8764, 0.8764)
+
+[node name="Coin5" parent="Details" instance=ExtResource("e11")]
+position = Vector3(12.0319, 0.03, -8.6858)
+rotation = Vector3(0, 2.7272, 0)
+scale = Vector3(0.7727, 0.7727, 0.7727)
+
+[node name="Chest2" parent="Furniture" instance=ExtResource("e10")]
+position = Vector3(16, 0, -9)
+rotation = Vector3(0, -0.0402, 0)
+
+[node name="Pot1" parent="Furniture" instance=ExtResource("e13")]
+position = Vector3(14.45, 0, -6.55)
+rotation = Vector3(0, 4.0627, 0)
+scale = Vector3(0.9552, 0.9552, 0.9552)
+
+[node name="Trap1" parent="Details" instance=ExtResource("e14")]
+position = Vector3(-16, 0, -5)
+rotation = Vector3(0, 4.7124, 0)
+
+[node name="Brazier1" parent="Lights" instance=ExtResource("e15")]
+position = Vector3(-4.5, 0, -4.5)
+
+[node name="Stones2" parent="Furniture" instance=ExtResource("e12")]
+position = Vector3(0.45, 0, -4.55)
+rotation = Vector3(0, 5.5225, 0)
+scale = Vector3(0.7711, 0.7711, 0.7711)
+
+[node name="Trap2" parent="Details" instance=ExtResource("e14")]
+position = Vector3(-16, 0, -3)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Trap3" parent="Details" instance=ExtResource("e14")]
+position = Vector3(-6, 0, -1)
+
+[node name="Trap4" parent="Details" instance=ExtResource("e14")]
+position = Vector3(0, 0, -1)
+
+[node name="Column1" parent="Furniture" instance=ExtResource("e16")]
+position = Vector3(-10, 0, 1)
+rotation = Vector3(0, 5.828, 0)
+
+[node name="Column2" parent="Furniture" instance=ExtResource("e16")]
+position = Vector3(6, 0, 1)
+rotation = Vector3(0, 0.8176, 0)
+
+[node name="Trap5" parent="Details" instance=ExtResource("e14")]
+position = Vector3(-10, 0, 3)
+
+[node name="Chest3" parent="Furniture" instance=ExtResource("e10")]
+position = Vector3(-4, 0, 3)
+rotation = Vector3(0, 0.0983, 0)
+
+[node name="Chest4" parent="Furniture" instance=ExtResource("e10")]
+position = Vector3(-2, 0, 3)
+rotation = Vector3(0, 0.1227, 0)
+
+[node name="Trap6" parent="Details" instance=ExtResource("e14")]
+position = Vector3(6, 0, 3)
+rotation = Vector3(0, 3.1416, 0)
+
+[node name="Key1" parent="Details" instance=ExtResource("e17")]
+position = Vector3(18, 0.05, 3)
+rotation = Vector3(0, 1.0116, 0)
+
+[node name="Column3" parent="Furniture" instance=ExtResource("e16")]
+position = Vector3(-10, 0, 5)
+rotation = Vector3(0, 1.2499, 0)
+
+[node name="Coin6" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-3.8209, 0.03, 5.5887)
+rotation = Vector3(0, 4.3286, 0)
+scale = Vector3(0.8608, 0.8608, 0.8608)
+
+[node name="Coin7" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-4.4215, 0.03, 5.1479)
+rotation = Vector3(0, 4.4103, 0)
+scale = Vector3(0.8569, 0.8569, 0.8569)
+
+[node name="Coin8" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-3.585, 0.03, 4.6768)
+rotation = Vector3(0, 2.1408, 0)
+scale = Vector3(0.8575, 0.8575, 0.8575)
+
+[node name="Coin9" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-1.6579, 0.03, 4.7525)
+rotation = Vector3(0, 1.4386, 0)
+scale = Vector3(0.8023, 0.8023, 0.8023)
+
+[node name="Coin10" parent="Details" instance=ExtResource("e11")]
+position = Vector3(-1.3439, 0.03, 5.2942)
+rotation = Vector3(0, 5.211, 0)
+scale = Vector3(0.8338, 0.8338, 0.8338)
+
+[node name="Column4" parent="Furniture" instance=ExtResource("e16")]
+position = Vector3(6, 0, 5)
+rotation = Vector3(0, 4.9605, 0)
+
+[node name="Potion1" parent="Details" instance=ExtResource("e18")]
+position = Vector3(15.4702, 0, 4.9317)
+rotation = Vector3(0, 3.7761, 0)
+scale = Vector3(0.9043, 0.9043, 0.9043)
+
+[node name="Pot2" parent="Furniture" instance=ExtResource("e13")]
+position = Vector3(20.5, 0, 5.5)
+rotation = Vector3(0, 2.5577, 0)
+
+[node name="Brazier2" parent="Lights" instance=ExtResource("e15")]
+position = Vector3(-13.5, 0, 7.5)
+
+[node name="Stones3" parent="Furniture" instance=ExtResource("e12")]
+position = Vector3(-1.55, 0, 7.45)
+rotation = Vector3(0, 5.164, 0)
+scale = Vector3(0.634, 0.634, 0.634)
+
+[node name="Brazier3" parent="Lights" instance=ExtResource("e15")]
+position = Vector3(9.5, 0, 7.5)
+
+[node name="Pot3" parent="Furniture" instance=ExtResource("e13")]
+position = Vector3(-16.5, 0, 13.5)
+rotation = Vector3(0, 2.9288, 0)
+
+[node name="Pot4" parent="Furniture" instance=ExtResource("e13")]
+position = Vector3(-16.55, 0, 12.55)
+rotation = Vector3(0, 2.5442, 0)
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="Table1" parent="Furniture" instance=ExtResource("e19")]
+position = Vector3(-14, 0, 13)
+rotation = Vector3(0, 0.0309, 0)
+
+[node name="Potion2" parent="Details" instance=ExtResource("e18")]
+position = Vector3(-13.8565, 0.62, 13.1933)
+rotation = Vector3(0, 2.3136, 0)
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="Potion3" parent="Details" instance=ExtResource("e18")]
+position = Vector3(-14.0819, 0.62, 13.0424)
+rotation = Vector3(0, 5.7717, 0)
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="Barrel1" parent="Furniture" instance=ExtResource("e20")]
+position = Vector3(-11.58, 0, 13.42)
+rotation = Vector3(0, 1.7376, 0)
+
+[node name="Barrel2" parent="Furniture" instance=ExtResource("e20")]
+position = Vector3(-11.5, 0, 12.38)
+rotation = Vector3(0, 0.5694, 0)
+scale = Vector3(0.85, 0.85, 0.85)
+
+[node name="Waypoint1" type="Marker3D" parent="Waypoints"]
+position = Vector3(20, 0.08, -9)
+
+[node name="Waypoint2" type="Marker3D" parent="Waypoints"]
+position = Vector3(-16, 0.08, -7)
+
+[node name="Waypoint3" type="Marker3D" parent="Waypoints"]
+position = Vector3(-10, 0.08, 13)
+
+[node name="Player" parent="." instance=ExtResource("e22")]
+position = Vector3(-20, 0.08, 1)
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("e23")]
+target = NodePath("../Player")
+map_bounds = Rect2(-29, -20, 58, 40)
+
+[node name="Spawn" type="Marker3D" parent="."]
+position = Vector3(-20, 0.08, 1)
+
+[node name="GameMenu" parent="." instance=ExtResource("e24")]
