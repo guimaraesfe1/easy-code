@@ -7,9 +7,9 @@ Jogo educativo em Godot 4. A cena principal é `app/app.tscn`: execute o projeto
 Os layouts são cenas editáveis pelo Inspector:
 
 - `app/app.tscn`: estrutura comum, botão Voltar e navegação entre telas.
-- `ui/main_menu/main_menu.tscn`: menu inicial com título e botões Jogar, Opções e Sair em uma coluna centralizada.
+- `ui/main_menu/main_menu.tscn`: menu inicial com título, botões Jogar, Opções e Sair em uma coluna centralizada e créditos no rodapé.
 - `ui/options_menu/options_menu.tscn`: opção de ativar ou desativar o tema escuro.
-- `ui/theme_settings.gd`: tema global dos menus, cartões, detalhes e pausa; salva a preferência em `user://settings.cfg`.
+- `ui/theme_settings.gd`: tema global dos menus, cartões, detalhes e pausa; salva a preferência em `user://settings.cfg`. O tema escuro segue `tela_inicial.png`: fundo preto, fonte Monocraft em negrito e botões planos em cinza. A metadata `dark_font_color` de um `Label` fixa a cor dele no tema escuro.
 - `ui/map_selection/map_selection.tscn`: seleção de mapas.
 - `ui/level_selection/level_selection.tscn`: lista reutilizável de níveis.
 - `ui/level_details/level_details.tscn`: painel modal de detalhes.
@@ -39,7 +39,7 @@ Abra uma destas cenas e pressione **F6** para explorar com **WASD ou setas**:
 | `factory_01_assembly.tscn` | Linha de montagem, braços robóticos, embalagem e consoles | 18 × 14 unidades |
 | `factory_02_coolant.tscn` | Torres de refrigeração, tubulações elevadas e turbina | 22 × 16 unidades |
 | `factory_03_dispatch.tscn` | Depósito, prateleiras carregadas, guindastes e expedição | 20 × 20 unidades |
-| `factory_04_diagnostics.tscn` | Montagem com novos defeitos e três variáveis | 18 × 14 unidades |
+| `factory_04_diagnostics.tscn` | Montagem com novos defeitos e equivalência simples | 18 × 14 unidades |
 | `factory_05_control.tscn` | Refrigeração com proposições mais compostas | 22 × 16 unidades |
 | `factory_06_final.tscn` | Expedição com exercícios finais de equivalência e implicação | 20 × 20 unidades |
 
@@ -47,15 +47,15 @@ Toda a montagem está nas cenas `.tscn`: props, piso, marcações, iluminação 
 
 `gameplay/props/factory/` contém 143 cenas que referenciam os GLBs originais. Peças simples usam caixas posicionadas conforme os limites do modelo; tubos, guindastes, passarelas e outros elementos com vãos usam colisão côncava estática. Setas, engrenagens e produtos decorativos não bloqueiam a circulação. As cenas em `modules/` compõem prateleiras, sinalizadores e vapor. Os pisos têm material próprio e pequenas juntas visuais, mantendo a colisão contínua.
 
-O humanoide existente agora tem raiz `CharacterBody3D`, colisão de cápsula e animações de caminhada/repouso. O controlador usa movimentos relativos à câmera. O addon Phantom Camera fornece o acompanhamento suave; `gameplay/camera/factory_camera.tscn` usa projeção ortográfica, inclinação de 55° e orientação diagonal. Os limites consideram os quatro cantos projetados no piso e se adaptam ao tamanho da janela. O campo `floor_bounds` de cada fase representa os limites externos desse piso, enquanto `walk_bounds` descreve a área interna dos guarda-corpos.
+O humanoide existente agora tem raiz `CharacterBody3D`, colisão de cápsula e animações de caminhada/repouso. O controlador usa movimentos relativos à câmera. O addon Phantom Camera fornece o acompanhamento suave; `gameplay/camera/factory_camera.tscn` usa projeção ortográfica, inclinação de 45° e orientação diagonal. Os limites consideram os quatro cantos projetados no piso e se adaptam ao tamanho da janela. O campo `floor_bounds` de cada fase representa os limites externos desse piso, enquanto `walk_bounds` descreve a área interna dos guarda-corpos.
 
-As máquinas `machine`, `machine_window`, `machine_window_bar` e `machine_fortified` possuem **Fault Type** no Inspector: **None** (normal), **Smoke** (fumaça), **Sparks** (faíscas) e **Fire** (fogo com fumaça e faíscas). Algumas máquinas das seis fases começam com defeito. As partículas saem de **Fault Origin**, em coordenadas locais da máquina. Alterar `fault_type` durante o jogo liga ou desliga os efeitos; `None` também apaga a luz do fogo. A cena reutilizável `modules/machine_fault.tscn` usa partículas de CPU compatíveis com o renderizador GL Compatibility.
+As máquinas `machine`, `machine_window`, `machine_window_bar` e `machine_fortified` possuem **Fault Type** no Inspector: **None** (normal), **Smoke** (fumaça), **Sparks** (faíscas) e **Fire** (fogo com fumaça e faíscas). Algumas máquinas das seis fases começam com defeito. As partículas saem de **Fault Origin**, em coordenadas locais da máquina. Alterar `fault_type` durante o jogo liga ou desliga os efeitos; `None` também apaga a luz do fogo. A cena reutilizável `modules/machine_fault.tscn` usa partículas de CPU compatíveis com o renderizador GL Compatibility e os sprites `smoke_01.png`, `flame_01.png` e `spark_05.png` de `assets/kenney_particle/PNG (Transparent)/`. O vapor, as fogueiras da floresta e os braseiros da masmorra também usam esses assets; os dois últimos compartilham `gameplay/effects/ambient_fire.tscn`.
 
 Ao chegar a até 2,3 unidades de uma máquina com defeito, ela recebe uma borda verde contrastante. **E** seleciona a máquina mais próxima; um clique seleciona a máquina destacada sob o cursor. O painel pausa a fase e apresenta uma tabela verdade com as proposições simples e intermediárias preenchidas. Complete apenas a última coluna com **V/F** e clique em **Consertar**. Respostas incompletas ou incorretas mantêm o defeito e permitem outra tentativa. **Fechar/Esc** retoma a fase preservando a tentativa.
 
-O painel de proposições em `ui/repair_panel/repair_panel.tscn` tem moldura metálica, parafusos, telas luminosas e cabos, seguindo a referência industrial. **V** aparece em verde e **F** em vermelho; os cabos acompanham o valor escolhido na última coluna e ficam neutros nas linhas sem resposta. O visual é desenhado em Godot por `industrial_plate.gd`, com cores e espaçamentos em `industrial_theme.tres`, e mantém rolagem para exercícios com mais colunas ou oito linhas.
+O painel de proposições em `ui/repair_panel/repair_panel.tscn` tem moldura metálica, parafusos, telas luminosas e cabos, seguindo a referência industrial. **V** aparece em verde e **F** em vermelho; os cabos acompanham o valor escolhido na última coluna e ficam neutros nas linhas sem resposta. O visual é desenhado em Godot por `industrial_plate.gd`, com cores e espaçamentos em `industrial_theme.tres`, e mantém rolagem para as colunas intermediárias em janelas menores.
 
-Ao consertar todas as máquinas, a próxima fase é desbloqueada e o botão **Próxima fase** permite continuar. O autoload `GameProgress` salva os níveis concluídos em `user://progress.cfg`, independentemente da preferência de tema. As fases 4–6 herdam os layouts das três primeiras com novos defeitos. `gameplay/logic/logic_puzzle.gd` define os exercícios: a dificuldade cresce com mais operadores, resultados intermediários e, a partir da fase 4, três variáveis/oito linhas. Os campos **Level Number** e **Interaction Distance** são editáveis no Inspector da fase.
+Ao consertar todas as máquinas, a próxima fase é desbloqueada e o botão **Próxima fase** permite continuar. O autoload `GameProgress` salva os níveis concluídos em `user://progress.cfg`, independentemente da preferência de tema. As fases 4–6 herdam os layouts das três primeiras com novos defeitos. `gameplay/logic/logic_puzzle.gd` define os exercícios: a progressão introduz operadores gradualmente, mantendo apenas p e q, quatro linhas e no máximo três operadores por exercício; as proposições intermediárias já vêm resolvidas. Os campos **Level Number** e **Interaction Distance** são editáveis no Inspector da fase.
 
 Para validar props, física, acompanhamento, cantos do mapa e redimensionamento:
 
