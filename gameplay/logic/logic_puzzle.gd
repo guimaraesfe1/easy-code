@@ -6,10 +6,10 @@ const SYMBOLS := {"not": "¬", "and": "∧", "or": "∨", "implies": "→", "iff
 const EXPRESSIONS := [
 	[["and", "p", "q"], ["or", "p", "q"], ["implies", "p", "q"]],
 	[["or", ["not", "p"], "q"], ["and", "p", ["not", "q"]], ["implies", ["not", "p"], "q"]],
-	[["implies", ["and", "p", "q"], ["not", "p"]], ["iff", ["or", "p", "q"], ["not", "q"]], ["or", ["not", "p"], ["and", "p", "q"]]],
-	[["or", ["and", "p", "q"], ["not", "r"]], ["implies", ["or", "p", "q"], ["not", "r"]], ["iff", ["and", "p", "q"], ["not", "r"]]],
-	[["implies", ["or", ["and", "p", "q"], "r"], ["iff", "p", "q"]], ["iff", ["and", ["implies", "p", "q"], "r"], ["or", "p", "q"]], ["or", ["and", ["not", "p"], "q"], ["implies", "q", "r"]]],
-	[["iff", ["and", ["implies", "p", "q"], ["implies", "q", "r"]], ["or", ["not", "p"], "r"]], ["implies", ["iff", ["and", "p", "q"], ["or", "q", "r"]], ["and", ["not", "p"], "r"]], ["iff", ["or", ["not", "p"], ["and", "q", "r"]], ["and", ["implies", "p", "q"], "r"]]],
+	[["implies", ["or", "p", "q"], "p"], ["implies", "p", ["not", "q"]], ["implies", ["and", "p", "q"], "q"]],
+	[["iff", ["not", "p"], "q"], ["iff", ["and", "p", "q"], "p"], ["iff", ["or", "p", "q"], "q"]],
+	[["or", ["and", "p", "q"], "p"], ["and", ["implies", "p", "q"], "p"], ["and", ["or", "p", "q"], "q"]],
+	[["or", ["not", ["and", "p", "q"]], "q"], ["implies", ["and", "p", ["not", "q"]], "q"], ["iff", ["or", "p", "q"], ["not", "p"]]],
 ]
 
 var expression: Array
@@ -25,8 +25,6 @@ static func create(level_number: int, variant: int) -> LogicPuzzle:
 	puzzle.expression = EXPRESSIONS[difficulty - 1][posmod(variant, 3)]
 	puzzle.proposition = format_expression(puzzle.expression)
 	var variables: Array[String] = ["p", "q"]
-	if difficulty >= 4:
-		variables.append("r")
 	var intermediates: Array[Array] = []
 	_collect_intermediates(puzzle.expression, intermediates, true)
 	puzzle.headers.assign(variables)

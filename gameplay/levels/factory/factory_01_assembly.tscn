@@ -1,1682 +1,279 @@
-[gd_scene load_steps=66 format=3]
+[gd_scene load_steps=83 format=3]
 
-[ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="game_menu"]
+[ext_resource type="Script" path="res://gameplay/levels/factory/factory_level.gd" id="controller"]
 
-[ext_resource type="Script" path="res://gameplay/levels/factory/factory_level.gd" id="e1"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/floor_large.tscn" id="e2"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/structure_wall.tscn" id="e3"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/structure_yellow_short.tscn" id="e4"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_large_long.tscn" id="e5"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_bed.tscn" id="e6"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/hopper_high_square.tscn" id="e7"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/warning_orange.tscn" id="e8"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine.tscn" id="e9"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/signal_beacon.tscn" id="e10"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_window.tscn" id="e11"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_long_stripe_sides.tscn" id="e12"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_a.tscn" id="e13"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_panel_small.tscn" id="e14"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_b.tscn" id="e15"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_long.tscn" id="e16"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/scanner_low.tscn" id="e17"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_large.tscn" id="e18"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_small.tscn" id="e19"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/hopper_square.tscn" id="e20"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_panel_wide.tscn" id="e21"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_fortified.tscn" id="e22"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/lever_double.tscn" id="e23"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/cone.tscn" id="e24"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/arrow.tscn" id="e26"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/oopi.tscn" id="e27"]
-[ext_resource type="PackedScene" path="res://gameplay/player/player_humanoid.tscn" id="e28"]
-[ext_resource type="PackedScene" path="res://gameplay/camera/factory_camera.tscn" id="e29"]
+[ext_resource type="PackedScene" path="res://gameplay/player/player_humanoid.tscn" id="player"]
 
-[sub_resource type="Environment" id="r1"]
+[ext_resource type="PackedScene" path="res://gameplay/camera/factory_camera.tscn" id="camera"]
+
+[ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="menu"]
+
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_music.tscn" id="music"]
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/steam_vent.tscn" id="steam"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_long_stripe_sides.tscn" id="conveyor_long_stripe_sides"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_stripe_corner.tscn" id="conveyor_stripe_corner"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_stripe.tscn" id="conveyor_stripe"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine.tscn" id="machine"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_window_bar.tscn" id="machine_window_bar"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_fortified.tscn" id="machine_fortified"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_a.tscn" id="robot_arm_a"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_b.tscn" id="robot_arm_b"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/hopper_high_round.tscn" id="hopper_high_round"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_small.tscn" id="box_small"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_wide.tscn" id="box_wide"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/cog_a.tscn" id="cog_a"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/cog_b.tscn" id="cog_b"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_large_long.tscn" id="pipe_large_long"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_long.tscn" id="pipe_glass_large_long"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_curve.tscn" id="pipe_glass_large_curve"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_valve.tscn" id="pipe_glass_large_valve"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_junction.tscn" id="pipe_glass_large_junction"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_panel_wide.tscn" id="screen_panel_wide"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_small.tscn" id="screen_small"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/door_wide_closed.tscn" id="door_wide_closed"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/catwalk_stairs.tscn" id="catwalk_stairs"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/warning_orange.tscn" id="warning_orange"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/indicator_special_cross.tscn" id="indicator_special_cross"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/indicator_special_lines.tscn" id="indicator_special_lines"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/arrow_basic.tscn" id="arrow_basic"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/cone.tscn" id="cone"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane.tscn" id="crane"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane_lift.tscn" id="crane_lift"]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane_magnet.tscn" id="crane_magnet"]
+
+[sub_resource type="StandardMaterial3D" id="FactoryPurple"]
+albedo_color = Color(0.30, 0.28, 0.46, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="PurpleTrim"]
+albedo_color = Color(0.43, 0.40, 0.61, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="DarkSteel"]
+albedo_color = Color(0.14, 0.17, 0.23, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="SafetyGold"]
+albedo_color = Color(0.95, 0.62, 0.19, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="Floor"]
+albedo_color = Color(0.20, 0.23, 0.28, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="LightPanels"]
+albedo_color = Color(0.77, 0.88, 1.0, 1)
+roughness = 0.8
+emission_enabled = true
+emission = Color(0.77, 0.88, 1.0, 1)
+emission_energy_multiplier = 1.4
+
+[sub_resource type="Environment" id="Environment"]
 background_mode = 1
-background_color = Color(0.32157, 0.41961, 0.53725, 1)
+background_color = Color(0.15, 0.18, 0.25, 1)
 ambient_light_source = 3
-ambient_light_color = Color(0.7451, 0.84706, 1.0, 1)
-ambient_light_energy = 0.32
-reflected_light_source = 2
+ambient_light_color = Color(0.67, 0.72, 0.91, 1)
+ambient_light_energy = 0.55
 tonemap_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="r2"]
-resource_name = "base"
-albedo_color = Color(0.32549, 0.39608, 0.47451, 1)
-roughness = 0.85
+[sub_resource type="BoxMesh" id="Box1"]
+material = SubResource("Floor")
+size = Vector3(32, 0.4, 28)
 
-[sub_resource type="StandardMaterial3D" id="r3"]
-resource_name = "zone"
-albedo_color = Color(0.23922, 0.37647, 0.45882, 1)
-roughness = 0.85
+[sub_resource type="BoxShape3D" id="Shape1"]
+size = Vector3(32, 0.4, 28)
 
-[sub_resource type="StandardMaterial3D" id="r4"]
-resource_name = "gold"
-albedo_color = Color(0.92941, 0.68627, 0.28235, 1)
-roughness = 0.85
+[sub_resource type="BoxMesh" id="Box2"]
+material = SubResource("Floor")
+size = Vector3(1.975, 0.015, 1.975)
 
-[sub_resource type="StandardMaterial3D" id="r5"]
-resource_name = "blue"
-albedo_color = Color(0.2549, 0.53725, 0.65098, 1)
-roughness = 0.85
+[sub_resource type="BoxMesh" id="Box226"]
+material = SubResource("FactoryPurple")
+size = Vector3(29, 3.2, 0.45)
 
-[sub_resource type="StandardMaterial3D" id="r6"]
-resource_name = "slate"
-albedo_color = Color(0.20392, 0.27059, 0.3451, 1)
-roughness = 0.85
+[sub_resource type="BoxShape3D" id="Shape226"]
+size = Vector3(29, 3.2, 0.45)
 
-[sub_resource type="StandardMaterial3D" id="r7"]
-resource_name = "white"
-albedo_color = Color(0.74902, 0.85882, 0.86275, 1)
-roughness = 0.85
+[sub_resource type="BoxMesh" id="Box227"]
+material = SubResource("SafetyGold")
+size = Vector3(29.01, 0.15, 0.46)
 
-[sub_resource type="BoxMesh" id="r8"]
-size = Vector3(32.000000, 0.400000, 28.000000)
-material = SubResource("r2")
+[sub_resource type="BoxMesh" id="Box228"]
+material = SubResource("FactoryPurple")
+size = Vector3(0.45, 3.2, 25.6)
 
-[sub_resource type="BoxShape3D" id="r9"]
-size = Vector3(32.000000, 0.400000, 28.000000)
+[sub_resource type="BoxShape3D" id="Shape228"]
+size = Vector3(0.45, 3.2, 25.6)
 
-[sub_resource type="BoxMesh" id="r10"]
-size = Vector3(0.350000, 3.000000, 28.000000)
-material = SubResource("r6")
+[sub_resource type="BoxMesh" id="Box229"]
+material = SubResource("SafetyGold")
+size = Vector3(0.46, 0.15, 25.61)
 
-[sub_resource type="BoxShape3D" id="r11"]
-size = Vector3(0.350000, 3.000000, 28.000000)
+[sub_resource type="BoxMesh" id="Box230"]
+material = SubResource("DarkSteel")
+size = Vector3(29, 0.96, 0.3)
 
-[sub_resource type="BoxMesh" id="r12"]
-size = Vector3(32.000000, 3.000000, 0.350000)
-material = SubResource("r6")
+[sub_resource type="BoxShape3D" id="Shape230"]
+size = Vector3(29, 0.96, 0.3)
 
-[sub_resource type="BoxShape3D" id="r13"]
-size = Vector3(32.000000, 3.000000, 0.350000)
+[sub_resource type="BoxMesh" id="Box231"]
+material = SubResource("SafetyGold")
+size = Vector3(29.04, 0.09, 0.34)
 
-[sub_resource type="BoxMesh" id="r14"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box232"]
+material = SubResource("DarkSteel")
+size = Vector3(0.3, 0.96, 25.3)
 
-[sub_resource type="BoxMesh" id="r15"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxShape3D" id="Shape232"]
+size = Vector3(0.3, 0.96, 25.3)
 
-[sub_resource type="BoxMesh" id="r16"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box233"]
+material = SubResource("SafetyGold")
+size = Vector3(0.34, 0.09, 25.34)
 
-[sub_resource type="BoxMesh" id="r17"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box234"]
+material = SubResource("FactoryPurple")
+size = Vector3(8, 4, 6)
 
-[sub_resource type="BoxMesh" id="r18"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxShape3D" id="Shape234"]
+size = Vector3(8, 4, 6)
 
-[sub_resource type="BoxMesh" id="r19"]
-size = Vector3(1.400000, 0.016000, 0.120000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box235"]
+material = SubResource("PurpleTrim")
+size = Vector3(8.3, 0.25, 6.3)
 
-[sub_resource type="BoxMesh" id="r20"]
-size = Vector3(15.000000, 0.018000, 3.500000)
-material = SubResource("r3")
+[sub_resource type="BoxMesh" id="Box236"]
+material = SubResource("DarkSteel")
+size = Vector3(7.7, 0.1, 5.7)
 
-[sub_resource type="BoxMesh" id="r21"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box237"]
+material = SubResource("SafetyGold")
+size = Vector3(8, 0.16, 0.06)
 
-[sub_resource type="BoxMesh" id="r22"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box238"]
+material = SubResource("LightPanels")
+size = Vector3(1.5, 0.45, 0.08)
 
-[sub_resource type="BoxMesh" id="r23"]
-size = Vector3(15.000000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box240"]
+material = SubResource("FactoryPurple")
+size = Vector3(8, 1.8, 5)
 
-[sub_resource type="BoxMesh" id="r24"]
-size = Vector3(15.000000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxShape3D" id="Shape240"]
+size = Vector3(8, 1.8, 5)
 
-[sub_resource type="BoxMesh" id="r25"]
-size = Vector3(5.800000, 0.018000, 3.500000)
-material = SubResource("r3")
+[sub_resource type="BoxMesh" id="Box241"]
+material = SubResource("PurpleTrim")
+size = Vector3(8.3, 0.25, 5.3)
 
-[sub_resource type="BoxMesh" id="r26"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box242"]
+material = SubResource("DarkSteel")
+size = Vector3(7.7, 0.1, 4.7)
 
-[sub_resource type="BoxMesh" id="r27"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box246"]
+material = SubResource("SafetyGold")
+size = Vector3(0.09, 0.1, 4.6)
 
-[sub_resource type="BoxMesh" id="r28"]
-size = Vector3(5.800000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box247"]
+material = SubResource("PurpleTrim")
+size = Vector3(0.1, 0.8, 0.1)
 
-[sub_resource type="BoxMesh" id="r29"]
-size = Vector3(5.800000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box254"]
+material = SubResource("SafetyGold")
+size = Vector3(5.5, 0.1, 0.1)
 
-[sub_resource type="BoxMesh" id="r30"]
-size = Vector3(4.400000, 0.018000, 3.500000)
-material = SubResource("r3")
+[sub_resource type="ConvexPolygonShape3D" id="StairRamp"]
+points = PackedVector3Array(-6, 0, 2.5, -6, 1.8, 2.5, -6, 0, 6.8, -4, 0, 2.5, -4, 1.8, 2.5, -4, 0, 6.8)
 
-[sub_resource type="BoxMesh" id="r31"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box255"]
+material = SubResource("PurpleTrim")
+size = Vector3(2, 0.14, 0.35833)
 
-[sub_resource type="BoxMesh" id="r32"]
-size = Vector3(0.090000, 0.016000, 3.500000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box256"]
+material = SubResource("SafetyGold")
+size = Vector3(2, 0.025, 0.055)
 
-[sub_resource type="BoxMesh" id="r33"]
-size = Vector3(4.400000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxMesh" id="Box279"]
+material = SubResource("SafetyGold")
+size = Vector3(1.5, 0.36, 1.5)
 
-[sub_resource type="BoxMesh" id="r34"]
-size = Vector3(4.400000, 0.016000, 0.090000)
-material = SubResource("r4")
+[sub_resource type="BoxShape3D" id="Shape279"]
+size = Vector3(1.5, 0.36, 1.5)
 
-[sub_resource type="Animation" id="r35"]
-resource_name = "transport"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/path = NodePath(":position")
-tracks/0/interp = 1
-tracks/0/keys = {"times": PackedFloat32Array(0.0, 5.0), "transitions": PackedFloat32Array(1, 1), "update": 0, "values": [Vector3(-1.000000, 0.430000, -3.500000), Vector3(1.000000, 0.430000, -3.500000)]}
+[sub_resource type="BoxMesh" id="Box280"]
+material = SubResource("PurpleTrim")
+size = Vector3(0.45, 6.2, 0.45)
 
-[sub_resource type="AnimationLibrary" id="r36"]
-_data = {"transport": SubResource("r35")}
+[sub_resource type="BoxShape3D" id="Shape280"]
+size = Vector3(0.45, 6.2, 0.45)
+
+[sub_resource type="BoxShape3D" id="Shape281"]
+size = Vector3(1.5, 0.36, 1.5)
+
+[sub_resource type="BoxShape3D" id="Shape282"]
+size = Vector3(0.45, 6.2, 0.45)
+
+[sub_resource type="BoxMesh" id="Box283"]
+material = SubResource("FactoryPurple")
+size = Vector3(10.5, 0.5, 0.6)
+
+[sub_resource type="BoxMesh" id="Box284"]
+material = SubResource("PurpleTrim")
+size = Vector3(0.55, 0.16, 0.08)
 
 [node name="Factory01Assembly" type="Node3D"]
-
-script = ExtResource("e1")
+script = ExtResource("controller")
 level_number = 1
 floor_bounds = Rect2(-16, -14, 32, 28)
-walk_bounds = Rect2(-9, -7, 18, 14)
+walk_bounds = Rect2(-14, -12, 28, 24)
+metadata/layout_reference = "res://mapa.png"
 
 [node name="Environment" type="WorldEnvironment" parent="."]
-environment = SubResource("r1")
+environment = SubResource("Environment")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-1.082104, -0.488692, 0.000000)
-light_color = Color(1.0, 0.94902, 0.83922, 1)
-light_energy = 0.72
+rotation = Vector3(-1.08, -0.49, 0)
+light_color = Color(1, 0.90, 0.78, 1)
+light_energy = 0.9
 shadow_enabled = true
-directional_shadow_max_distance = 60.0
-shadow_bias = 0.05
+directional_shadow_max_distance = 65.0
 
 [node name="Fill" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.610865, 2.443461, 0.000000)
-light_color = Color(0.63922, 0.8, 1.0, 1)
-light_energy = 0.12
+rotation = Vector3(-0.6, 2.4, 0)
+light_color = Color(0.62, 0.69, 1, 1)
+light_energy = 0.28
 
 [node name="Room" type="Node3D" parent="."]
 
-
-[node name="Foundation" type="StaticBody3D" parent="Room"]
-position = Vector3(0.000000, -0.200000, 0.000000)
-collision_layer = 1
-collision_mask = 2
-
-[node name="Mesh" type="MeshInstance3D" parent="Room/Foundation"]
-mesh = SubResource("r8")
-
-[node name="Collision" type="CollisionShape3D" parent="Room/Foundation"]
-shape = SubResource("r9")
-
-[node name="FloorTiles" type="Node3D" parent="Room"]
-
-
-[node name="FloorLarge1" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge2" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge3" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge4" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge5" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge6" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge7" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge8" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge9" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge10" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge11" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge12" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge13" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge14" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-15.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge15" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge16" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge17" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge18" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge19" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge20" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge21" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge22" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge23" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge24" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge25" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge26" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge27" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge28" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-13.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge29" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge30" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge31" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge32" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge33" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge34" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge35" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge36" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge37" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge38" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge39" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge40" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge41" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge42" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-11.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge43" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge44" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge45" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge46" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge47" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge48" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge49" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge50" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge51" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge52" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge53" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge54" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge55" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge56" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-9.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge57" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge58" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge59" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge60" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge61" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge62" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge63" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge64" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge65" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge66" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge67" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge68" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge69" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge70" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-7.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge71" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge72" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge73" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge74" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge75" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge76" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge77" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge78" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge79" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge80" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge81" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge82" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge83" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge84" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-5.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge85" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge86" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge87" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge88" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge89" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge90" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge91" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge92" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge93" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge94" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge95" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge96" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge97" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge98" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-3.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge99" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge100" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge101" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge102" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge103" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge104" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge105" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge106" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge107" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge108" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge109" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge110" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge111" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge112" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(-1.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge113" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge114" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge115" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge116" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge117" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge118" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge119" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge120" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge121" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge122" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge123" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge124" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge125" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge126" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(1.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge127" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge128" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge129" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge130" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge131" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge132" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge133" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge134" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge135" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge136" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge137" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge138" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge139" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge140" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(3.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge141" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge142" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge143" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge144" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge145" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge146" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge147" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge148" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge149" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge150" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge151" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge152" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge153" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge154" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(5.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge155" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge156" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge157" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge158" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge159" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge160" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge161" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge162" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge163" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge164" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge165" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge166" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge167" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge168" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(7.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge169" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge170" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge171" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge172" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge173" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge174" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge175" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge176" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge177" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge178" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge179" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge180" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge181" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge182" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(9.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge183" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge184" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge185" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge186" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge187" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge188" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge189" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge190" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge191" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge192" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge193" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge194" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge195" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge196" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(11.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge197" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge198" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge199" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge200" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge201" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge202" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge203" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge204" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge205" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge206" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge207" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge208" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge209" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge210" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(13.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge211" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge212" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge213" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge214" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge215" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge216" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge217" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge218" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge219" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge220" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge221" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge222" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge223" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FloorLarge224" parent="Room/FloorTiles" instance=ExtResource("e2")]
-position = Vector3(15.000000, 0.005000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="OuterWalls" type="Node3D" parent="Room"]
-
-
-[node name="WestWall" type="StaticBody3D" parent="Room/OuterWalls"]
-position = Vector3(-15.600000, 1.500000, 0.000000)
-collision_layer = 1
-collision_mask = 2
-
-[node name="Mesh" type="MeshInstance3D" parent="Room/OuterWalls/WestWall"]
-mesh = SubResource("r10")
-
-[node name="Collision" type="CollisionShape3D" parent="Room/OuterWalls/WestWall"]
-shape = SubResource("r11")
-
-[node name="NorthWall" type="StaticBody3D" parent="Room/OuterWalls"]
-position = Vector3(0.000000, 1.500000, -13.600000)
-collision_layer = 1
-collision_mask = 2
-
-[node name="Mesh" type="MeshInstance3D" parent="Room/OuterWalls/NorthWall"]
-mesh = SubResource("r12")
-
-[node name="Collision" type="CollisionShape3D" parent="Room/OuterWalls/NorthWall"]
-shape = SubResource("r13")
-
-[node name="StructureWall225" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall226" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall227" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall228" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall229" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall230" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall231" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall232" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall233" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall234" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall235" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall236" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 9.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall237" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 11.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall238" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-15.000000, 0.010000, 13.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureWall239" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-13.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall240" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-11.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall241" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-9.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall242" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-7.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall243" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-5.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall244" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-3.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall245" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(-1.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall246" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(1.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall247" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(3.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall248" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(5.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall249" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(7.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall250" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(9.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall251" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(11.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall252" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(13.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureWall253" parent="Room/OuterWalls" instance=ExtResource("e3")]
-position = Vector3(15.000000, 0.010000, -13.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="Guardrails" type="Node3D" parent="Room"]
-
-
-[node name="StructureYellowShort254" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort255" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort256" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-8.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort257" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-8.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort258" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-7.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort259" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-7.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort260" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-6.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort261" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-6.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort262" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-5.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort263" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-5.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort264" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-4.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort265" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-4.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort266" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-3.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort267" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-3.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort268" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-2.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort269" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-2.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort270" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-1.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort271" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-1.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort272" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(0.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort273" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(0.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort274" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(1.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort275" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(1.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort276" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(2.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort277" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(2.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort278" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(3.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort279" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(3.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort280" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(4.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort281" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(4.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort282" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(5.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort283" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(5.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort284" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(6.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort285" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(6.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort286" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(7.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort287" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(7.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort288" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(8.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort289" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(8.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort290" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort291" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 7.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="StructureYellowShort292" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort293" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort294" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort295" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort296" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort297" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort298" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort299" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort300" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort301" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort302" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort303" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, -1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort304" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 0.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort305" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 0.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort306" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort307" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 1.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort308" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort309" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort310" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort311" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 3.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort312" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort313" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort314" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort315" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 5.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort316" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(-9.000000, 0.000000, 6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="StructureYellowShort317" parent="Room/Guardrails" instance=ExtResource("e4")]
-position = Vector3(9.000000, 0.000000, 6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ServicePerimeter" type="Node3D" parent="Room"]
-
-
-[node name="PipeLargeLong318" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-11.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong319" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-9.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong320" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-7.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong321" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-5.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong322" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-3.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong323" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(-1.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong324" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(1.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong325" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(3.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong326" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(5.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong327" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(7.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong328" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(9.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="PipeLargeLong329" parent="Room/ServicePerimeter" instance=ExtResource("e5")]
-position = Vector3(11.000000, 0.120000, -10.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed330" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(-12.000000, 0.000000, -6.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare331" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(-12.000000, 1.100000, -6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed332" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(-12.000000, 0.000000, -2.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare333" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(-12.000000, 1.100000, -2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed334" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(-12.000000, 0.000000, 2.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare335" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(-12.000000, 1.100000, 2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed336" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(-12.000000, 0.000000, 6.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare337" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(-12.000000, 1.100000, 6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed338" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(12.000000, 0.000000, -6.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare339" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(12.000000, 1.100000, -6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed340" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(12.000000, 0.000000, -2.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare341" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(12.000000, 1.100000, -2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed342" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(12.000000, 0.000000, 2.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare343" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(12.000000, 1.100000, 2.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="MachineBed344" parent="Room/ServicePerimeter" instance=ExtResource("e6")]
-position = Vector3(12.000000, 0.000000, 6.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="HopperHighSquare345" parent="Room/ServicePerimeter" instance=ExtResource("e7")]
-position = Vector3(12.000000, 1.100000, 6.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="FrontServiceStripe-8" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(-8.000000, 0.018000, 10.000000)
-mesh = SubResource("r14")
-
-[node name="FrontServiceStripe-5" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(-5.000000, 0.018000, 10.000000)
-mesh = SubResource("r15")
-
-[node name="FrontServiceStripe-2" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(-2.000000, 0.018000, 10.000000)
-mesh = SubResource("r16")
-
-[node name="FrontServiceStripe1" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(1.000000, 0.018000, 10.000000)
-mesh = SubResource("r17")
-
-[node name="FrontServiceStripe4" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(4.000000, 0.018000, 10.000000)
-mesh = SubResource("r18")
-
-[node name="FrontServiceStripe7" type="MeshInstance3D" parent="Room/ServicePerimeter"]
-position = Vector3(7.000000, 0.018000, 10.000000)
-mesh = SubResource("r19")
-
-[node name="WarningOrange346" parent="Room/Guardrails" instance=ExtResource("e8")]
-position = Vector3(-9.000000, 0.500000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="WarningOrange347" parent="Room/Guardrails" instance=ExtResource("e8")]
-position = Vector3(9.000000, 0.500000, -7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="WarningOrange348" parent="Room/Guardrails" instance=ExtResource("e8")]
-position = Vector3(-9.000000, 0.500000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="WarningOrange349" parent="Room/Guardrails" instance=ExtResource("e8")]
-position = Vector3(9.000000, 0.500000, 7.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
 
 [node name="Workstations" type="Node3D" parent="."]
 
@@ -1687,220 +284,1662 @@ rotation = Vector3(0.000000, 0.000000, 0.000000)
 [node name="Details" type="Node3D" parent="."]
 
 
-[node name="AssemblyBay" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(0.000000, 0.023000, -3.500000)
-mesh = SubResource("r20")
+[node name="Foundation" type="StaticBody3D" parent="Room"]
+position = Vector3(0, -0.2, 0)
+collision_mask = 2
 
-[node name="AssemblyBaySide-7.5" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-7.500000, 0.035000, -3.500000)
-mesh = SubResource("r21")
+[node name="Mesh" type="MeshInstance3D" parent="Room/Foundation"]
+mesh = SubResource("Box1")
 
-[node name="AssemblyBaySide7.5" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(7.500000, 0.035000, -3.500000)
-mesh = SubResource("r22")
+[node name="Collision" type="CollisionShape3D" parent="Room/Foundation"]
+shape = SubResource("Shape1")
 
-[node name="AssemblyBayEnd-1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(0.000000, 0.035000, -5.250000)
-mesh = SubResource("r23")
+[node name="Tile_-15_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -13)
+mesh = SubResource("Box2")
 
-[node name="AssemblyBayEnd1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(0.000000, 0.035000, -1.750000)
-mesh = SubResource("r24")
+[node name="Tile_-15_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -11)
+mesh = SubResource("Box2")
 
-[node name="Machine350" parent="Workstations" instance=ExtResource("e9")]
-fault_type = 2
-position = Vector3(-6.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
+[node name="Tile_-15_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -9)
+mesh = SubResource("Box2")
 
-[node name="Beacon350" parent="Details" instance=ExtResource("e10")]
-position = Vector3(-6.000000, 1.300000, -3.500000)
+[node name="Tile_-15_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -7)
+mesh = SubResource("Box2")
 
-[node name="MachineWindow351" parent="Workstations" instance=ExtResource("e11")]
-position = Vector3(-2.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
+[node name="Tile_-15_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -5)
+mesh = SubResource("Box2")
 
-[node name="Beacon351" parent="Details" instance=ExtResource("e10")]
-position = Vector3(-2.000000, 1.300000, -3.500000)
+[node name="Tile_-15_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -3)
+mesh = SubResource("Box2")
 
-[node name="MachineWindow352" parent="Workstations" instance=ExtResource("e11")]
+[node name="Tile_-15_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-15_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-15, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-13_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-13, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-11_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-11, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-9_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-9, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-7_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-7, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-5_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-5, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-3_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-3, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_-1_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(-1, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_1_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(1, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_3_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(3, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_5_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(5, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_7_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(7, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_9_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(9, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_11_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(11, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_13_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(13, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-13" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -13)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-11" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -11)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-9" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -9)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-7" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -7)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-5" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -5)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-3" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -3)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_-1" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, -1)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_1" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 1)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_3" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 3)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_5" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 5)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_7" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 7)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_9" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 9)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_11" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_13" type="MeshInstance3D" parent="Room"]
+position = Vector3(15, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="NorthWall" type="StaticBody3D" parent="Room"]
+position = Vector3(0, 1.6, -12.8)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/NorthWall"]
+mesh = SubResource("Box226")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/NorthWall"]
+shape = SubResource("Shape226")
+
+[node name="NorthWallStripe" type="MeshInstance3D" parent="Room"]
+position = Vector3(0, 1.15, -12.56)
+mesh = SubResource("Box227")
+
+[node name="WestWall" type="StaticBody3D" parent="Room"]
+position = Vector3(-14.8, 1.6, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/WestWall"]
+mesh = SubResource("Box228")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/WestWall"]
+shape = SubResource("Shape228")
+
+[node name="WestWallStripe" type="MeshInstance3D" parent="Room"]
+position = Vector3(-14.8, 1.15, 0)
+mesh = SubResource("Box229")
+
+[node name="SouthBarrier" type="StaticBody3D" parent="Room"]
+position = Vector3(0, 0.48, 12.5)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/SouthBarrier"]
+mesh = SubResource("Box230")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/SouthBarrier"]
+shape = SubResource("Shape230")
+
+[node name="SouthBarrierRail" type="MeshInstance3D" parent="Room"]
+position = Vector3(0, 1, 12.5)
+mesh = SubResource("Box231")
+
+[node name="EastBarrier" type="StaticBody3D" parent="Room"]
+position = Vector3(14.5, 0.48, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/EastBarrier"]
+mesh = SubResource("Box232")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/EastBarrier"]
+shape = SubResource("Shape232")
+
+[node name="EastBarrierRail" type="MeshInstance3D" parent="Room"]
+position = Vector3(14.5, 1, 0)
+mesh = SubResource("Box233")
+
+[node name="AssemblyBuilding" type="StaticBody3D" parent="Room"]
+position = Vector3(-8, 2, -7)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/AssemblyBuilding"]
+mesh = SubResource("Box234")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/AssemblyBuilding"]
+shape = SubResource("Shape234")
+
+[node name="AssemblyBuildingCornice" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 3.9, -7)
+mesh = SubResource("Box235")
+
+[node name="AssemblyBuildingRoof" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 4.05, -7)
+mesh = SubResource("Box236")
+
+[node name="AssemblyBuildingSafetyBand" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 0.9, -3.975)
+mesh = SubResource("Box237")
+
+[node name="AssemblyBuildingWindow-10.5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-10.5, 2.8, -3.945)
+mesh = SubResource("Box238")
+
+[node name="AssemblyBuildingWindow-5.5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5.5, 2.8, -3.945)
+mesh = SubResource("Box238")
+
+[node name="ServiceTerrace" type="StaticBody3D" parent="Room"]
+position = Vector3(-8, 0.9, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Room/ServiceTerrace"]
+mesh = SubResource("Box240")
+
+[node name="Collision" type="CollisionShape3D" parent="Room/ServiceTerrace"]
+shape = SubResource("Shape240")
+
+[node name="ServiceTerraceCornice" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 1.7, 0)
+mesh = SubResource("Box241")
+
+[node name="ServiceTerraceRoof" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 1.85, 0)
+mesh = SubResource("Box242")
+
+[node name="ServiceTerraceSafetyBand" type="MeshInstance3D" parent="Details"]
+position = Vector3(-8, 0.9, 2.525)
+mesh = SubResource("Box237")
+
+[node name="ServiceTerraceWindow-10.5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-10.5, 1.2, 2.555)
+mesh = SubResource("Box238")
+
+[node name="ServiceTerraceWindow-5.5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5.5, 1.2, 2.555)
+mesh = SubResource("Box238")
+
+[node name="AssemblyLoadingDoor" parent="Details" instance=ExtResource("door_wide_closed")]
+position = Vector3(-8, 0, -3.56)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1.8, 1)
+
+[node name="ServiceDoor" parent="Details" instance=ExtResource("door_wide_closed")]
+position = Vector3(-9, 0, 2.57)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.1, 1, 1)
+
+[node name="TerraceRail-11.7" type="MeshInstance3D" parent="Details"]
+position = Vector3(-11.7, 2.6, 0)
+mesh = SubResource("Box246")
+
+[node name="Post-11.7_-2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-11.7, 2.2, -2)
+mesh = SubResource("Box247")
+
+[node name="Post-11.7_0" type="MeshInstance3D" parent="Details"]
+position = Vector3(-11.7, 2.2, 0)
+mesh = SubResource("Box247")
+
+[node name="Post-11.7_2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-11.7, 2.2, 2)
+mesh = SubResource("Box247")
+
+[node name="TerraceRail-4.3" type="MeshInstance3D" parent="Details"]
+position = Vector3(-4.3, 2.6, 0)
+mesh = SubResource("Box246")
+
+[node name="Post-4.3_-2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-4.3, 2.2, -2)
+mesh = SubResource("Box247")
+
+[node name="Post-4.3_0" type="MeshInstance3D" parent="Details"]
+position = Vector3(-4.3, 2.2, 0)
+mesh = SubResource("Box247")
+
+[node name="Post-4.3_2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-4.3, 2.2, 2)
+mesh = SubResource("Box247")
+
+[node name="TerraceFrontRail" type="MeshInstance3D" parent="Details"]
+position = Vector3(-9, 2.6, 2.3)
+mesh = SubResource("Box254")
+
+[node name="TerraceStairs" type="StaticBody3D" parent="Room"]
+collision_mask = 2
+
+[node name="Collision" type="CollisionShape3D" parent="Room/TerraceStairs"]
+shape = SubResource("StairRamp")
+
+[node name="StairTread0" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.08, 6.62083)
+mesh = SubResource("Box255")
+
+[node name="StairEdge0" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.155, 6.74083)
+mesh = SubResource("Box256")
+
+[node name="StairTread1" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.23, 6.2625)
+mesh = SubResource("Box255")
+
+[node name="StairEdge1" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.305, 6.3825)
+mesh = SubResource("Box256")
+
+[node name="StairTread2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.38, 5.90417)
+mesh = SubResource("Box255")
+
+[node name="StairEdge2" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.455, 6.02417)
+mesh = SubResource("Box256")
+
+[node name="StairTread3" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.53, 5.54583)
+mesh = SubResource("Box255")
+
+[node name="StairEdge3" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.605, 5.66583)
+mesh = SubResource("Box256")
+
+[node name="StairTread4" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.68, 5.1875)
+mesh = SubResource("Box255")
+
+[node name="StairEdge4" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.755, 5.3075)
+mesh = SubResource("Box256")
+
+[node name="StairTread5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.83, 4.82917)
+mesh = SubResource("Box255")
+
+[node name="StairEdge5" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.905, 4.94917)
+mesh = SubResource("Box256")
+
+[node name="StairTread6" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 0.98, 4.47083)
+mesh = SubResource("Box255")
+
+[node name="StairEdge6" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.055, 4.59083)
+mesh = SubResource("Box256")
+
+[node name="StairTread7" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.13, 4.1125)
+mesh = SubResource("Box255")
+
+[node name="StairEdge7" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.205, 4.2325)
+mesh = SubResource("Box256")
+
+[node name="StairTread8" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.28, 3.75417)
+mesh = SubResource("Box255")
+
+[node name="StairEdge8" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.355, 3.87417)
+mesh = SubResource("Box256")
+
+[node name="StairTread9" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.43, 3.39583)
+mesh = SubResource("Box255")
+
+[node name="StairEdge9" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.505, 3.51583)
+mesh = SubResource("Box256")
+
+[node name="StairTread10" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.58, 3.0375)
+mesh = SubResource("Box255")
+
+[node name="StairEdge10" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.655, 3.1575)
+mesh = SubResource("Box256")
+
+[node name="StairTread11" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.73, 2.67917)
+mesh = SubResource("Box255")
+
+[node name="StairEdge11" type="MeshInstance3D" parent="Details"]
+position = Vector3(-5, 1.805, 2.79917)
+mesh = SubResource("Box256")
+
+[node name="Belt-4_0" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(-1, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-4_1" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(1, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-4_2" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(3, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-4_3" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(5, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-4_4" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(7, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-4_5" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(9, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="BeltCargo-4_0" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(0, 0.4, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="BeltCargo-4_1" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(3.5, 0.4, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="BeltCargo-4_2" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(7, 0.4, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="Belt-0.5_0" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(-1, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-0.5_1" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(1, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-0.5_2" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(3, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-0.5_3" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(5, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-0.5_4" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(7, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Belt-0.5_5" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(9, 0, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="BeltCargo-0.5_0" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(0, 0.4, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="BeltCargo-0.5_1" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(3.5, 0.4, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="BeltCargo-0.5_2" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(7, 0.4, -0.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0.5, 0.5, 0.5)
+
+[node name="BeltReturn-3" parent="Details" instance=ExtResource("conveyor_stripe")]
+position = Vector3(10.5, 0, -3)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="BeltReturn-2" parent="Details" instance=ExtResource("conveyor_stripe")]
+position = Vector3(10.5, 0, -2)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="BeltCornerNorth" parent="Details" instance=ExtResource("conveyor_stripe_corner")]
+position = Vector3(10.5, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="BeltCornerSouth" parent="Details" instance=ExtResource("conveyor_stripe_corner")]
+position = Vector3(10.5, 0, -0.5)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="LoadingBelt-10" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(-10, 0, -1.9)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="LoadingBelt-8" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(-8, 0, -1.9)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="LoadingBelt-6" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
+position = Vector3(-6, 0, -1.9)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="LoadingControl" parent="Workstations" instance=ExtResource("machine_window_bar")]
+position = Vector3(-2.5, 0, -6)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
 fault_type = 1
-position = Vector3(2.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
 
-[node name="Beacon352" parent="Details" instance=ExtResource("e10")]
-position = Vector3(2.000000, 1.300000, -3.500000)
+[node name="AssemblyControl" parent="Workstations" instance=ExtResource("machine")]
+position = Vector3(2, 0, -6.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+fault_type = 2
 
-[node name="Machine353" parent="Workstations" instance=ExtResource("e9")]
-position = Vector3(6.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="Beacon353" parent="Details" instance=ExtResource("e10")]
-position = Vector3(6.000000, 1.300000, -3.500000)
-
-[node name="ConveyorLongStripeSides354" parent="Workstations" instance=ExtResource("e12")]
-position = Vector3(-4.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ConveyorLongStripeSides355" parent="Workstations" instance=ExtResource("e12")]
-position = Vector3(0.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ConveyorLongStripeSides356" parent="Workstations" instance=ExtResource("e12")]
-position = Vector3(4.000000, 0.000000, -3.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="RobotArmA357" parent="Workstations" instance=ExtResource("e13")]
-position = Vector3(-6.000000, 0.000000, -5.500000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
-
-[node name="ScreenPanelSmall358" parent="Workstations" instance=ExtResource("e14")]
-position = Vector3(-4.900000, 0.000000, -5.600000)
-rotation = Vector3(0.000000, 3.141593, 0.000000)
-
-[node name="RobotArmB359" parent="Workstations" instance=ExtResource("e15")]
-position = Vector3(6.000000, 0.000000, -5.500000)
-rotation = Vector3(0.000000, -1.570796, 0.000000)
-
-[node name="ScreenPanelSmall360" parent="Workstations" instance=ExtResource("e14")]
-position = Vector3(7.100000, 0.000000, -5.600000)
-rotation = Vector3(0.000000, 3.141593, 0.000000)
-
-[node name="PackingBay" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-4.600000, 0.023000, 3.100000)
-mesh = SubResource("r25")
-
-[node name="PackingBaySide-2.9" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-7.500000, 0.035000, 3.100000)
-mesh = SubResource("r26")
-
-[node name="PackingBaySide2.9" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-1.700000, 0.035000, 3.100000)
-mesh = SubResource("r27")
-
-[node name="PackingBayEnd-1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-4.600000, 0.035000, 1.350000)
-mesh = SubResource("r28")
-
-[node name="PackingBayEnd1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(-4.600000, 0.035000, 4.850000)
-mesh = SubResource("r29")
-
-[node name="ConveyorLong361" parent="Workstations" instance=ExtResource("e16")]
-position = Vector3(-6.000000, 0.000000, 2.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ConveyorLong362" parent="Workstations" instance=ExtResource("e16")]
-position = Vector3(-4.000000, 0.000000, 2.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ScannerLow363" parent="Workstations" instance=ExtResource("e17")]
-position = Vector3(-4.000000, 0.000000, 2.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="BoxLarge364" parent="Workstations" instance=ExtResource("e18")]
-position = Vector3(-6.000000, 0.000000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="BoxLarge365" parent="Workstations" instance=ExtResource("e18")]
-position = Vector3(-5.000000, 0.000000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="BoxLarge366" parent="Workstations" instance=ExtResource("e18")]
-position = Vector3(-4.000000, 0.000000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="BoxSmall367" parent="Workstations" instance=ExtResource("e19")]
-position = Vector3(-6.000000, 0.550000, 4.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="HopperSquare368" parent="Workstations" instance=ExtResource("e20")]
-position = Vector3(-2.600000, 0.000000, 2.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
-
-[node name="ControlBay" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(5.000000, 0.023000, 3.200000)
-mesh = SubResource("r30")
-
-[node name="ControlBaySide-2.2" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(2.800000, 0.035000, 3.200000)
-mesh = SubResource("r31")
-
-[node name="ControlBaySide2.2" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(7.200000, 0.035000, 3.200000)
-mesh = SubResource("r32")
-
-[node name="ControlBayEnd-1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(5.000000, 0.035000, 1.450000)
-mesh = SubResource("r33")
-
-[node name="ControlBayEnd1.75" type="MeshInstance3D" parent="FloorMarkings"]
-position = Vector3(5.000000, 0.035000, 4.950000)
-mesh = SubResource("r34")
-
-[node name="ScreenPanelWide369" parent="Workstations" instance=ExtResource("e21")]
-position = Vector3(3.500000, 0.000000, 3.200000)
-rotation = Vector3(0.000000, 3.141593, 0.000000)
-
-[node name="ScreenPanelWide370" parent="Workstations" instance=ExtResource("e21")]
-position = Vector3(5.000000, 0.000000, 3.200000)
-rotation = Vector3(0.000000, 3.141593, 0.000000)
-
-[node name="ScreenPanelWide371" parent="Workstations" instance=ExtResource("e21")]
-position = Vector3(6.500000, 0.000000, 3.200000)
-rotation = Vector3(0.000000, 3.141593, 0.000000)
-
-[node name="MachineFortified372" parent="Workstations" instance=ExtResource("e22")]
+[node name="DispatchControl" parent="Workstations" instance=ExtResource("machine_fortified")]
+position = Vector3(11, 0, 2)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
 fault_type = 3
-position = Vector3(6.000000, 0.000000, 5.300000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
 
-[node name="LeverDouble373" parent="Workstations" instance=ExtResource("e23")]
-position = Vector3(3.500000, 0.000000, 4.800000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="CoolingControl" parent="Workstations" instance=ExtResource("machine_window_bar")]
+position = Vector3(-9, 0, 7.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+fault_type = 1
 
-[node name="Cone374" parent="Workstations" instance=ExtResource("e24")]
-position = Vector3(2.500000, 0.000000, 1.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="PipeControl" parent="Workstations" instance=ExtResource("machine")]
+position = Vector3(-3, 0, 9)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+fault_type = 2
 
-[node name="Cone375" parent="Workstations" instance=ExtResource("e24")]
-position = Vector3(7.500000, 0.000000, 1.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="RobotControl" parent="Workstations" instance=ExtResource("machine_fortified")]
+position = Vector3(7, 0, -8.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+fault_type = 3
 
-[node name="Arrow376" parent="FloorMarkings" instance=ExtResource("e26")]
-position = Vector3(-0.100000, 0.050000, 3.500000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="AssemblyRobot" parent="Details" instance=ExtResource("robot_arm_a")]
+position = Vector3(3.5, 0, -8.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.35, 1.35, 1.35)
 
-[node name="Arrow377" parent="FloorMarkings" instance=ExtResource("e26")]
-position = Vector3(0.000000, 0.050000, -0.300000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="WeldingRobot" parent="Details" instance=ExtResource("robot_arm_b")]
+position = Vector3(10.5, 0, -7.5)
+rotation = Vector3(0, 3.14159, 0)
+scale = Vector3(1.35, 1.35, 1.35)
 
-[node name="Arrow378" parent="FloorMarkings" instance=ExtResource("e26")]
-position = Vector3(-4.000000, 0.050000, 0.000000)
-rotation = Vector3(0.000000, 1.570796, 0.000000)
+[node name="WeldingVat" parent="Details" instance=ExtResource("hopper_high_round")]
+position = Vector3(9, 0, -7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.35, 1.35, 1.35)
 
-[node name="Arrow379" parent="FloorMarkings" instance=ExtResource("e26")]
-position = Vector3(4.000000, 0.050000, 0.000000)
-rotation = Vector3(0.000000, -1.570796, 0.000000)
+[node name="GantryFoot1" type="StaticBody3D" parent="Details"]
+position = Vector3(1, 0.18, -10)
+collision_mask = 2
 
-[node name="ProductCarrier" type="Node3D" parent="Details"]
-position = Vector3(-1.000000, 0.430000, -3.500000)
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot1"]
+mesh = SubResource("Box279")
 
-[node name="Product" parent="Details/ProductCarrier" instance=ExtResource("e27")]
-position = Vector3(0.000000, 0.000000, 0.000000)
-rotation = Vector3(0.000000, 0.000000, 0.000000)
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot1"]
+shape = SubResource("Shape279")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Details/ProductCarrier"]
-autoplay = "transport"
-libraries/ = SubResource("r36")
+[node name="GantryColumn1" type="StaticBody3D" parent="Details"]
+position = Vector3(1, 3.3, -10)
+collision_mask = 2
 
-[node name="Player" parent="." instance=ExtResource("e28")]
-position = Vector3(0.000000, 0.080000, 5.000000)
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn1"]
+mesh = SubResource("Box280")
 
-[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("e29")]
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn1"]
+shape = SubResource("Shape280")
+
+[node name="GantryFoot11" type="StaticBody3D" parent="Details"]
+position = Vector3(11, 0.18, -10)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot11"]
+mesh = SubResource("Box279")
+
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot11"]
+shape = SubResource("Shape281")
+
+[node name="GantryColumn11" type="StaticBody3D" parent="Details"]
+position = Vector3(11, 3.3, -10)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn11"]
+mesh = SubResource("Box280")
+
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn11"]
+shape = SubResource("Shape282")
+
+[node name="GantryBeam" type="MeshInstance3D" parent="Details"]
+position = Vector3(6, 6.25, -10)
+mesh = SubResource("Box283")
+
+[node name="GantryBrace0" type="MeshInstance3D" parent="Details"]
+position = Vector3(1.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace1" type="MeshInstance3D" parent="Details"]
+position = Vector3(2.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace2" type="MeshInstance3D" parent="Details"]
+position = Vector3(3.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace3" type="MeshInstance3D" parent="Details"]
+position = Vector3(4.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace4" type="MeshInstance3D" parent="Details"]
+position = Vector3(5.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace5" type="MeshInstance3D" parent="Details"]
+position = Vector3(6.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace6" type="MeshInstance3D" parent="Details"]
+position = Vector3(7.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace7" type="MeshInstance3D" parent="Details"]
+position = Vector3(8.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace8" type="MeshInstance3D" parent="Details"]
+position = Vector3(9.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryBrace9" type="MeshInstance3D" parent="Details"]
+position = Vector3(10.5, 6.25, -9.66)
+mesh = SubResource("Box284")
+
+[node name="GantryHoist" parent="Details" instance=ExtResource("crane_lift")]
+position = Vector3(6, 6, -10)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.3, 1.3, 1.3)
+
+[node name="GantryMagnet" parent="Details" instance=ExtResource("crane_magnet")]
+position = Vector3(6, 3.3, -10)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="FrontPipe-11" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(-11, 0, 10.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="FrontPipe-9" parent="Details" instance=ExtResource("pipe_glass_large_long")]
+position = Vector3(-9, 0, 10.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="FrontPipe-7" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(-7, 0, 10.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="FrontPipe-5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
+position = Vector3(-5, 0, 10.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="PipeCorner" parent="Details" instance=ExtResource("pipe_glass_large_curve")]
+position = Vector3(-12, 0, 9.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="SidePipe4.5" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(-12.5, 0, 4.5)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="SidePipe6.5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
+position = Vector3(-12.5, 0, 6.5)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="SidePipe8.5" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(-12.5, 0, 8.5)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="CoolingValve" parent="Details" instance=ExtResource("pipe_glass_large_valve")]
+position = Vector3(-12.5, 0, 3.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RightPipe3" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(3, 0, 7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RightPipe5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
+position = Vector3(5, 0, 7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RightPipe7" parent="Details" instance=ExtResource("pipe_large_long")]
+position = Vector3(7, 0, 7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RightPipe9" parent="Details" instance=ExtResource("pipe_glass_large_long")]
+position = Vector3(9, 0, 7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RightPipeCorner" parent="Details" instance=ExtResource("pipe_glass_large_curve")]
+position = Vector3(11, 0, 6)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Crate0" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(-10.5, 0, 4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="StackedCrate0" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(-10.5, 0.5, 4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Crate1" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(-9.5, 0, 4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="StackedCrate1" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(-9.5, 0.5, 4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Crate2" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(-10.5, 0, 5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Crate3" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(12, 0, -3)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Crate4" parent="Details" instance=ExtResource("box_small")]
+position = Vector3(12, 0, -4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="SpareGear0" parent="Details" instance=ExtResource("cog_b")]
+position = Vector3(12, 0, -8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="SpareGear1" parent="Details" instance=ExtResource("cog_a")]
+position = Vector3(12.8, 0, -9.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="SpareGear2" parent="Details" instance=ExtResource("cog_b")]
+position = Vector3(11.5, 0, -10.8)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.5, 1.5, 1.5)
+
+[node name="SafetyMark0" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
+position = Vector3(-2, 0.025, 2)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark1" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
+position = Vector3(2, 0.025, 2)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark2" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
+position = Vector3(6, 0.025, 2)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark3" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
+position = Vector3(10, 0.025, 4)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark4" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
+position = Vector3(-8, 0.025, 5.7)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark5" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
+position = Vector3(-2, 0.025, -9)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="SafetyMark6" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
+position = Vector3(4, 0.025, -10.5)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1.6, 1, 1.6)
+
+[node name="RouteArrow0" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
+position = Vector3(0, 0.03, 9)
+rotation = Vector3(0, 3.14159, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RouteArrow1" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
+position = Vector3(0, 0.03, 5)
+rotation = Vector3(0, 3.14159, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RouteArrow2" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
+position = Vector3(0, 0.03, 2)
+rotation = Vector3(0, 3.14159, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RouteArrow3" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
+position = Vector3(5, 0.03, 4)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="RouteArrow4" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
+position = Vector3(12, 0.03, 6)
+rotation = Vector3(0, 1.5708, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="AssemblyLabel" type="Label3D" parent="Details"]
+position = Vector3(-8, 3.3, -3.92)
+text = "MONTAGEM"
+font_size = 48
+pixel_size = 0.008
+modulate = Color(1, 0.83, 0.48, 1)
+outline_size = 4
+
+[node name="FinalLabel" type="Label3D" parent="Details"]
+position = Vector3(4, 2.5, -12.53)
+text = "01  /  MONTAGEM"
+font_size = 48
+pixel_size = 0.008
+modulate = Color(1, 0.83, 0.48, 1)
+outline_size = 4
+
+[node name="Player" parent="." instance=ExtResource("player")]
+position = Vector3(0, 0.08, 10)
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("camera")]
 target = NodePath("../Player")
 map_bounds = Rect2(-16, -14, 32, 28)
 
 [node name="Spawn" type="Marker3D" parent="."]
-position = Vector3(0.000000, 0.080000, 5.000000)
+position = Vector3(0, 0.08, 10)
 
-[node name="GameMenu" parent="." instance=ExtResource("game_menu")]
+[node name="GameMenu" parent="." instance=ExtResource("menu")]
+
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("music")]
+
+[node name="CoolingSteam" parent="Details" instance=ExtResource("steam")]
+position = Vector3(-12.5, 1.15, 3.5)
+
+[node name="AssemblyExhaust" parent="Details" instance=ExtResource("steam")]
+position = Vector3(-9.5, 4.2, -8)
+
+[node name="WeldingSteam" parent="Details" instance=ExtResource("steam")]
+position = Vector3(9, 1.9, -7)

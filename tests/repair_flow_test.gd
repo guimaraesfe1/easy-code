@@ -80,15 +80,17 @@ func _test_logic() -> void:
 			_check(LogicPuzzle.evaluate([op, "p", "q"], values) == expected[op][index], "Truth table for " + op)
 	_check(LogicPuzzle.evaluate(["not", "p"], {"p": false}), "Negation of false")
 	_check(not LogicPuzzle.evaluate(["not", "p"], {"p": true}), "Negation of true")
-	_check(LogicPuzzle.create(3, 0).answers == [false, true, true, true], "Nested implication has correct answers")
-	_check(LogicPuzzle.create(3, 0).rows[0] == [true, true, true, false], "Subpropositions are already solved")
+	_check(LogicPuzzle.create(3, 0).answers == [true, true, false, true], "Simple compound implication has correct answers")
+	_check(LogicPuzzle.create(3, 0).rows[0] == [true, true, true], "Subpropositions are already solved")
 	for variant in 3:
 		var previous_complexity := 0
 		for number in range(1, 7):
 			var puzzle := LogicPuzzle.create(number, variant)
-			_check(puzzle.rows.size() == (4 if number < 4 else 8), "All variable combinations are present")
-			var complexity := _operator_count(puzzle.expression) * puzzle.rows.size()
-			_check(complexity > previous_complexity, "Difficulty increases at every level")
+			_check(puzzle.rows.size() == 4, "Every exercise stays at two variables and four rows")
+			var complexity := _operator_count(puzzle.expression)
+			_check(complexity <= 3, "Propositions remain relatively simple")
+			_check(complexity >= previous_complexity, "Progression stays gradual")
+			_check(puzzle.headers.size() <= 5, "Intermediate results keep the table compact")
 			previous_complexity = complexity
 			for row in puzzle.rows:
 				_check(row.size() == puzzle.headers.size() - 1, "Only the final column is left unanswered")

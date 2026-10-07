@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_01_assembly.tscn" id="base"]
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_06_final.tscn" id="base"]
 
 [node name="Factory04" instance=ExtResource("base")]
 level_number = 4

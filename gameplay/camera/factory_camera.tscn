@@ -21,8 +21,8 @@ script = ExtResource("rig")
 [node name="BoundedTarget" type="Marker3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-position = Vector3(12.978, 26.213, 12.978)
-rotation = Vector3(-0.959931, 0.785398, 0)
+position = Vector3(16, 22.627, 16)
+rotation = Vector3(-0.785398, 0.785398, 0)
 current = true
 projection = 1
 size = 9.0
@@ -35,13 +35,13 @@ script = ExtResource("host")
 interpolation_mode = 1
 
 [node name="PhantomCamera3D" type="Node3D" parent="." node_paths=PackedStringArray("follow_target")]
-position = Vector3(12.978, 26.213, 12.978)
-rotation = Vector3(-0.959931, 0.785398, 0)
+position = Vector3(16, 22.627, 16)
+rotation = Vector3(-0.785398, 0.785398, 0)
 script = ExtResource("phantom")
 priority = 10
 follow_mode = 2
 follow_target = NodePath("../BoundedTarget")
-follow_offset = Vector3(12.978, 26.213, 12.978)
+follow_offset = Vector3(16, 22.627, 16)
 follow_damping = true
 follow_damping_value = Vector3(0.35, 0.35, 0.35)
 tween_on_load = false

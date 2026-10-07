@@ -2,7 +2,7 @@ extends SceneTree
 ## Standalone physics/camera regression checks. -- --capture saves rendered previews.
 
 const LEVELS := [
-	"res://gameplay/levels/factory/factory_01_assembly.tscn",
+	"res://gameplay/levels/factory/factory_06_final.tscn",
 	"res://gameplay/levels/factory/factory_02_coolant.tscn",
 	"res://gameplay/levels/factory/factory_03_dispatch.tscn",
 ]
