@@ -106,9 +106,16 @@ func _run() -> void:
 	_check(root.get_node("ThemeSettings").dark_mode != original_dark_mode, "Theme toggle must change the global preference")
 	var theme: Theme = load("res://ui/menu_theme.tres")
 	root.get_node("ThemeSettings").set_dark_mode(true)
-	_check(app.get_node("Background").color == Color("111923"), "Dark mode must update the application background")
+	_check(app.get_node("Background").color == Color.BLACK, "Dark mode must update the application background")
 	_check(menu.theme == theme and maps_screen.theme == theme and details.theme == theme, "All screens must share the global theme")
-	_check(theme.get_stylebox("panel", "PanelContainer").modulate_color == Color("29374a"), "Dark mode must update panel surfaces")
+	_check(theme.get_stylebox("panel", "PanelContainer") is StyleBoxFlat, "Dark mode must update panel surfaces")
+	_check(theme.default_font != null, "Dark mode must use the pixel font")
+	var shared_font := theme.default_font
+	root.get_node("ThemeSettings").set_dark_mode(false)
+	_check(theme.default_font == shared_font, "Light mode must use the same pixel font as dark mode")
+	root.get_node("ThemeSettings").set_dark_mode(true)
+	for label in menu.get_node("%Title").get_children():
+		_check(label.get_theme_color("font_color") == Color.WHITE, "Dark mode must show a white title")
 	var pause_menu: CanvasLayer = load("res://ui/game_menu/game_menu.tscn").instantiate()
 	root.add_child(pause_menu)
 	await _settle()

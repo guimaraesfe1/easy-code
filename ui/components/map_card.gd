@@ -8,7 +8,8 @@ func setup(data: MapDefinition) -> void:
 	definition = data
 	%MapName.text = data.display_name
 	%Illustration.texture = data.illustration
-	var background := %ArtPanel.get_theme_stylebox("panel").duplicate() as StyleBoxTexture
-	background.modulate_color = data.accent.lightened(0.88)
+	var background: StyleBox = %ArtPanel.get_theme_stylebox("panel").duplicate()
+	if background is StyleBoxTexture:
+		background.modulate_color = data.accent.lightened(0.88)
 	%ArtPanel.add_theme_stylebox_override("panel", background)
 	accessibility_name = data.display_name
