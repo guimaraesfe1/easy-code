@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://br2dhwkpljakh"
+path="res://.godot/imported/13. Echoes from the Station.ogg-aa0d7ba95983f67f34b42fb2abd05e12.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/13. Echoes from the Station.ogg"
+dest_files=["res://.godot/imported/13. Echoes from the Station.ogg-aa0d7ba95983f67f34b42fb2abd05e12.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

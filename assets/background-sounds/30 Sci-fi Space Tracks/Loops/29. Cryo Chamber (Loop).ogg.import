@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yxw5hetbw4ei"
+path="res://.godot/imported/29. Cryo Chamber (Loop).ogg-bc0c3905d3ac647f784eddbf23445669.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/29. Cryo Chamber (Loop).ogg"
+dest_files=["res://.godot/imported/29. Cryo Chamber (Loop).ogg-bc0c3905d3ac647f784eddbf23445669.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

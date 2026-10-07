@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdbmtleom6ev"
+path="res://.godot/imported/15. Collapse of the Core.ogg-c0eb8d1af249c45401ca03eb156af761.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/15. Collapse of the Core.ogg"
+dest_files=["res://.godot/imported/15. Collapse of the Core.ogg-c0eb8d1af249c45401ca03eb156af761.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

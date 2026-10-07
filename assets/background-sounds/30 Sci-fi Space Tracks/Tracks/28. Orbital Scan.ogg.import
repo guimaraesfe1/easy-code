@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqlrgd0bpn8d3"
+path="res://.godot/imported/28. Orbital Scan.ogg-321b059b6cc144f5a73d24c28294a60e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/28. Orbital Scan.ogg"
+dest_files=["res://.godot/imported/28. Orbital Scan.ogg-321b059b6cc144f5a73d24c28294a60e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

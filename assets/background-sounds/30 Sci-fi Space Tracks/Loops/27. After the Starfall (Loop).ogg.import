@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bq04r54sb77ej"
+path="res://.godot/imported/27. After the Starfall (Loop).ogg-18f4602608f5e38fe583fba57d3bcdc7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/27. After the Starfall (Loop).ogg"
+dest_files=["res://.godot/imported/27. After the Starfall (Loop).ogg-18f4602608f5e38fe583fba57d3bcdc7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

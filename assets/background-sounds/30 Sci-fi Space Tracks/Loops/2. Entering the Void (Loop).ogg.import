@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dudv08hfwdj5r"
+path="res://.godot/imported/2. Entering the Void (Loop).ogg-bc4fa34fb479b4f36c94e6d531ca0368.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/2. Entering the Void (Loop).ogg"
+dest_files=["res://.godot/imported/2. Entering the Void (Loop).ogg-bc4fa34fb479b4f36c94e6d531ca0368.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

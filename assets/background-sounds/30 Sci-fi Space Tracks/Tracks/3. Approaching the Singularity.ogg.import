@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://deejglrwpoag0"
+path="res://.godot/imported/3. Approaching the Singularity.ogg-0a745a5a01b2b8a0c941d0bf8620b6b8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/3. Approaching the Singularity.ogg"
+dest_files=["res://.godot/imported/3. Approaching the Singularity.ogg-0a745a5a01b2b8a0c941d0bf8620b6b8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

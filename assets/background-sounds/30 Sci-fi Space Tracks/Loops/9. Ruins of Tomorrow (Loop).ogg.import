@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dlw27qvc3caa6"
+path="res://.godot/imported/9. Ruins of Tomorrow (Loop).ogg-a5b2b7d9f3f77c278c4c4bf25a76a6b2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/9. Ruins of Tomorrow (Loop).ogg"
+dest_files=["res://.godot/imported/9. Ruins of Tomorrow (Loop).ogg-a5b2b7d9f3f77c278c4c4bf25a76a6b2.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

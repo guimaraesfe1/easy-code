@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ccwh15usvt4u4"
+path="res://.godot/imported/12. Before the Warp.ogg-39e8aca05794b364eccb1f44884bf119.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/12. Before the Warp.ogg"
+dest_files=["res://.godot/imported/12. Before the Warp.ogg-39e8aca05794b364eccb1f44884bf119.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

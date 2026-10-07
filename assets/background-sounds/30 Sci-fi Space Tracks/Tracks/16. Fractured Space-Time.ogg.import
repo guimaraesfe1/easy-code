@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2fimwk63oht6"
+path="res://.godot/imported/16. Fractured Space-Time.ogg-6eb2b4018726f4851d397c4a823defdf.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/16. Fractured Space-Time.ogg"
+dest_files=["res://.godot/imported/16. Fractured Space-Time.ogg-6eb2b4018726f4851d397c4a823defdf.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

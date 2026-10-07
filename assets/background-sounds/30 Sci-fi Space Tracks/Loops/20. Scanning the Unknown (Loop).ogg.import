@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2fcm3kbr6tht"
+path="res://.godot/imported/20. Scanning the Unknown (Loop).ogg-317f2d2f2d8a0714ac7da8a55399254d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/20. Scanning the Unknown (Loop).ogg"
+dest_files=["res://.godot/imported/20. Scanning the Unknown (Loop).ogg-317f2d2f2d8a0714ac7da8a55399254d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4upicb4y3xap"
+path="res://.godot/imported/8. Lost Star System.ogg-cceccd25be688db2b86242983a5106bd.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/8. Lost Star System.ogg"
+dest_files=["res://.godot/imported/8. Lost Star System.ogg-cceccd25be688db2b86242983a5106bd.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

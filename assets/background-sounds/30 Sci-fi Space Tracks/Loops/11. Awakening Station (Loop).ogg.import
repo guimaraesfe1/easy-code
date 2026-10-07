@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2k72aedn82f5"
+path="res://.godot/imported/11. Awakening Station (Loop).ogg-7c3dd7d6d384bb2f8235595c015c8ead.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/11. Awakening Station (Loop).ogg"
+dest_files=["res://.godot/imported/11. Awakening Station (Loop).ogg-7c3dd7d6d384bb2f8235595c015c8ead.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

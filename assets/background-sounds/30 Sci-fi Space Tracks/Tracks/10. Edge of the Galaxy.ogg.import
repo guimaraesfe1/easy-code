@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djixte3xd7h7y"
+path="res://.godot/imported/10. Edge of the Galaxy.ogg-2b1d7bfff1a4f1d4e74deeec7210d441.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/10. Edge of the Galaxy.ogg"
+dest_files=["res://.godot/imported/10. Edge of the Galaxy.ogg-2b1d7bfff1a4f1d4e74deeec7210d441.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctxuyr48frqn0"
+path="res://.godot/imported/14. Beneath Alien Skies (Loop).ogg-d3718fabbc61c4223cb054a44352e29e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/14. Beneath Alien Skies (Loop).ogg"
+dest_files=["res://.godot/imported/14. Beneath Alien Skies (Loop).ogg-d3718fabbc61c4223cb054a44352e29e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3m8mw18b3jql"
+path="res://.godot/imported/18. Through the Wormhole.ogg-0711b5660f871b147b6c2dc3f1fa7fe8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/background-sounds/30 Sci-fi Space Tracks/Tracks/18. Through the Wormhole.ogg"
+dest_files=["res://.godot/imported/18. Through the Wormhole.ogg-0711b5660f871b147b6c2dc3f1fa7fe8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
