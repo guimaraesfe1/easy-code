@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="AudioStream" path="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/10. Edge of the Galaxy (Loop).ogg" id="music"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("music")
+volume_db = -12.0
+autoplay = true

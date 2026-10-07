@@ -1,6 +1,7 @@
-[gd_scene load_steps=81 format=3]
+[gd_scene load_steps=82 format=3]
 
 [ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="game_menu"]
+[ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_music.tscn" id="factory_music"]
 
 [ext_resource type="Script" path="res://gameplay/levels/factory/factory_level.gd" id="e1"]
 [ext_resource type="PackedScene" path="res://gameplay/props/factory/floor_large.tscn" id="e2"]
@@ -2433,3 +2434,5 @@ map_bounds = Rect2(-17, -17, 34, 34)
 position = Vector3(0.000000, 0.080000, 7.800000)
 
 [node name="GameMenu" parent="." instance=ExtResource("game_menu")]
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("factory_music")]

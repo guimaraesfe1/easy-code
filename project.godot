@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 ThemeSettings="*res://ui/theme_settings.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 GameProgress="*res://gameplay/progression/game_progress.gd"
+UIAudio="*res://ui/ui_audio.gd"
 
 [display]
 

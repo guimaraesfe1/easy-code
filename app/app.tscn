@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Theme" path="res://ui/menu_theme.tres" id="theme"]
 [ext_resource type="Script" path="res://app/app.gd" id="script"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" path="res://ui/level_details/level_details.tscn" id="details"]
 
 [ext_resource type="PackedScene" path="res://ui/options_menu/options_menu.tscn" id="options"]
+[ext_resource type="AudioStream" path="res://assets/background-sounds/30 Sci-fi Space Tracks/Loops/4. Lost Signal (Loop).ogg" id="music"]
 
 [node name="App" type="Control"]
 layout_mode = 3
@@ -24,6 +25,11 @@ theme = ExtResource("theme")
 texture_filter = 1
 script = ExtResource("script")
 maps = Array[ExtResource("map_type")]([ExtResource("factory"), ExtResource("dungeon"), ExtResource("forest")])
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("music")
+volume_db = -12.0
+autoplay = true
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
