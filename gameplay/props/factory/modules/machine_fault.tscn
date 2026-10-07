@@ -1,24 +1,15 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://gameplay/props/factory/modules/machine_fault.gd" id="script"]
-
-[sub_resource type="Gradient" id="SoftParticleGradient"]
-offsets = PackedFloat32Array(0, 0.35, 0.75, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.85, 1, 1, 1, 0.3, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="SoftParticleTexture"]
-gradient = SubResource("SoftParticleGradient")
-width = 64
-height = 64
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
+[ext_resource type="Texture2D" path="res://assets/kenney_smoke-particles/PNG/White puff/whitePuff00.png" id="smoke_texture"]
+[ext_resource type="Texture2D" path="res://assets/kenney_particle/PNG (Transparent)/flame_01.png" id="fire_texture"]
+[ext_resource type="Texture2D" path="res://assets/kenney_particle/PNG (Transparent)/spark_05.png" id="spark_texture"]
 
 [sub_resource type="StandardMaterial3D" id="SmokeMaterial"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("SoftParticleTexture")
+albedo_texture = ExtResource("smoke_texture")
 billboard_mode = 1
 cull_mode = 2
 
@@ -38,7 +29,11 @@ point_count = 2
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("SoftParticleTexture")
+albedo_texture = ExtResource("fire_texture")
+emission_enabled = true
+emission = Color(1, 0.32, 0.04, 1)
+emission_energy_multiplier = 1.5
+emission_texture = ExtResource("fire_texture")
 billboard_mode = 1
 cull_mode = 2
 
@@ -59,13 +54,13 @@ transparency = 1
 blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("SoftParticleTexture")
+albedo_texture = ExtResource("spark_texture")
 billboard_mode = 1
 cull_mode = 2
 
 [sub_resource type="QuadMesh" id="SparkMesh"]
 material = SubResource("SparkMaterial")
-size = Vector2(0.045, 0.16)
+size = Vector2(0.09, 0.22)
 
 [sub_resource type="Gradient" id="SparkColor"]
 offsets = PackedFloat32Array(0, 0.25, 0.7, 1)

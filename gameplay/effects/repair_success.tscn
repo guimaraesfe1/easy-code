@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://gameplay/effects/repair_success.gd" id="script"]
+[ext_resource type="Texture2D" path="res://assets/kenney_particle/PNG (Transparent)/star_01.png" id="star"]
+[ext_resource type="Texture2D" path="res://assets/kenney_smoke-particles/PNG/White puff/whitePuff00.png" id="puff"]
+
+[sub_resource type="StandardMaterial3D" id="StarMaterial"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("star")
+billboard_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="StarMesh"]
+material = SubResource("StarMaterial")
+size = Vector2(0.22, 0.22)
+
+[sub_resource type="Gradient" id="StarColor"]
+offsets = PackedFloat32Array(0, 0.2, 0.7, 1)
+colors = PackedColorArray(1, 0.95, 0.35, 1, 1, 0.8, 0.08, 1, 1, 0.65, 0.03, 0.8, 1, 0.55, 0.02, 0)
+
+[sub_resource type="Curve" id="StarScale"]
+_data = [Vector2(0, 0.4), 0.0, 0.0, 0, 0, Vector2(0.15, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="PuffMaterial"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("puff")
+billboard_mode = 1
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="PuffMesh"]
+material = SubResource("PuffMaterial")
+size = Vector2(0.65, 0.65)
+
+[sub_resource type="Gradient" id="PuffColor"]
+offsets = PackedFloat32Array(0, 0.15, 0.55, 1)
+colors = PackedColorArray(1, 0.88, 0.2, 0, 1, 0.85, 0.12, 0.65, 1, 0.75, 0.08, 0.35, 1, 0.7, 0.05, 0)
+
+[sub_resource type="Curve" id="PuffScale"]
+_data = [Vector2(0, 0.3), 0.0, 0.0, 0, 0, Vector2(1, 1.4), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="RepairSuccess" type="Node3D"]
+process_mode = 3
+script = ExtResource("script")
+
+[node name="Stars" type="CPUParticles3D" parent="."]
+emitting = false
+cast_shadow = 0
+amount = 32
+lifetime = 1.1
+one_shot = true
+explosiveness = 1.0
+randomness = 0.2
+mesh = SubResource("StarMesh")
+emission_shape = 1
+emission_sphere_radius = 0.22
+direction = Vector3(0, 1, 0)
+spread = 95.0
+gravity = Vector3(0, -1.6, 0)
+initial_velocity_min = 1.4
+initial_velocity_max = 2.5
+angular_velocity_min = -160.0
+angular_velocity_max = 160.0
+scale_amount_min = 0.65
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("StarScale")
+color_ramp = SubResource("StarColor")
+
+[node name="Puff" type="CPUParticles3D" parent="."]
+emitting = false
+cast_shadow = 0
+amount = 10
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource("PuffMesh")
+emission_shape = 1
+emission_sphere_radius = 0.16
+direction = Vector3(0, 1, 0)
+spread = 70.0
+gravity = Vector3(0, 0.2, 0)
+initial_velocity_min = 0.35
+initial_velocity_max = 0.9
+scale_amount_min = 0.7
+scale_amount_max = 1.1
+scale_amount_curve = SubResource("PuffScale")
+color_ramp = SubResource("PuffColor")
+
+[node name="Light" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.8, 0.12, 1)
+light_energy = 1.2
+omni_range = 2.2

@@ -7,6 +7,7 @@ enum FaultType { NONE, SMOKE, SPARKS, FIRE }
 signal repaired(machine: FaultyMachine)
 
 const FAULT_EFFECT := preload("res://gameplay/props/factory/modules/machine_fault.tscn")
+const REPAIR_EFFECT := preload("res://gameplay/effects/repair_success.tscn")
 const OUTLINE_SHADER := preload("res://gameplay/props/factory/machine_outline.gdshader")
 
 @export var fault_type: FaultType = FaultType.NONE:
@@ -72,4 +73,7 @@ func repair() -> void:
 	if fault_type == FaultType.NONE:
 		return
 	fault_type = FaultType.NONE
+	var celebration := REPAIR_EFFECT.instantiate()
+	celebration.position = fault_origin
+	add_child(celebration)
 	repaired.emit(self)

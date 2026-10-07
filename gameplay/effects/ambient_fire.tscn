@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/machine_fault.tscn" id="particles"]
+
+[node name="AmbientFire" instance=ExtResource("particles")]
+smoke_on_start = true
+sparks_on_start = true
+fire_on_start = true
+light_enabled = false
+
+[node name="Smoke" parent="."]
+amount = 12
+lifetime = 2.4
+preprocess = 2.4
+initial_velocity_min = 0.25
+initial_velocity_max = 0.55
+scale_amount_min = 0.6
+scale_amount_max = 1.0
+
+[node name="Sparks" parent="."]
+amount = 12
+explosiveness = 0.15
+gravity = Vector3(0, -0.6, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.2
+
+[node name="Fire" parent="."]
+amount = 18

@@ -4,7 +4,7 @@ extends SceneTree
 const MACHINE := preload("res://gameplay/props/factory/faulty_machine.gd")
 const PROPS := ["machine", "machine_window", "machine_fortified", "machine_window_bar"]
 const LEVELS := [
-	"res://gameplay/levels/factory/factory_01_assembly.tscn",
+	"res://gameplay/levels/factory/factory_06_final.tscn",
 	"res://gameplay/levels/factory/factory_02_coolant.tscn",
 	"res://gameplay/levels/factory/factory_03_dispatch.tscn",
 ]
@@ -36,6 +36,23 @@ func _emits(machine: Node3D) -> bool:
 
 
 func _run() -> void:
+	for scene_path in [
+		"res://gameplay/props/factory/modules/machine_fault.tscn",
+		"res://gameplay/props/factory/modules/steam_vent.tscn",
+		"res://gameplay/effects/repair_success.tscn",
+		"res://gameplay/props/forest/modules/campfire.tscn",
+		"res://gameplay/props/dungeon/modules/brazier.tscn",
+	]:
+		var effect: Node3D = load(scene_path).instantiate()
+		root.add_child(effect)
+		for emitter in effect.find_children("*", "CPUParticles3D", true, false):
+			var texture: Texture2D = emitter.mesh.material.albedo_texture
+			_check(texture != null and texture.resource_path.begins_with("res://assets/"), "Particle emitter uses an existing asset: " + scene_path)
+		if effect.has_node("Flame/Fire"):
+			_check(effect.get_node("Flame/Fire").emitting, "Decorative fire starts emitting automatically")
+		await process_frame
+		await process_frame
+		effect.free()
 	for prop_name in PROPS:
 		var machine: StaticBody3D = load("res://gameplay/props/factory/%s.tscn" % prop_name).instantiate()
 		root.add_child(machine)
@@ -52,6 +69,21 @@ func _run() -> void:
 		_check(not machine.get_node("MachineFault/FireLight").visible, "Repair stops fire lighting")
 		machine.fault_type = MACHINE.FaultType.FIRE
 		_check(_emits(machine), "A new fault restarts the effect after repair")
+		machine.repair()
+		_check(not _emits(machine), "Successful repair clears the fault")
+		var celebration := machine.get_node("RepairSuccess")
+		var stars: CPUParticles3D = celebration.get_node("Stars")
+		_check(stars.emitting and stars.one_shot, "Repair starts a single particle burst")
+		_check(celebration.position == machine.fault_origin, "Repair burst starts on the repaired machine")
+		var tint: Color = stars.color_ramp.sample(0.2)
+		_check(tint.r > 0.9 and tint.g > 0.7 and tint.b < 0.2, "Repair particles are yellow")
+		machine.repair()
+		_check(machine.find_children("RepairSuccess*", "Node3D", false, false).size() == 1, "Repairing a healthy machine does not repeat the burst")
+		paused = true
+		_check(stars.can_process(), "Final repair burst continues during completion pause")
+		await create_timer(1.8, true).timeout
+		_check(not is_instance_valid(celebration), "Repair burst cleans itself up while paused")
+		paused = false
 		await process_frame
 		await process_frame
 		machine.free()
@@ -78,7 +110,7 @@ func _run() -> void:
 			await create_timer(1.5).timeout
 			await RenderingServer.frame_post_draw
 			root.get_texture().get_image().save_png("/tmp/easy-code-fault-%s.png" % level.name)
-			if level.name == "Factory01Assembly":
+			if level.name == "Factory06Final":
 				var overview := Camera3D.new()
 				level.add_child(overview)
 				overview.projection = Camera3D.PROJECTION_ORTHOGONAL
@@ -92,5 +124,5 @@ func _run() -> void:
 		level.queue_free()
 		await process_frame
 	if failures.is_empty():
-		print("PASS: factory faults, healthy machines, all fault modes, repair, restart and emission origins")
+		print("PASS: particle assets, decorative fires, factory faults, yellow repair burst, pause cleanup and emission origins")
 	quit(0 if failures.is_empty() else 1)
