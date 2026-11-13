@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://c0ysqq76pl4f1" path="res://factory/glb/button-floor-square-small.glb" id="1_syium"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uycq"]
+size = Vector3(0.5, 0.175, 0.5)
+
+[node name="ButtonFloorSquareSmall" type="StaticBody3D" unique_id=1280719741]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/button-floor-square-small.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=881445467 instance=ExtResource("1_syium")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=918949282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0875, 0)
+shape = SubResource("BoxShape3D_8uycq")

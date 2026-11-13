@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://dhv31dqahjqfl" path="res://factory/glb/hopper-high-square.glb" id="1_d7li1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5p5o"]
+size = Vector3(1.1172, 1.5, 1.1172)
+
+[node name="HopperHighSquare" type="StaticBody3D" unique_id=506645297]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/hopper-high-square.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=974950185 instance=ExtResource("1_d7li1")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=499741731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_a5p5o")

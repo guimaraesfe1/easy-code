@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cn6yhf4b842sn" path="res://factory/glb/structure-short.glb" id="1_njkgo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyp64"]
+size = Vector3(0.3, 0.5, 1.1)
+
+[node name="StructureShort" type="StaticBody3D" unique_id=1675141931]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/structure-short.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=2095393305 instance=ExtResource("1_njkgo")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=896941999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_eyp64")

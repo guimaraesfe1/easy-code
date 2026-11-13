@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://dp6ohfk52go0a" path="res://factory/glb/screen-panel-wide.glb" id="1_5pax4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_orafq"]
+size = Vector3(1.2, 0.9913094, 0.65721166)
+
+[node name="ScreenPanelWide" type="StaticBody3D" unique_id=1536801395]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/screen-panel-wide.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=9033396 instance=ExtResource("1_5pax4")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=873416107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4956547, -2.9802322e-08)
+shape = SubResource("BoxShape3D_orafq")

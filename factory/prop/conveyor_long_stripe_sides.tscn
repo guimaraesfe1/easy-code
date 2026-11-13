@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://c52m7nuut4p1h" path="res://factory/glb/conveyor-long-stripe-sides.glb" id="1_a8qnf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v78is"]
+size = Vector3(2, 0.4, 1)
+
+[node name="ConveyorLongStripeSides" type="StaticBody3D" unique_id=529119173]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/conveyor-long-stripe-sides.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=933544452 instance=ExtResource("1_a8qnf")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=269178954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_v78is")

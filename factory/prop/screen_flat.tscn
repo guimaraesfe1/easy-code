@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://ii4f3iqvqbvn" path="res://factory/glb/screen-flat.glb" id="1_mi0mb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bmkff"]
+size = Vector3(1.2000003, 0.74526983, 0.6448389)
+
+[node name="ScreenFlat" type="StaticBody3D" unique_id=1705473710]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/screen-flat.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=624348714 instance=ExtResource("1_mi0mb")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1424729537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.37263492, 0.06706411)
+shape = SubResource("BoxShape3D_bmkff")

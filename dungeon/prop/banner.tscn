@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bmucsv5qr5bxw"]
+
+[ext_resource type="PackedScene" uid="uid://c03i1lceu3fnv" path="res://dungeon/glb/banner.glb" id="1_lnaxg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4eys"]
+size = Vector3(0.8076782, 1.296875, 0.20178223)
+
+[node name="Banner" type="StaticBody3D" unique_id=1294683646]
+metadata/source_asset = "res://dungeon/glb/banner.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" parent="." unique_id=887508358 instance=ExtResource("1_lnaxg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1180159117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000579834, 1.1006578, -0.9498148)
+shape = SubResource("BoxShape3D_y4eys")

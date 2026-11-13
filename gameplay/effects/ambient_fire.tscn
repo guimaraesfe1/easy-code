@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3]
 
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/machine_fault.tscn" id="particles"]
+[ext_resource type="PackedScene" path="res://factory/prop/modules/machine_fault.tscn" id="particles"]
 
 [node name="AmbientFire" instance=ExtResource("particles")]
 smoke_on_start = true

@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://dcjq3dwog341w" path="res://factory/prop/faulty_machine.gd" id="fault_script"]
+[ext_resource type="PackedScene" uid="uid://c8u0g21u6oo8j" path="res://factory/glb/machine.glb" id="1_xbtnp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xebmp"]
+size = Vector3(1.2, 1.2997519, 1.5)
+
+[node name="Machine" type="StaticBody3D" unique_id=1136366223]
+collision_mask = 2
+script = ExtResource("fault_script")
+metadata/source_asset = "res://assets/factory/machine.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=733627225 instance=ExtResource("1_xbtnp")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1866610985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64987594, 0)
+shape = SubResource("BoxShape3D_xebmp")

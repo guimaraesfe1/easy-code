@@ -3,6 +3,7 @@ extends Node3D
 
 const REPAIR_UI := preload("res://ui/repair_panel/factory_repair_ui.tscn")
 const FACTORY_MAP := preload("res://content/maps/factory.tres")
+const MACHINE_ARROWS := preload("res://gameplay/levels/factory/machine_arrows.gd")
 
 @export var floor_bounds := Rect2(-16, -14, 32, 28)
 @export var walk_bounds := Rect2(-9, -7, 18, 14)
@@ -17,6 +18,8 @@ var _completed := false
 var _changing_scene := false
 var repair_ui: CanvasLayer
 var repair_panel: Control
+## Optional Oopi guide; only the first level's scene adds a Tutorial node.
+@onready var tutorial: Node = get_node_or_null("Tutorial")
 
 func _ready() -> void:
 	$CameraRig.map_bounds = floor_bounds
@@ -35,6 +38,11 @@ func _ready() -> void:
 			if child.fault_type != FaultyMachine.FaultType.NONE:
 				_initial_faults += 1
 	_update_counter()
+	var arrows := MACHINE_ARROWS.new()
+	arrows.machines = machines
+	arrows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	arrows.set_anchors_preset(Control.PRESET_FULL_RECT)
+	repair_ui.get_node("Hud").add_child(arrows)
 
 
 func _physics_process(_delta: float) -> void:
@@ -75,6 +83,8 @@ func select_machine(machine: FaultyMachine) -> bool:
 	_active_machine = machine
 	var puzzle := LogicPuzzle.create(level_number, machines.find(machine))
 	repair_panel.open_puzzle(puzzle, machine.answer_choices)
+	if tutorial:
+		tutorial.on_panel_opened(puzzle, repair_panel)
 	repair_ui.get_node("%RepairPrompt").hide()
 	$Player.velocity = Vector3.ZERO
 	_set_modal(true)
@@ -102,6 +112,8 @@ func _on_puzzle_closed() -> void:
 	repair_panel.hide()
 	_set_modal(false)
 	_update_proximity()
+	if tutorial:
+		tutorial.on_panel_closed()
 
 
 func _on_puzzle_solved() -> void:
@@ -113,6 +125,8 @@ func _on_puzzle_solved() -> void:
 	_set_modal(false)
 	machine.repair()
 	_update_proximity()
+	if tutorial:
+		tutorial.on_machine_repaired()
 
 
 func _on_machine_repaired(_machine: FaultyMachine) -> void:
@@ -127,6 +141,8 @@ func _on_machine_repaired(_machine: FaultyMachine) -> void:
 		var has_next := level_number < 6 and GameProgress.is_level_unlocked(&"factory", level_number + 1)
 		repair_ui.get_node("%NextLevel").visible = has_next
 		repair_ui.get_node("%Completion").show()
+		if tutorial:
+			tutorial.on_level_completed()
 		_set_modal(true)
 		var next: Button = repair_ui.get_node("%NextLevel")
 		var menu: Button = repair_ui.get_node("%MainMenu")

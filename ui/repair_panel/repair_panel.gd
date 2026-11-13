@@ -5,6 +5,12 @@ signal solved
 
 const PLATE := preload("res://ui/repair_panel/industrial_plate.gd")
 const TRUTH_CHOICE := preload("res://ui/repair_panel/truth_choice.gd")
+## Each variable is shown as a colored Oopi; colors avoid the green/red answers.
+const OOPIS := {
+	"p": preload("res://ui/repair_panel/oopi_blue.png"),
+	"q": preload("res://ui/repair_panel/oopi_yellow.png"),
+	"r": preload("res://ui/repair_panel/oopi_lilac.png"),
+}
 
 var puzzle: LogicPuzzle
 var answer_fields: Array[OptionButton] = []
@@ -27,26 +33,30 @@ func _fit_panel() -> void:
 func open_puzzle(data: LogicPuzzle, saved_choices: Array[int]) -> void:
 	puzzle = data
 	_submitted = false
-	%Proposition.text = data.proposition
+	%Proposition.text = _rich(data.expression, 44)
 	%Feedback.text = ""
 	for child in %Table.get_children():
 		%Table.remove_child(child)
 		child.queue_free()
 	answer_fields.clear()
 	%Table.columns = data.headers.size()
-	for header in data.headers:
+	for part in data.header_parts:
 		var plate := PLATE.new()
 		plate.kind = PLATE.Kind.HEADER
 		plate.custom_minimum_size = Vector2(132, 56)
 		plate.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var label := Label.new()
-		label.text = header
+		var label := RichTextLabel.new()
+		label.bbcode_enabled = true
+		label.fit_content = true
+		label.scroll_active = false
+		label.text = _header(part)
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		label.add_theme_font_size_override("font_size", 18)
+		label.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		label.autowrap_mode = TextServer.AUTOWRAP_OFF
+		label.add_theme_font_size_override("normal_font_size", 18)
 		plate.add_child(label)
 		%Table.add_child(plate)
 	for index in data.rows.size():
@@ -57,18 +67,7 @@ func open_puzzle(data: LogicPuzzle, saved_choices: Array[int]) -> void:
 			cell.custom_minimum_size = Vector2(132, 60)
 			cell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			cell.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			var label := Label.new()
-			label.text = "V" if value else "F"
-			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-			label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			label.add_theme_font_size_override("font_size", 28)
-			label.add_theme_color_override("font_color", PLATE.GREEN if value else PLATE.RED)
-			label.add_theme_color_override("font_shadow_color", Color(0.2, 1, 0.4, 0.3) if value else Color(1, 0.2, 0.3, 0.3))
-			label.add_theme_constant_override("shadow_offset_x", 0)
-			label.add_theme_constant_override("shadow_offset_y", 0)
-			label.add_theme_constant_override("shadow_outline_size", 5)
-			cell.add_child(label)
+			cell.add_child(_lamp(PLATE.GREEN if value else PLATE.RED))
 			%Table.add_child(cell)
 		var socket := PLATE.new()
 		socket.kind = PLATE.Kind.DISPLAY
@@ -76,10 +75,13 @@ func open_puzzle(data: LogicPuzzle, saved_choices: Array[int]) -> void:
 		socket.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		var choice := TRUTH_CHOICE.new()
 		choice.alignment = HORIZONTAL_ALIGNMENT_CENTER
+		choice.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		choice.add_theme_font_size_override("font_size", 28)
 		choice.add_item("—")
-		choice.add_item("V")
-		choice.add_item("F")
+		choice.add_icon_item(TRUTH_CHOICE.swatch(PLATE.GREEN), "")
+		choice.set_item_tooltip(1, "Verdadeiro")
+		choice.add_icon_item(TRUTH_CHOICE.swatch(PLATE.RED), "")
+		choice.set_item_tooltip(2, "Falso")
 		choice.accessibility_name = "Resultado da linha %d" % (index + 1)
 		if saved_choices.size() == data.rows.size():
 			choice.select(clampi(saved_choices[index], 0, 2))
@@ -93,6 +95,46 @@ func open_puzzle(data: LogicPuzzle, saved_choices: Array[int]) -> void:
 	_fit_panel()
 	_set_focus_cycle()
 	answer_fields[0].grab_focus.call_deferred()
+
+
+func _rich(node: Variant, icon_size: int, nested := false) -> String:
+	return LogicPuzzle.format_expression(node, nested, func(variable: String) -> String:
+		return "[img=%d valign=center,center]%s[/img]" % [icon_size, OOPIS[variable].resource_path])
+
+
+## Long headers break once, before the main operator, instead of mid-group.
+func _header(node: Variant) -> String:
+	const ICON := 32
+	if _operator_count(node) < 3:
+		return _rich(node, ICON)
+	if node[0] == "not":
+		return "%s\n%s" % [LogicPuzzle.WORDS["not"], _rich(node[1], ICON, true)]
+	return "%s\n%s %s" % [_rich(node[1], ICON, true), LogicPuzzle.WORDS[node[0]], _rich(node[2], ICON, true)]
+
+
+func _operator_count(node: Variant) -> int:
+	if node is String:
+		return 0
+	var count := 1
+	for index in range(1, node.size()):
+		count += _operator_count(node[index])
+	return count
+
+
+## Colored lamps replace V/F so children read the value at a glance.
+func _lamp(color: Color) -> Panel:
+	var style := StyleBoxFlat.new()
+	style.bg_color = color
+	style.set_corner_radius_all(6)
+	style.shadow_color = Color(color, 0.45)
+	style.shadow_size = 6
+	var lamp := Panel.new()
+	lamp.custom_minimum_size = Vector2(56, 28)
+	lamp.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	lamp.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	lamp.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	lamp.add_theme_stylebox_override("panel", style)
+	return lamp
 
 
 func get_choices() -> Array[int]:

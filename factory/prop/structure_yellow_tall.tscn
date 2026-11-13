@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://deuu7m3bvcgbo" path="res://factory/glb/structure-yellow-tall.glb" id="1_x2xuw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6wfr"]
+size = Vector3(0.3, 2, 1.1)
+
+[node name="StructureYellowTall" type="StaticBody3D" unique_id=2134132515]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/structure-yellow-tall.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1372124665 instance=ExtResource("1_x2xuw")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=182849766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_v6wfr")

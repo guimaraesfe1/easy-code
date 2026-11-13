@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://biln6rx2sxjds" path="res://factory/glb/cog-a.glb" id="1_2bte4"]
+
+[node name="CogA" type="Node3D" unique_id=2089725642]
+metadata/source_asset = "res://assets/factory/cog-a.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=630629098 instance=ExtResource("1_2bte4")]

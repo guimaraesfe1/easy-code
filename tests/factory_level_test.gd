@@ -50,12 +50,12 @@ func _player_visible() -> bool:
 	return true
 
 func _run() -> void:
-	var files := DirAccess.get_files_at("res://gameplay/props/factory")
+	var files := DirAccess.get_files_at("res://factory/prop")
 	var count := 0
 	for file in files:
 		if not file.ends_with(".tscn"):
 			continue
-		var prop: Node3D = load("res://gameplay/props/factory/" + file).instantiate()
+		var prop: Node3D = load("res://factory/prop/" + file).instantiate()
 		_check(prop.has_node("Visual"), "Prop retains a model reference: " + file)
 		if prop is StaticBody3D:
 			_check(prop.has_node("Collision") and prop.get_node("Collision").shape != null, "Solid prop has a shape: " + file)

@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bxmixmnouh1fx" path="res://factory/glb/door.glb" id="1_fdndt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvirl"]
+size = Vector3(0.8, 1.6, 0.3)
+
+[node name="Door" type="StaticBody3D" unique_id=551417831]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/door.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1893236324 instance=ExtResource("1_fdndt")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=615760244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, -8.940697e-08)
+shape = SubResource("BoxShape3D_fvirl")

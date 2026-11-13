@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cchcb5h2orqoo" path="res://factory/glb/screen-wide.glb" id="1_dtjam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_17edk"]
+size = Vector3(1.2, 0.9913094, 0.48749998)
+
+[node name="ScreenWide" type="StaticBody3D" unique_id=1154933128]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/screen-wide.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=791124431 instance=ExtResource("1_dtjam")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1838668611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4956547, 0.08485584)
+shape = SubResource("BoxShape3D_17edk")

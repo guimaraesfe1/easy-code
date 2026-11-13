@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://jeeo3eseevlk" path="res://factory/glb/screen-panel-flat.glb" id="1_nli4g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cmn8r"]
+size = Vector3(1.2000003, 0.74526983, 0.79976845)
+
+[node name="ScreenPanelFlat" type="StaticBody3D" unique_id=1687105823]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/screen-panel-flat.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=897349046 instance=ExtResource("1_nli4g")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=2094195596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9604645e-08, 0.37263492, -0.010400653)
+shape = SubResource("BoxShape3D_cmn8r")

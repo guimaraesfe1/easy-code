@@ -56,7 +56,7 @@ func _place(player: CharacterBody3D, position: Vector3) -> void:
 	player.reset_physics_interpolation()
 
 func _check_props(map: String) -> void:
-	var folder := "res://gameplay/props/%s/" % map
+	var folder := "res://%s/prop/" % map
 	var count := 0
 	for file in DirAccess.get_files_at(folder):
 		if not file.ends_with(".tscn"):

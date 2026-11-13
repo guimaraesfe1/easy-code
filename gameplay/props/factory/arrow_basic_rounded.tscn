@@ -1,9 +1,0 @@
-[gd_scene format=3]
-
-[ext_resource type="PackedScene" path="res://assets/factory/arrow-basic-rounded.glb" id="1_tx63v"]
-
-[node name="ArrowBasicRounded" type="Node3D" unique_id=1150923430]
-metadata/source_asset = "res://assets/factory/arrow-basic-rounded.glb"
-metadata/collision_kind = "decoration"
-
-[node name="Visual" type="Node3D" parent="." unique_id=140402577 instance=ExtResource("1_tx63v")]

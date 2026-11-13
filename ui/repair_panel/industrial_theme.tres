@@ -198,6 +198,7 @@ RepairButton/base_type = &"Button"
 RepairButton/colors/font_color = Color(0.56, 1, 0.69, 1)
 RepairButton/styles/hover = SubResource("primary_hover")
 RepairButton/styles/normal = SubResource("primary")
+RichTextLabel/colors/default_color = Color(0.82, 0.9, 0.96, 1)
 VScrollBar/styles/grabber = SubResource("scroll_handle")
 VScrollBar/styles/grabber_highlight = SubResource("scroll_handle")
 VScrollBar/styles/grabber_pressed = SubResource("scroll_handle")

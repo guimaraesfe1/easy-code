@@ -70,8 +70,6 @@ func _test_logic() -> void:
 	var expected := {
 		"and": [true, false, false, false],
 		"or": [true, true, true, false],
-		"implies": [true, false, true, true],
-		"iff": [true, false, false, true],
 	}
 	var pairs := [[true, true], [true, false], [false, true], [false, false]]
 	for op in expected:
@@ -80,8 +78,11 @@ func _test_logic() -> void:
 			_check(LogicPuzzle.evaluate([op, "p", "q"], values) == expected[op][index], "Truth table for " + op)
 	_check(LogicPuzzle.evaluate(["not", "p"], {"p": false}), "Negation of false")
 	_check(not LogicPuzzle.evaluate(["not", "p"], {"p": true}), "Negation of true")
-	_check(LogicPuzzle.create(3, 0).answers == [true, true, false, true], "Simple compound implication has correct answers")
-	_check(LogicPuzzle.create(3, 0).rows[0] == [true, true, true], "Subpropositions are already solved")
+	_check(LogicPuzzle.create(3, 0).answers == [false, false, false, true], "Compound negation has correct answers")
+	_check(LogicPuzzle.create(3, 0).rows[0] == [true, true, false, false], "Subpropositions are already solved")
+	_check(LogicPuzzle.format_expression(["not", ["and", "p", "q"]]) == "NÃO (p E q)", "Operators are written as words")
+	_check(LogicPuzzle.format_expression(["or", ["not", "p"], "q"]) == "NÃO p OU q", "Top-level proposition has no outer parentheses")
+	_check(LogicPuzzle.format_expression(["and", "p", ["not", "q"]], false, func(name: String) -> String: return name.to_upper()) == "P E NÃO Q", "Variables can be drawn as icons")
 	for variant in 3:
 		var previous_complexity := 0
 		for number in range(1, 7):

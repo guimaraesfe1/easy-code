@@ -1,9 +1,0 @@
-[gd_scene format=3]
-
-[ext_resource type="PackedScene" path="res://assets/factory/arrow-rounded.glb" id="1_gp6su"]
-
-[node name="ArrowRounded" type="Node3D" unique_id=1412496106]
-metadata/source_asset = "res://assets/factory/arrow-rounded.glb"
-metadata/collision_kind = "decoration"
-
-[node name="Visual" type="Node3D" parent="." unique_id=17387751 instance=ExtResource("1_gp6su")]

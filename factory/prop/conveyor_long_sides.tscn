@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://s7c17hrvkumn" path="res://factory/glb/conveyor-long-sides.glb" id="1_fufkv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ldoas"]
+size = Vector3(2, 0.4, 1)
+
+[node name="ConveyorLongSides" type="StaticBody3D" unique_id=1418969282]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/conveyor-long-sides.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1870159232 instance=ExtResource("1_fufkv")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=672453374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_ldoas")

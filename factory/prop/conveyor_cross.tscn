@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://c2g15opt7js52" path="res://factory/glb/conveyor-cross.glb" id="1_aowks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jqcdu"]
+size = Vector3(1.0000002, 0.4, 1.0000002)
+
+[node name="ConveyorCross" type="StaticBody3D" unique_id=2115660322]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/conveyor-cross.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=2080240854 instance=ExtResource("1_aowks")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1664337052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("BoxShape3D_jqcdu")

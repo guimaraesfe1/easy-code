@@ -1,0 +1,9 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cgu58p02i3hiw" path="res://factory/glb/arrow.glb" id="1_6tr31"]
+
+[node name="Arrow" type="Node3D" unique_id=1273477286]
+metadata/source_asset = "res://assets/factory/arrow.glb"
+metadata/collision_kind = "decoration"
+
+[node name="Visual" type="Node3D" parent="." unique_id=1726847112 instance=ExtResource("1_6tr31")]

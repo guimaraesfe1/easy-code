@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bh0p5gv804rh8" path="res://factory/glb/scanner-high.glb" id="1_j8jog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g213e"]
+size = Vector3(0.484, 1.27, 1.7739999)
+
+[node name="ScannerHigh" type="StaticBody3D" unique_id=614618785]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/scanner-high.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=16626647 instance=ExtResource("1_j8jog")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1405719273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.635, -5.9604645e-08)
+shape = SubResource("BoxShape3D_g213e")

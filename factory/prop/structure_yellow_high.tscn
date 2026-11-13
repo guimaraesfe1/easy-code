@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://6cxaabxj6axb" path="res://factory/glb/structure-yellow-high.glb" id="1_2kdh1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow7rm"]
+size = Vector3(0.3, 1.4999999, 1.1)
+
+[node name="StructureYellowHigh" type="StaticBody3D" unique_id=1771822773]
+collision_mask = 2
+metadata/source_asset = "res://assets/factory/structure-yellow-high.glb"
+metadata/collision_kind = "box"
+
+[node name="Visual" type="Node3D" parent="." unique_id=186254745 instance=ExtResource("1_2kdh1")]
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=1570143444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74999994, 0)
+shape = SubResource("BoxShape3D_ow7rm")

@@ -1,7 +1,7 @@
 extends SceneTree
 ## Check authored faults and transitions between healthy and faulty machines.
 
-const MACHINE := preload("res://gameplay/props/factory/faulty_machine.gd")
+const MACHINE := preload("res://factory/prop/faulty_machine.gd")
 const PROPS := ["machine", "machine_window", "machine_fortified", "machine_window_bar"]
 const LEVELS := [
 	"res://gameplay/levels/factory/factory_06_final.tscn",
@@ -37,11 +37,11 @@ func _emits(machine: Node3D) -> bool:
 
 func _run() -> void:
 	for scene_path in [
-		"res://gameplay/props/factory/modules/machine_fault.tscn",
-		"res://gameplay/props/factory/modules/steam_vent.tscn",
+		"res://factory/prop/modules/machine_fault.tscn",
+		"res://factory/prop/modules/steam_vent.tscn",
 		"res://gameplay/effects/repair_success.tscn",
-		"res://gameplay/props/forest/modules/campfire.tscn",
-		"res://gameplay/props/dungeon/modules/brazier.tscn",
+		"res://forest/prop/modules/campfire.tscn",
+		"res://dungeon/prop/modules/brazier.tscn",
 	]:
 		var effect: Node3D = load(scene_path).instantiate()
 		root.add_child(effect)
@@ -54,7 +54,7 @@ func _run() -> void:
 		await process_frame
 		effect.free()
 	for prop_name in PROPS:
-		var machine: StaticBody3D = load("res://gameplay/props/factory/%s.tscn" % prop_name).instantiate()
+		var machine: StaticBody3D = load("res://factory/prop/%s.tscn" % prop_name).instantiate()
 		root.add_child(machine)
 		_check(not _emits(machine), "Healthy machine emits no fault particles: " + prop_name)
 		for fault in [MACHINE.FaultType.SMOKE, MACHINE.FaultType.SPARKS, MACHINE.FaultType.FIRE]:

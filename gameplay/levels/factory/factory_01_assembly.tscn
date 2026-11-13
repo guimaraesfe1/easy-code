@@ -1,102 +1,34 @@
-[gd_scene load_steps=83 format=3]
+[gd_scene format=3 uid="uid://cmkws63xosb16"]
 
-[ext_resource type="Script" path="res://gameplay/levels/factory/factory_level.gd" id="controller"]
-
-[ext_resource type="PackedScene" path="res://gameplay/player/player_humanoid.tscn" id="player"]
-
+[ext_resource type="PackedScene" path="res://factory/prop/box_long.tscn" id="2_swbak"]
+[ext_resource type="PackedScene" path="res://factory/prop/arrow_basic.tscn" id="arrow_basic"]
+[ext_resource type="PackedScene" path="res://factory/prop/box_small.tscn" id="box_small"]
 [ext_resource type="PackedScene" path="res://gameplay/camera/factory_camera.tscn" id="camera"]
-
+[ext_resource type="PackedScene" path="res://factory/prop/cog_a.tscn" id="cog_a"]
+[ext_resource type="PackedScene" path="res://factory/prop/cog_b.tscn" id="cog_b"]
+[ext_resource type="Script" uid="uid://c8h1p61mq6nro" path="res://gameplay/levels/factory/factory_level.gd" id="controller"]
+[ext_resource type="PackedScene" path="res://factory/prop/conveyor_long_stripe_sides.tscn" id="conveyor_long_stripe_sides"]
+[ext_resource type="PackedScene" path="res://factory/prop/conveyor_stripe.tscn" id="conveyor_stripe"]
+[ext_resource type="PackedScene" path="res://factory/prop/conveyor_stripe_corner.tscn" id="conveyor_stripe_corner"]
+[ext_resource type="PackedScene" path="res://factory/prop/crane_lift.tscn" id="crane_lift"]
+[ext_resource type="PackedScene" path="res://factory/prop/crane_magnet.tscn" id="crane_magnet"]
+[ext_resource type="PackedScene" path="res://factory/prop/door_wide_closed.tscn" id="door_wide_closed"]
+[ext_resource type="PackedScene" path="res://factory/prop/hopper_high_round.tscn" id="hopper_high_round"]
+[ext_resource type="PackedScene" path="res://factory/prop/indicator_special_cross.tscn" id="indicator_special_cross"]
+[ext_resource type="PackedScene" path="res://factory/prop/indicator_special_lines.tscn" id="indicator_special_lines"]
+[ext_resource type="PackedScene" path="res://factory/prop/machine.tscn" id="machine"]
+[ext_resource type="PackedScene" path="res://factory/prop/machine_fortified.tscn" id="machine_fortified"]
+[ext_resource type="PackedScene" path="res://factory/prop/machine_window_bar.tscn" id="machine_window_bar"]
 [ext_resource type="PackedScene" path="res://ui/game_menu/game_menu.tscn" id="menu"]
-
 [ext_resource type="PackedScene" path="res://gameplay/levels/factory/factory_music.tscn" id="music"]
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/modules/steam_vent.tscn" id="steam"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_long_stripe_sides.tscn" id="conveyor_long_stripe_sides"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_stripe_corner.tscn" id="conveyor_stripe_corner"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/conveyor_stripe.tscn" id="conveyor_stripe"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine.tscn" id="machine"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_window_bar.tscn" id="machine_window_bar"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/machine_fortified.tscn" id="machine_fortified"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_a.tscn" id="robot_arm_a"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/robot_arm_b.tscn" id="robot_arm_b"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/hopper_high_round.tscn" id="hopper_high_round"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_small.tscn" id="box_small"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/box_wide.tscn" id="box_wide"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/cog_a.tscn" id="cog_a"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/cog_b.tscn" id="cog_b"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_large_long.tscn" id="pipe_large_long"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_long.tscn" id="pipe_glass_large_long"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_curve.tscn" id="pipe_glass_large_curve"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_valve.tscn" id="pipe_glass_large_valve"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/pipe_glass_large_junction.tscn" id="pipe_glass_large_junction"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_panel_wide.tscn" id="screen_panel_wide"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/screen_small.tscn" id="screen_small"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/door_wide_closed.tscn" id="door_wide_closed"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/catwalk_stairs.tscn" id="catwalk_stairs"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/warning_orange.tscn" id="warning_orange"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/indicator_special_cross.tscn" id="indicator_special_cross"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/indicator_special_lines.tscn" id="indicator_special_lines"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/arrow_basic.tscn" id="arrow_basic"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/cone.tscn" id="cone"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane.tscn" id="crane"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane_lift.tscn" id="crane_lift"]
-
-[ext_resource type="PackedScene" path="res://gameplay/props/factory/crane_magnet.tscn" id="crane_magnet"]
-
-[sub_resource type="StandardMaterial3D" id="FactoryPurple"]
-albedo_color = Color(0.30, 0.28, 0.46, 1)
-roughness = 0.8
-
-[sub_resource type="StandardMaterial3D" id="PurpleTrim"]
-albedo_color = Color(0.43, 0.40, 0.61, 1)
-roughness = 0.8
-
-[sub_resource type="StandardMaterial3D" id="DarkSteel"]
-albedo_color = Color(0.14, 0.17, 0.23, 1)
-roughness = 0.8
-
-[sub_resource type="StandardMaterial3D" id="SafetyGold"]
-albedo_color = Color(0.95, 0.62, 0.19, 1)
-roughness = 0.8
-
-[sub_resource type="StandardMaterial3D" id="Floor"]
-albedo_color = Color(0.20, 0.23, 0.28, 1)
-roughness = 0.8
-
-[sub_resource type="StandardMaterial3D" id="LightPanels"]
-albedo_color = Color(0.77, 0.88, 1.0, 1)
-roughness = 0.8
-emission_enabled = true
-emission = Color(0.77, 0.88, 1.0, 1)
-emission_energy_multiplier = 1.4
+[ext_resource type="PackedScene" path="res://factory/prop/pipe_glass_large_curve.tscn" id="pipe_glass_large_curve"]
+[ext_resource type="PackedScene" path="res://factory/prop/pipe_glass_large_long.tscn" id="pipe_glass_large_long"]
+[ext_resource type="PackedScene" path="res://factory/prop/pipe_glass_large_valve.tscn" id="pipe_glass_large_valve"]
+[ext_resource type="PackedScene" path="res://factory/prop/pipe_large_long.tscn" id="pipe_large_long"]
+[ext_resource type="PackedScene" uid="uid://bsokpiu7q56u3" path="res://gameplay/player/player_humanoid.tscn" id="player"]
+[ext_resource type="PackedScene" path="res://factory/prop/robot_arm_b.tscn" id="robot_arm_b"]
+[ext_resource type="PackedScene" path="res://factory/prop/modules/steam_vent.tscn" id="steam"]
+[ext_resource type="PackedScene" path="res://ui/tutorial/tutorial_guide.tscn" id="tutorial"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
@@ -104,7 +36,10 @@ background_color = Color(0.15, 0.18, 0.25, 1)
 ambient_light_source = 3
 ambient_light_color = Color(0.67, 0.72, 0.91, 1)
 ambient_light_energy = 0.55
-tonemap_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="Floor"]
+albedo_color = Color(0.2, 0.23, 0.28, 1)
+roughness = 0.8
 
 [sub_resource type="BoxMesh" id="Box1"]
 material = SubResource("Floor")
@@ -117,12 +52,20 @@ size = Vector3(32, 0.4, 28)
 material = SubResource("Floor")
 size = Vector3(1.975, 0.015, 1.975)
 
+[sub_resource type="StandardMaterial3D" id="FactoryPurple"]
+albedo_color = Color(0.3, 0.28, 0.46, 1)
+roughness = 0.8
+
 [sub_resource type="BoxMesh" id="Box226"]
 material = SubResource("FactoryPurple")
 size = Vector3(29, 3.2, 0.45)
 
 [sub_resource type="BoxShape3D" id="Shape226"]
 size = Vector3(29, 3.2, 0.45)
+
+[sub_resource type="StandardMaterial3D" id="SafetyGold"]
+albedo_color = Color(0.95, 0.62, 0.19, 1)
+roughness = 0.8
 
 [sub_resource type="BoxMesh" id="Box227"]
 material = SubResource("SafetyGold")
@@ -138,6 +81,10 @@ size = Vector3(0.45, 3.2, 25.6)
 [sub_resource type="BoxMesh" id="Box229"]
 material = SubResource("SafetyGold")
 size = Vector3(0.46, 0.15, 25.61)
+
+[sub_resource type="StandardMaterial3D" id="DarkSteel"]
+albedo_color = Color(0.14, 0.17, 0.23, 1)
+roughness = 0.8
 
 [sub_resource type="BoxMesh" id="Box230"]
 material = SubResource("DarkSteel")
@@ -168,6 +115,20 @@ size = Vector3(8, 4, 6)
 [sub_resource type="BoxShape3D" id="Shape234"]
 size = Vector3(8, 4, 6)
 
+[sub_resource type="BoxMesh" id="Box240"]
+material = SubResource("FactoryPurple")
+size = Vector3(8, 1.8, 5)
+
+[sub_resource type="BoxShape3D" id="Shape240"]
+size = Vector3(8, 1.8, 5)
+
+[sub_resource type="ConvexPolygonShape3D" id="StairRamp"]
+points = PackedVector3Array(-6, 0, 2.5, -6, 1.8, 2.5, -6, 0, 6.8, -4, 0, 2.5, -4, 1.8, 2.5, -4, 0, 6.8)
+
+[sub_resource type="StandardMaterial3D" id="PurpleTrim"]
+albedo_color = Color(0.43, 0.4, 0.61, 1)
+roughness = 0.8
+
 [sub_resource type="BoxMesh" id="Box235"]
 material = SubResource("PurpleTrim")
 size = Vector3(8.3, 0.25, 6.3)
@@ -180,16 +141,16 @@ size = Vector3(7.7, 0.1, 5.7)
 material = SubResource("SafetyGold")
 size = Vector3(8, 0.16, 0.06)
 
+[sub_resource type="StandardMaterial3D" id="LightPanels"]
+albedo_color = Color(0.77, 0.88, 1, 1)
+roughness = 0.8
+emission_enabled = true
+emission = Color(0.77, 0.88, 1, 1)
+emission_energy_multiplier = 1.4
+
 [sub_resource type="BoxMesh" id="Box238"]
 material = SubResource("LightPanels")
 size = Vector3(1.5, 0.45, 0.08)
-
-[sub_resource type="BoxMesh" id="Box240"]
-material = SubResource("FactoryPurple")
-size = Vector3(8, 1.8, 5)
-
-[sub_resource type="BoxShape3D" id="Shape240"]
-size = Vector3(8, 1.8, 5)
 
 [sub_resource type="BoxMesh" id="Box241"]
 material = SubResource("PurpleTrim")
@@ -210,9 +171,6 @@ size = Vector3(0.1, 0.8, 0.1)
 [sub_resource type="BoxMesh" id="Box254"]
 material = SubResource("SafetyGold")
 size = Vector3(5.5, 0.1, 0.1)
-
-[sub_resource type="ConvexPolygonShape3D" id="StairRamp"]
-points = PackedVector3Array(-6, 0, 2.5, -6, 1.8, 2.5, -6, 0, 6.8, -4, 0, 2.5, -4, 1.8, 2.5, -4, 0, 6.8)
 
 [sub_resource type="BoxMesh" id="Box255"]
 material = SubResource("PurpleTrim")
@@ -250,1696 +208,2090 @@ size = Vector3(10.5, 0.5, 0.6)
 material = SubResource("PurpleTrim")
 size = Vector3(0.55, 0.16, 0.08)
 
-[node name="Factory01Assembly" type="Node3D"]
+[node name="Factory01Assembly" type="Node3D" unique_id=576745574]
 script = ExtResource("controller")
-level_number = 1
-floor_bounds = Rect2(-16, -14, 32, 28)
 walk_bounds = Rect2(-14, -12, 28, 24)
 metadata/layout_reference = "res://mapa.png"
 
-[node name="Environment" type="WorldEnvironment" parent="."]
+[node name="Environment" type="WorldEnvironment" parent="." unique_id=2143443298]
 environment = SubResource("Environment")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-1.08, -0.49, 0)
-light_color = Color(1, 0.90, 0.78, 1)
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=359777240]
+transform = Transform3D(0.88233286, 0.4150722, -0.22181931, 0, 0.47132832, 0.8819578, 0.4706259, -0.77818036, 0.41586846, 0, 0, 0)
+light_color = Color(1, 0.9, 0.78, 1)
 light_energy = 0.9
 shadow_enabled = true
 directional_shadow_max_distance = 65.0
 
-[node name="Fill" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.6, 2.4, 0)
+[node name="Fill" type="DirectionalLight3D" parent="." unique_id=1949157185]
+transform = Transform3D(-0.7373938, -0.3813952, 0.5574838, 0, 0.8253356, 0.5646425, -0.67546314, 0.41636387, -0.60859734, 0, 0, 0)
 light_color = Color(0.62, 0.69, 1, 1)
 light_energy = 0.28
 
-[node name="Room" type="Node3D" parent="."]
+[node name="Room" type="Node3D" parent="." unique_id=1203761267]
 
-
-[node name="Workstations" type="Node3D" parent="."]
-
-
-[node name="FloorMarkings" type="Node3D" parent="."]
-
-
-[node name="Details" type="Node3D" parent="."]
-
-
-[node name="Foundation" type="StaticBody3D" parent="Room"]
-position = Vector3(0, -0.2, 0)
+[node name="Foundation" type="StaticBody3D" parent="Room" unique_id=917445313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/Foundation"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/Foundation" unique_id=221718767]
 mesh = SubResource("Box1")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/Foundation"]
+[node name="Collision" type="CollisionShape3D" parent="Room/Foundation" unique_id=707109326]
 shape = SubResource("Shape1")
 
-[node name="Tile_-15_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -13)
+[node name="Tile_-15_-13" type="MeshInstance3D" parent="Room" unique_id=1549692478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -11)
+[node name="Tile_-15_-11" type="MeshInstance3D" parent="Room" unique_id=35976636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -9)
+[node name="Tile_-15_-9" type="MeshInstance3D" parent="Room" unique_id=752085018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -7)
+[node name="Tile_-15_-7" type="MeshInstance3D" parent="Room" unique_id=2143804698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -5)
+[node name="Tile_-15_-5" type="MeshInstance3D" parent="Room" unique_id=1228466643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -3)
+[node name="Tile_-15_-3" type="MeshInstance3D" parent="Room" unique_id=1808605193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, -1)
+[node name="Tile_-15_-1" type="MeshInstance3D" parent="Room" unique_id=1259216527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 1)
+[node name="Tile_-15_1" type="MeshInstance3D" parent="Room" unique_id=1850166784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 3)
+[node name="Tile_-15_3" type="MeshInstance3D" parent="Room" unique_id=46835879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 5)
+[node name="Tile_-15_5" type="MeshInstance3D" parent="Room" unique_id=880158846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 7)
+[node name="Tile_-15_7" type="MeshInstance3D" parent="Room" unique_id=446528048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 9)
+[node name="Tile_-15_9" type="MeshInstance3D" parent="Room" unique_id=1470654734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 11)
+[node name="Tile_-15_11" type="MeshInstance3D" parent="Room" unique_id=462175473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-15_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-15, 0.008, 13)
+[node name="Tile_-15_13" type="MeshInstance3D" parent="Room" unique_id=16524543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -13)
+[node name="Tile_-13_-13" type="MeshInstance3D" parent="Room" unique_id=184227920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -11)
+[node name="Tile_-13_-11" type="MeshInstance3D" parent="Room" unique_id=886491987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -9)
+[node name="Tile_-13_-9" type="MeshInstance3D" parent="Room" unique_id=1392311184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -7)
+[node name="Tile_-13_-7" type="MeshInstance3D" parent="Room" unique_id=1325797277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -5)
+[node name="Tile_-13_-5" type="MeshInstance3D" parent="Room" unique_id=856548328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -3)
+[node name="Tile_-13_-3" type="MeshInstance3D" parent="Room" unique_id=470797885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, -1)
+[node name="Tile_-13_-1" type="MeshInstance3D" parent="Room" unique_id=1227866340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 1)
+[node name="Tile_-13_1" type="MeshInstance3D" parent="Room" unique_id=328664526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 3)
+[node name="Tile_-13_3" type="MeshInstance3D" parent="Room" unique_id=1581100603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 5)
+[node name="Tile_-13_5" type="MeshInstance3D" parent="Room" unique_id=2103844694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 7)
+[node name="Tile_-13_7" type="MeshInstance3D" parent="Room" unique_id=1642441317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 9)
+[node name="Tile_-13_9" type="MeshInstance3D" parent="Room" unique_id=2075474683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 11)
+[node name="Tile_-13_11" type="MeshInstance3D" parent="Room" unique_id=1027433267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-13_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-13, 0.008, 13)
+[node name="Tile_-13_13" type="MeshInstance3D" parent="Room" unique_id=949200538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -13)
+[node name="Tile_-11_-13" type="MeshInstance3D" parent="Room" unique_id=2101234624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -11)
+[node name="Tile_-11_-11" type="MeshInstance3D" parent="Room" unique_id=103210869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -9)
+[node name="Tile_-11_-9" type="MeshInstance3D" parent="Room" unique_id=2049351368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -7)
+[node name="Tile_-11_-7" type="MeshInstance3D" parent="Room" unique_id=33470981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -5)
+[node name="Tile_-11_-5" type="MeshInstance3D" parent="Room" unique_id=145559114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -3)
+[node name="Tile_-11_-3" type="MeshInstance3D" parent="Room" unique_id=1508548699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, -1)
+[node name="Tile_-11_-1" type="MeshInstance3D" parent="Room" unique_id=1680513299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 1)
+[node name="Tile_-11_1" type="MeshInstance3D" parent="Room" unique_id=239231666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 3)
+[node name="Tile_-11_3" type="MeshInstance3D" parent="Room" unique_id=1901803507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 5)
+[node name="Tile_-11_5" type="MeshInstance3D" parent="Room" unique_id=381496013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 7)
+[node name="Tile_-11_7" type="MeshInstance3D" parent="Room" unique_id=2025477054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 9)
+[node name="Tile_-11_9" type="MeshInstance3D" parent="Room" unique_id=43920168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 11)
+[node name="Tile_-11_11" type="MeshInstance3D" parent="Room" unique_id=2008971618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-11_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-11, 0.008, 13)
+[node name="Tile_-11_13" type="MeshInstance3D" parent="Room" unique_id=627656061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -13)
+[node name="Tile_-9_-13" type="MeshInstance3D" parent="Room" unique_id=1614808531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -11)
+[node name="Tile_-9_-11" type="MeshInstance3D" parent="Room" unique_id=2083750008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -9)
+[node name="Tile_-9_-9" type="MeshInstance3D" parent="Room" unique_id=7317665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -7)
+[node name="Tile_-9_-7" type="MeshInstance3D" parent="Room" unique_id=326041017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -5)
+[node name="Tile_-9_-5" type="MeshInstance3D" parent="Room" unique_id=2076476318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -3)
+[node name="Tile_-9_-3" type="MeshInstance3D" parent="Room" unique_id=2029172382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, -1)
+[node name="Tile_-9_-1" type="MeshInstance3D" parent="Room" unique_id=191818565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 1)
+[node name="Tile_-9_1" type="MeshInstance3D" parent="Room" unique_id=1239729142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 3)
+[node name="Tile_-9_3" type="MeshInstance3D" parent="Room" unique_id=1897837226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 5)
+[node name="Tile_-9_5" type="MeshInstance3D" parent="Room" unique_id=1079410064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 7)
+[node name="Tile_-9_7" type="MeshInstance3D" parent="Room" unique_id=1352207549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 9)
+[node name="Tile_-9_9" type="MeshInstance3D" parent="Room" unique_id=1570317882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 11)
+[node name="Tile_-9_11" type="MeshInstance3D" parent="Room" unique_id=106999886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-9_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-9, 0.008, 13)
+[node name="Tile_-9_13" type="MeshInstance3D" parent="Room" unique_id=1238539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -13)
+[node name="Tile_-7_-13" type="MeshInstance3D" parent="Room" unique_id=2136670474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -11)
+[node name="Tile_-7_-11" type="MeshInstance3D" parent="Room" unique_id=1626769007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -9)
+[node name="Tile_-7_-9" type="MeshInstance3D" parent="Room" unique_id=40820228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -7)
+[node name="Tile_-7_-7" type="MeshInstance3D" parent="Room" unique_id=2005073810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -5)
+[node name="Tile_-7_-5" type="MeshInstance3D" parent="Room" unique_id=506177544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -3)
+[node name="Tile_-7_-3" type="MeshInstance3D" parent="Room" unique_id=2123065426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, -1)
+[node name="Tile_-7_-1" type="MeshInstance3D" parent="Room" unique_id=1789816372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 1)
+[node name="Tile_-7_1" type="MeshInstance3D" parent="Room" unique_id=2058894917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 3)
+[node name="Tile_-7_3" type="MeshInstance3D" parent="Room" unique_id=119332541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 5)
+[node name="Tile_-7_5" type="MeshInstance3D" parent="Room" unique_id=1374036687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 7)
+[node name="Tile_-7_7" type="MeshInstance3D" parent="Room" unique_id=383918672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 9)
+[node name="Tile_-7_9" type="MeshInstance3D" parent="Room" unique_id=1275286537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 11)
+[node name="Tile_-7_11" type="MeshInstance3D" parent="Room" unique_id=1035054030]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-7_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-7, 0.008, 13)
+[node name="Tile_-7_13" type="MeshInstance3D" parent="Room" unique_id=1658936529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -13)
+[node name="Tile_-5_-13" type="MeshInstance3D" parent="Room" unique_id=2060044792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -11)
+[node name="Tile_-5_-11" type="MeshInstance3D" parent="Room" unique_id=106193110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -9)
+[node name="Tile_-5_-9" type="MeshInstance3D" parent="Room" unique_id=2011918585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -7)
+[node name="Tile_-5_-7" type="MeshInstance3D" parent="Room" unique_id=907112668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -5)
+[node name="Tile_-5_-5" type="MeshInstance3D" parent="Room" unique_id=1768044979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -3)
+[node name="Tile_-5_-3" type="MeshInstance3D" parent="Room" unique_id=1547287284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, -1)
+[node name="Tile_-5_-1" type="MeshInstance3D" parent="Room" unique_id=1576305618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 1)
+[node name="Tile_-5_1" type="MeshInstance3D" parent="Room" unique_id=1814607195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 3)
+[node name="Tile_-5_3" type="MeshInstance3D" parent="Room" unique_id=1495564872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 5)
+[node name="Tile_-5_5" type="MeshInstance3D" parent="Room" unique_id=946285334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 7)
+[node name="Tile_-5_7" type="MeshInstance3D" parent="Room" unique_id=332376477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 9)
+[node name="Tile_-5_9" type="MeshInstance3D" parent="Room" unique_id=1202699803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 11)
+[node name="Tile_-5_11" type="MeshInstance3D" parent="Room" unique_id=115648734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-5_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-5, 0.008, 13)
+[node name="Tile_-5_13" type="MeshInstance3D" parent="Room" unique_id=1175035184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -13)
+[node name="Tile_-3_-13" type="MeshInstance3D" parent="Room" unique_id=286753252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -11)
+[node name="Tile_-3_-11" type="MeshInstance3D" parent="Room" unique_id=1148479909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -9)
+[node name="Tile_-3_-9" type="MeshInstance3D" parent="Room" unique_id=2047894389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -7)
+[node name="Tile_-3_-7" type="MeshInstance3D" parent="Room" unique_id=1731681154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -5)
+[node name="Tile_-3_-5" type="MeshInstance3D" parent="Room" unique_id=215198832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -3)
+[node name="Tile_-3_-3" type="MeshInstance3D" parent="Room" unique_id=384343094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, -1)
+[node name="Tile_-3_-1" type="MeshInstance3D" parent="Room" unique_id=1104961928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 1)
+[node name="Tile_-3_1" type="MeshInstance3D" parent="Room" unique_id=1076662782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 3)
+[node name="Tile_-3_3" type="MeshInstance3D" parent="Room" unique_id=1561508653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 5)
+[node name="Tile_-3_5" type="MeshInstance3D" parent="Room" unique_id=1946356798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 7)
+[node name="Tile_-3_7" type="MeshInstance3D" parent="Room" unique_id=811024988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 9)
+[node name="Tile_-3_9" type="MeshInstance3D" parent="Room" unique_id=1834331929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 11)
+[node name="Tile_-3_11" type="MeshInstance3D" parent="Room" unique_id=1894470605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-3_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-3, 0.008, 13)
+[node name="Tile_-3_13" type="MeshInstance3D" parent="Room" unique_id=1508268967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -13)
+[node name="Tile_-1_-13" type="MeshInstance3D" parent="Room" unique_id=2096307197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -11)
+[node name="Tile_-1_-11" type="MeshInstance3D" parent="Room" unique_id=1169175712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -9)
+[node name="Tile_-1_-9" type="MeshInstance3D" parent="Room" unique_id=1323586872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -7)
+[node name="Tile_-1_-7" type="MeshInstance3D" parent="Room" unique_id=1773262846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -5)
+[node name="Tile_-1_-5" type="MeshInstance3D" parent="Room" unique_id=1173783825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -3)
+[node name="Tile_-1_-3" type="MeshInstance3D" parent="Room" unique_id=732865834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, -1)
+[node name="Tile_-1_-1" type="MeshInstance3D" parent="Room" unique_id=1380041494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 1)
+[node name="Tile_-1_1" type="MeshInstance3D" parent="Room" unique_id=1084280955]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 3)
+[node name="Tile_-1_3" type="MeshInstance3D" parent="Room" unique_id=994498061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 5)
+[node name="Tile_-1_5" type="MeshInstance3D" parent="Room" unique_id=1792843654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 7)
+[node name="Tile_-1_7" type="MeshInstance3D" parent="Room" unique_id=1300220368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 9)
+[node name="Tile_-1_9" type="MeshInstance3D" parent="Room" unique_id=1251894117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 11)
+[node name="Tile_-1_11" type="MeshInstance3D" parent="Room" unique_id=1891499967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_-1_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(-1, 0.008, 13)
+[node name="Tile_-1_13" type="MeshInstance3D" parent="Room" unique_id=1260531730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -13)
+[node name="Tile_1_-13" type="MeshInstance3D" parent="Room" unique_id=1146940427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -11)
+[node name="Tile_1_-11" type="MeshInstance3D" parent="Room" unique_id=1625657526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -9)
+[node name="Tile_1_-9" type="MeshInstance3D" parent="Room" unique_id=1159544317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -7)
+[node name="Tile_1_-7" type="MeshInstance3D" parent="Room" unique_id=628343581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -5)
+[node name="Tile_1_-5" type="MeshInstance3D" parent="Room" unique_id=183957000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -3)
+[node name="Tile_1_-3" type="MeshInstance3D" parent="Room" unique_id=1972769869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, -1)
+[node name="Tile_1_-1" type="MeshInstance3D" parent="Room" unique_id=897583343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 1)
+[node name="Tile_1_1" type="MeshInstance3D" parent="Room" unique_id=164397920]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 3)
+[node name="Tile_1_3" type="MeshInstance3D" parent="Room" unique_id=1933230389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 5)
+[node name="Tile_1_5" type="MeshInstance3D" parent="Room" unique_id=219641225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 7)
+[node name="Tile_1_7" type="MeshInstance3D" parent="Room" unique_id=190767743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 9)
+[node name="Tile_1_9" type="MeshInstance3D" parent="Room" unique_id=220735552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 11)
+[node name="Tile_1_11" type="MeshInstance3D" parent="Room" unique_id=2049521199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_1_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(1, 0.008, 13)
+[node name="Tile_1_13" type="MeshInstance3D" parent="Room" unique_id=1234972310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -13)
+[node name="Tile_3_-13" type="MeshInstance3D" parent="Room" unique_id=1150765986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -11)
+[node name="Tile_3_-11" type="MeshInstance3D" parent="Room" unique_id=929329669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -9)
+[node name="Tile_3_-9" type="MeshInstance3D" parent="Room" unique_id=1767822130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -7)
+[node name="Tile_3_-7" type="MeshInstance3D" parent="Room" unique_id=981561694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -5)
+[node name="Tile_3_-5" type="MeshInstance3D" parent="Room" unique_id=548141998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -3)
+[node name="Tile_3_-3" type="MeshInstance3D" parent="Room" unique_id=1185380528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, -1)
+[node name="Tile_3_-1" type="MeshInstance3D" parent="Room" unique_id=1808491310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 1)
+[node name="Tile_3_1" type="MeshInstance3D" parent="Room" unique_id=1866961853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 3)
+[node name="Tile_3_3" type="MeshInstance3D" parent="Room" unique_id=1817217368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 5)
+[node name="Tile_3_5" type="MeshInstance3D" parent="Room" unique_id=1449632969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 7)
+[node name="Tile_3_7" type="MeshInstance3D" parent="Room" unique_id=202425007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 9)
+[node name="Tile_3_9" type="MeshInstance3D" parent="Room" unique_id=1526042157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 11)
+[node name="Tile_3_11" type="MeshInstance3D" parent="Room" unique_id=1316920356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_3_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(3, 0.008, 13)
+[node name="Tile_3_13" type="MeshInstance3D" parent="Room" unique_id=1859817383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -13)
+[node name="Tile_5_-13" type="MeshInstance3D" parent="Room" unique_id=1351210929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -11)
+[node name="Tile_5_-11" type="MeshInstance3D" parent="Room" unique_id=1589721413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -9)
+[node name="Tile_5_-9" type="MeshInstance3D" parent="Room" unique_id=1340097594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -7)
+[node name="Tile_5_-7" type="MeshInstance3D" parent="Room" unique_id=623789393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -5)
+[node name="Tile_5_-5" type="MeshInstance3D" parent="Room" unique_id=1473331754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -3)
+[node name="Tile_5_-3" type="MeshInstance3D" parent="Room" unique_id=414223643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, -1)
+[node name="Tile_5_-1" type="MeshInstance3D" parent="Room" unique_id=264745046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 1)
+[node name="Tile_5_1" type="MeshInstance3D" parent="Room" unique_id=583533454]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 3)
+[node name="Tile_5_3" type="MeshInstance3D" parent="Room" unique_id=2131444865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 5)
+[node name="Tile_5_5" type="MeshInstance3D" parent="Room" unique_id=1657124528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 7)
+[node name="Tile_5_7" type="MeshInstance3D" parent="Room" unique_id=182935686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 9)
+[node name="Tile_5_9" type="MeshInstance3D" parent="Room" unique_id=1596596324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 11)
+[node name="Tile_5_11" type="MeshInstance3D" parent="Room" unique_id=976146728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_5_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(5, 0.008, 13)
+[node name="Tile_5_13" type="MeshInstance3D" parent="Room" unique_id=1610367748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -13)
+[node name="Tile_7_-13" type="MeshInstance3D" parent="Room" unique_id=1958406985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -11)
+[node name="Tile_7_-11" type="MeshInstance3D" parent="Room" unique_id=1621615226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -9)
+[node name="Tile_7_-9" type="MeshInstance3D" parent="Room" unique_id=539735601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -7)
+[node name="Tile_7_-7" type="MeshInstance3D" parent="Room" unique_id=681680453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -5)
+[node name="Tile_7_-5" type="MeshInstance3D" parent="Room" unique_id=718557439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -3)
+[node name="Tile_7_-3" type="MeshInstance3D" parent="Room" unique_id=1199929122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, -1)
+[node name="Tile_7_-1" type="MeshInstance3D" parent="Room" unique_id=1825977514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 1)
+[node name="Tile_7_1" type="MeshInstance3D" parent="Room" unique_id=522571497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 3)
+[node name="Tile_7_3" type="MeshInstance3D" parent="Room" unique_id=46158236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 5)
+[node name="Tile_7_5" type="MeshInstance3D" parent="Room" unique_id=447607392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 7)
+[node name="Tile_7_7" type="MeshInstance3D" parent="Room" unique_id=1193885839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 9)
+[node name="Tile_7_9" type="MeshInstance3D" parent="Room" unique_id=2034828725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 11)
+[node name="Tile_7_11" type="MeshInstance3D" parent="Room" unique_id=1067530597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_7_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(7, 0.008, 13)
+[node name="Tile_7_13" type="MeshInstance3D" parent="Room" unique_id=2010660597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -13)
+[node name="Tile_9_-13" type="MeshInstance3D" parent="Room" unique_id=2054959782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -11)
+[node name="Tile_9_-11" type="MeshInstance3D" parent="Room" unique_id=1892125335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -9)
+[node name="Tile_9_-9" type="MeshInstance3D" parent="Room" unique_id=661545422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -7)
+[node name="Tile_9_-7" type="MeshInstance3D" parent="Room" unique_id=167253999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -5)
+[node name="Tile_9_-5" type="MeshInstance3D" parent="Room" unique_id=1486329467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -3)
+[node name="Tile_9_-3" type="MeshInstance3D" parent="Room" unique_id=691491947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, -1)
+[node name="Tile_9_-1" type="MeshInstance3D" parent="Room" unique_id=813424109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 1)
+[node name="Tile_9_1" type="MeshInstance3D" parent="Room" unique_id=1880606569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 3)
+[node name="Tile_9_3" type="MeshInstance3D" parent="Room" unique_id=731313460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 5)
+[node name="Tile_9_5" type="MeshInstance3D" parent="Room" unique_id=1730807278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 7)
+[node name="Tile_9_7" type="MeshInstance3D" parent="Room" unique_id=781818646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 9)
+[node name="Tile_9_9" type="MeshInstance3D" parent="Room" unique_id=723059536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 11)
+[node name="Tile_9_11" type="MeshInstance3D" parent="Room" unique_id=1406647854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_9_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(9, 0.008, 13)
+[node name="Tile_9_13" type="MeshInstance3D" parent="Room" unique_id=111444063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -13)
+[node name="Tile_11_-13" type="MeshInstance3D" parent="Room" unique_id=806189370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -11)
+[node name="Tile_11_-11" type="MeshInstance3D" parent="Room" unique_id=156539750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -9)
+[node name="Tile_11_-9" type="MeshInstance3D" parent="Room" unique_id=1930400685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -7)
+[node name="Tile_11_-7" type="MeshInstance3D" parent="Room" unique_id=942170424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -5)
+[node name="Tile_11_-5" type="MeshInstance3D" parent="Room" unique_id=1057707996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -3)
+[node name="Tile_11_-3" type="MeshInstance3D" parent="Room" unique_id=1996920327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, -1)
+[node name="Tile_11_-1" type="MeshInstance3D" parent="Room" unique_id=1370271388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 1)
+[node name="Tile_11_1" type="MeshInstance3D" parent="Room" unique_id=45069748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 3)
+[node name="Tile_11_3" type="MeshInstance3D" parent="Room" unique_id=1947962187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 5)
+[node name="Tile_11_5" type="MeshInstance3D" parent="Room" unique_id=1601552329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 7)
+[node name="Tile_11_7" type="MeshInstance3D" parent="Room" unique_id=1203645543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 9)
+[node name="Tile_11_9" type="MeshInstance3D" parent="Room" unique_id=757767176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 11)
+[node name="Tile_11_11" type="MeshInstance3D" parent="Room" unique_id=510241502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_11_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(11, 0.008, 13)
+[node name="Tile_11_13" type="MeshInstance3D" parent="Room" unique_id=741364731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -13)
+[node name="Tile_13_-13" type="MeshInstance3D" parent="Room" unique_id=771474984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -11)
+[node name="Tile_13_-11" type="MeshInstance3D" parent="Room" unique_id=421301536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -9)
+[node name="Tile_13_-9" type="MeshInstance3D" parent="Room" unique_id=2054827420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -7)
+[node name="Tile_13_-7" type="MeshInstance3D" parent="Room" unique_id=685453672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.872258, 0.008, -5.687168)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -5)
+[node name="Tile_13_-5" type="MeshInstance3D" parent="Room" unique_id=1233749336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -3)
+[node name="Tile_13_-3" type="MeshInstance3D" parent="Room" unique_id=1125988574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, -1)
+[node name="Tile_13_1" type="MeshInstance3D" parent="Room" unique_id=1868103838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 1)
+[node name="Tile_13_-4" type="MeshInstance3D" parent="Room" unique_id=1595184128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 3)
+[node name="Tile_13_3" type="MeshInstance3D" parent="Room" unique_id=422351179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 5)
+[node name="Tile_13_-1" type="MeshInstance3D" parent="Room" unique_id=1093284548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 7)
+[node name="Tile_13_5" type="MeshInstance3D" parent="Room" unique_id=1000849877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 9)
+[node name="Tile_13_7" type="MeshInstance3D" parent="Room" unique_id=253477557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 11)
+[node name="Tile_13_9" type="MeshInstance3D" parent="Room" unique_id=431720251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="Tile_13_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(13, 0.008, 13)
+[node name="Tile_13_11" type="MeshInstance3D" parent="Room" unique_id=245223854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 11)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-13" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -13)
+[node name="Tile_13_13" type="MeshInstance3D" parent="Room" unique_id=327249889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, 13)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-11" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -11)
+[node name="Tile_15_-13" type="MeshInstance3D" parent="Room" unique_id=1804216488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -13)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-9" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -9)
+[node name="Tile_15_-11" type="MeshInstance3D" parent="Room" unique_id=1018442212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -11)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-7" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -7)
+[node name="Tile_15_-9" type="MeshInstance3D" parent="Room" unique_id=252939674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -9)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-5" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -5)
+[node name="Tile_15_-7" type="MeshInstance3D" parent="Room" unique_id=290339577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -7)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-3" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -3)
+[node name="Tile_15_-5" type="MeshInstance3D" parent="Room" unique_id=1467703877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_-1" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, -1)
+[node name="Tile_15_-6" type="MeshInstance3D" parent="Room" unique_id=2025975117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -5)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_1" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 1)
+[node name="Tile_15_-3" type="MeshInstance3D" parent="Room" unique_id=2057893576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -3)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_3" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 3)
+[node name="Tile_15_-1" type="MeshInstance3D" parent="Room" unique_id=1039267235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, -1)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_5" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 5)
+[node name="Tile_15_1" type="MeshInstance3D" parent="Room" unique_id=1674844598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 1)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_7" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 7)
+[node name="Tile_15_3" type="MeshInstance3D" parent="Room" unique_id=1730463863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 3)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_9" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 9)
+[node name="Tile_15_5" type="MeshInstance3D" parent="Room" unique_id=367869774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 5)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_11" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 11)
+[node name="Tile_15_7" type="MeshInstance3D" parent="Room" unique_id=1194738788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 7)
 mesh = SubResource("Box2")
 
-[node name="Tile_15_13" type="MeshInstance3D" parent="Room"]
-position = Vector3(15, 0.008, 13)
+[node name="Tile_15_9" type="MeshInstance3D" parent="Room" unique_id=1724226044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 9)
 mesh = SubResource("Box2")
 
-[node name="NorthWall" type="StaticBody3D" parent="Room"]
-position = Vector3(0, 1.6, -12.8)
+[node name="Tile_15_11" type="MeshInstance3D" parent="Room" unique_id=1416295256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 11)
+mesh = SubResource("Box2")
+
+[node name="Tile_15_13" type="MeshInstance3D" parent="Room" unique_id=1907430737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.008, 13)
+mesh = SubResource("Box2")
+
+[node name="NorthWall" type="StaticBody3D" parent="Room" unique_id=3722392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, -12.8)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/NorthWall"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/NorthWall" unique_id=503906651]
 mesh = SubResource("Box226")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/NorthWall"]
+[node name="Collision" type="CollisionShape3D" parent="Room/NorthWall" unique_id=1599232442]
 shape = SubResource("Shape226")
 
-[node name="NorthWallStripe" type="MeshInstance3D" parent="Room"]
-position = Vector3(0, 1.15, -12.56)
+[node name="NorthWallStripe" type="MeshInstance3D" parent="Room" unique_id=575765892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15, -12.56)
 mesh = SubResource("Box227")
 
-[node name="WestWall" type="StaticBody3D" parent="Room"]
-position = Vector3(-14.8, 1.6, 0)
+[node name="WestWall" type="StaticBody3D" parent="Room" unique_id=1009966411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 1.6, 0)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/WestWall"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/WestWall" unique_id=648000019]
 mesh = SubResource("Box228")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/WestWall"]
+[node name="Collision" type="CollisionShape3D" parent="Room/WestWall" unique_id=1488905783]
 shape = SubResource("Shape228")
 
-[node name="WestWallStripe" type="MeshInstance3D" parent="Room"]
-position = Vector3(-14.8, 1.15, 0)
+[node name="WestWallStripe" type="MeshInstance3D" parent="Room" unique_id=1511802163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8, 1.15, 0)
 mesh = SubResource("Box229")
 
-[node name="SouthBarrier" type="StaticBody3D" parent="Room"]
-position = Vector3(0, 0.48, 12.5)
+[node name="SouthBarrier" type="StaticBody3D" parent="Room" unique_id=749923543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48, 12.5)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/SouthBarrier"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/SouthBarrier" unique_id=125438308]
 mesh = SubResource("Box230")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/SouthBarrier"]
+[node name="Collision" type="CollisionShape3D" parent="Room/SouthBarrier" unique_id=1638974916]
 shape = SubResource("Shape230")
 
-[node name="SouthBarrierRail" type="MeshInstance3D" parent="Room"]
-position = Vector3(0, 1, 12.5)
+[node name="SouthBarrierRail" type="MeshInstance3D" parent="Room" unique_id=1817088070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 12.5)
 mesh = SubResource("Box231")
 
-[node name="EastBarrier" type="StaticBody3D" parent="Room"]
-position = Vector3(14.5, 0.48, 0)
+[node name="EastBarrier" type="StaticBody3D" parent="Room" unique_id=833130551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 0.48, 0)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/EastBarrier"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/EastBarrier" unique_id=1138074561]
 mesh = SubResource("Box232")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/EastBarrier"]
+[node name="Collision" type="CollisionShape3D" parent="Room/EastBarrier" unique_id=1712225075]
 shape = SubResource("Shape232")
 
-[node name="EastBarrierRail" type="MeshInstance3D" parent="Room"]
-position = Vector3(14.5, 1, 0)
+[node name="EastBarrierRail" type="MeshInstance3D" parent="Room" unique_id=1623646940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, 0)
 mesh = SubResource("Box233")
 
-[node name="AssemblyBuilding" type="StaticBody3D" parent="Room"]
-position = Vector3(-8, 2, -7)
+[node name="AssemblyBuilding" type="StaticBody3D" parent="Room" unique_id=671859031]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -7)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/AssemblyBuilding"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/AssemblyBuilding" unique_id=946061054]
 mesh = SubResource("Box234")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/AssemblyBuilding"]
+[node name="Collision" type="CollisionShape3D" parent="Room/AssemblyBuilding" unique_id=622031212]
 shape = SubResource("Shape234")
 
-[node name="AssemblyBuildingCornice" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 3.9, -7)
-mesh = SubResource("Box235")
-
-[node name="AssemblyBuildingRoof" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 4.05, -7)
-mesh = SubResource("Box236")
-
-[node name="AssemblyBuildingSafetyBand" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 0.9, -3.975)
-mesh = SubResource("Box237")
-
-[node name="AssemblyBuildingWindow-10.5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-10.5, 2.8, -3.945)
-mesh = SubResource("Box238")
-
-[node name="AssemblyBuildingWindow-5.5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5.5, 2.8, -3.945)
-mesh = SubResource("Box238")
-
-[node name="ServiceTerrace" type="StaticBody3D" parent="Room"]
-position = Vector3(-8, 0.9, 0)
+[node name="ServiceTerrace" type="StaticBody3D" parent="Room" unique_id=575774978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.9, 0)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Room/ServiceTerrace"]
+[node name="Mesh" type="MeshInstance3D" parent="Room/ServiceTerrace" unique_id=796342701]
 mesh = SubResource("Box240")
 
-[node name="Collision" type="CollisionShape3D" parent="Room/ServiceTerrace"]
+[node name="Collision" type="CollisionShape3D" parent="Room/ServiceTerrace" unique_id=1104006907]
 shape = SubResource("Shape240")
 
-[node name="ServiceTerraceCornice" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 1.7, 0)
-mesh = SubResource("Box241")
-
-[node name="ServiceTerraceRoof" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 1.85, 0)
-mesh = SubResource("Box242")
-
-[node name="ServiceTerraceSafetyBand" type="MeshInstance3D" parent="Details"]
-position = Vector3(-8, 0.9, 2.525)
-mesh = SubResource("Box237")
-
-[node name="ServiceTerraceWindow-10.5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-10.5, 1.2, 2.555)
-mesh = SubResource("Box238")
-
-[node name="ServiceTerraceWindow-5.5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5.5, 1.2, 2.555)
-mesh = SubResource("Box238")
-
-[node name="AssemblyLoadingDoor" parent="Details" instance=ExtResource("door_wide_closed")]
-position = Vector3(-8, 0, -3.56)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1.8, 1)
-
-[node name="ServiceDoor" parent="Details" instance=ExtResource("door_wide_closed")]
-position = Vector3(-9, 0, 2.57)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.1, 1, 1)
-
-[node name="TerraceRail-11.7" type="MeshInstance3D" parent="Details"]
-position = Vector3(-11.7, 2.6, 0)
-mesh = SubResource("Box246")
-
-[node name="Post-11.7_-2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-11.7, 2.2, -2)
-mesh = SubResource("Box247")
-
-[node name="Post-11.7_0" type="MeshInstance3D" parent="Details"]
-position = Vector3(-11.7, 2.2, 0)
-mesh = SubResource("Box247")
-
-[node name="Post-11.7_2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-11.7, 2.2, 2)
-mesh = SubResource("Box247")
-
-[node name="TerraceRail-4.3" type="MeshInstance3D" parent="Details"]
-position = Vector3(-4.3, 2.6, 0)
-mesh = SubResource("Box246")
-
-[node name="Post-4.3_-2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-4.3, 2.2, -2)
-mesh = SubResource("Box247")
-
-[node name="Post-4.3_0" type="MeshInstance3D" parent="Details"]
-position = Vector3(-4.3, 2.2, 0)
-mesh = SubResource("Box247")
-
-[node name="Post-4.3_2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-4.3, 2.2, 2)
-mesh = SubResource("Box247")
-
-[node name="TerraceFrontRail" type="MeshInstance3D" parent="Details"]
-position = Vector3(-9, 2.6, 2.3)
-mesh = SubResource("Box254")
-
-[node name="TerraceStairs" type="StaticBody3D" parent="Room"]
+[node name="TerraceStairs" type="StaticBody3D" parent="Room" unique_id=830059703]
 collision_mask = 2
 
-[node name="Collision" type="CollisionShape3D" parent="Room/TerraceStairs"]
+[node name="Collision" type="CollisionShape3D" parent="Room/TerraceStairs" unique_id=609952167]
 shape = SubResource("StairRamp")
 
-[node name="StairTread0" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.08, 6.62083)
-mesh = SubResource("Box255")
+[node name="BoxLong4" parent="Room" unique_id=98252631 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 13.611236, 0.7663412, -4.1955547)
 
-[node name="StairEdge0" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.155, 6.74083)
-mesh = SubResource("Box256")
+[node name="BoxLong" parent="Room" unique_id=701837056 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 13.611236, 0, -4.1955547)
 
-[node name="StairTread1" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.23, 6.2625)
-mesh = SubResource("Box255")
+[node name="BoxLong3" parent="Room" unique_id=1078826333 instance=ExtResource("2_swbak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.378461, 0.8134737, -4.1955547)
 
-[node name="StairEdge1" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.305, 6.3825)
-mesh = SubResource("Box256")
+[node name="Tile_13_-6" type="MeshInstance3D" parent="Room" unique_id=1355553207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -3)
+mesh = SubResource("Box2")
 
-[node name="StairTread2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.38, 5.90417)
-mesh = SubResource("Box255")
+[node name="Tile_13_-8" type="MeshInstance3D" parent="Room" unique_id=1039270878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -3)
+mesh = SubResource("Box2")
 
-[node name="StairEdge2" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.455, 6.02417)
-mesh = SubResource("Box256")
+[node name="Tile_13_-2" type="MeshInstance3D" parent="Room" unique_id=2085153226]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -1)
+mesh = SubResource("Box2")
 
-[node name="StairTread3" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.53, 5.54583)
-mesh = SubResource("Box255")
+[node name="BoxLong5" parent="Room" unique_id=1595749995 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 13.611236, 0, -4.1955547)
 
-[node name="StairEdge3" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.605, 5.66583)
-mesh = SubResource("Box256")
+[node name="Tile_13_-10" type="MeshInstance3D" parent="Room" unique_id=951674826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -8.65287)
+mesh = SubResource("Box2")
 
-[node name="StairTread4" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.68, 5.1875)
-mesh = SubResource("Box255")
+[node name="Tile_13_-12" type="MeshInstance3D" parent="Room" unique_id=1669321853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -8.65287)
+mesh = SubResource("Box2")
 
-[node name="StairEdge4" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.755, 5.3075)
-mesh = SubResource("Box256")
+[node name="Tile_13_-14" type="MeshInstance3D" parent="Room" unique_id=1136648528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -6.6528697)
+mesh = SubResource("Box2")
 
-[node name="StairTread5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.83, 4.82917)
-mesh = SubResource("Box255")
+[node name="BoxLong8" parent="Room" unique_id=1449518032 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 13.611236, 0, -9.848425)
 
-[node name="StairEdge5" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.905, 4.94917)
-mesh = SubResource("Box256")
+[node name="Tile_13_-15" type="MeshInstance3D" parent="Room" unique_id=1655623674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -8.65287)
+mesh = SubResource("Box2")
 
-[node name="StairTread6" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 0.98, 4.47083)
-mesh = SubResource("Box255")
+[node name="Tile_13_-16" type="MeshInstance3D" parent="Room" unique_id=1862461520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -8.65287)
+mesh = SubResource("Box2")
 
-[node name="StairEdge6" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.055, 4.59083)
-mesh = SubResource("Box256")
+[node name="Tile_13_-17" type="MeshInstance3D" parent="Room" unique_id=953510814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.008, -6.6528697)
+mesh = SubResource("Box2")
 
-[node name="StairTread7" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.13, 4.1125)
-mesh = SubResource("Box255")
+[node name="BoxLong9" parent="Room" unique_id=1812060742 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 13.611236, 0, -9.848425)
 
-[node name="StairEdge7" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.205, 4.2325)
-mesh = SubResource("Box256")
+[node name="BoxLong14" parent="Room" unique_id=206164204 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.15777768, -0.0026451957, -0.9874711, -0.0706459, 0.99740374, -0.013959584, 0.9849443, 0.07196336, 0.15718116, 14.00952, 0, -6.593026)
 
-[node name="StairTread8" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.28, 3.75417)
-mesh = SubResource("Box255")
+[node name="BoxLong15" parent="Room" unique_id=1412848034 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.15777768, -0.0026451957, -0.9874711, -0.0706459, 0.99740374, -0.013959584, 0.9849443, 0.07196336, 0.15718116, 14.00952, 0, -8.600973)
 
-[node name="StairEdge8" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.355, 3.87417)
-mesh = SubResource("Box256")
+[node name="BoxLong16" parent="Room" unique_id=818167987 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.15777768, -0.0026451957, -0.9874711, -0.0706459, 0.99740374, -0.013959584, 0.9849443, 0.07196336, 0.15718116, 14.00952, 0.5697658, -7.1581826)
 
-[node name="StairTread9" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.43, 3.39583)
-mesh = SubResource("Box255")
+[node name="BoxLong18" parent="Room" unique_id=1320032681 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.15777768, -0.0026451957, -0.9874711, -0.0706459, 0.99740374, -0.013959584, 0.9849443, 0.07196336, 0.15718116, 14.00952, 0.099859715, -5.0902896)
 
-[node name="StairEdge9" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.505, 3.51583)
-mesh = SubResource("Box256")
+[node name="BoxLong17" parent="Room" unique_id=1650203348 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.15777768, -0.0026451957, -0.9874711, -0.0706459, 0.99740374, -0.013959584, 0.9849443, 0.07196336, 0.15718116, 14.00952, 0.5697658, -8.311915)
 
-[node name="StairTread10" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.58, 3.0375)
-mesh = SubResource("Box255")
+[node name="Tile_13_-18" type="MeshInstance3D" parent="Room" unique_id=1529118483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -7.2207046)
+mesh = SubResource("Box2")
 
-[node name="StairEdge10" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.655, 3.1575)
-mesh = SubResource("Box256")
+[node name="Tile_13_-19" type="MeshInstance3D" parent="Room" unique_id=995130037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -7.2207046)
+mesh = SubResource("Box2")
 
-[node name="StairTread11" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.73, 2.67917)
-mesh = SubResource("Box255")
+[node name="Tile_13_-20" type="MeshInstance3D" parent="Room" unique_id=1367674579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -5.220704)
+mesh = SubResource("Box2")
 
-[node name="StairEdge11" type="MeshInstance3D" parent="Details"]
-position = Vector3(-5, 1.805, 2.79917)
-mesh = SubResource("Box256")
+[node name="BoxLong10" parent="Room" unique_id=592221129 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 12.631937, 0, -8.41626)
 
-[node name="Belt-4_0" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(-1, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Tile_13_-21" type="MeshInstance3D" parent="Room" unique_id=1448643859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -7.2207046)
+mesh = SubResource("Box2")
 
-[node name="Belt-4_1" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(1, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Tile_13_-22" type="MeshInstance3D" parent="Room" unique_id=1880106757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -7.2207046)
+mesh = SubResource("Box2")
 
-[node name="Belt-4_2" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(3, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Tile_13_-23" type="MeshInstance3D" parent="Room" unique_id=1597951117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.020701, 0.008, -5.220704)
+mesh = SubResource("Box2")
 
-[node name="Belt-4_3" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(5, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="BoxLong11" parent="Room" unique_id=625554194 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 12.631937, 0, -8.41626)
 
-[node name="Belt-4_4" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(7, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="BoxLong12" parent="Room" unique_id=1759726546 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 12.631937, 0, -11.43178)
 
-[node name="Belt-4_5" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(9, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="BoxLong13" parent="Room" unique_id=1851228382 instance=ExtResource("2_swbak")]
+transform = Transform3D(0.8831905, 0, -0.46901447, 0, 1, 0, 0.46901447, 0, 0.8831905, 12.631937, 0, -11.43178)
 
-[node name="BeltCargo-4_0" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(0, 0.4, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
+[node name="Workstations" type="Node3D" parent="." unique_id=1032974635]
 
-[node name="BeltCargo-4_1" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(3.5, 0.4, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
-
-[node name="BeltCargo-4_2" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(7, 0.4, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
-
-[node name="Belt-0.5_0" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(-1, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="Belt-0.5_1" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(1, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="Belt-0.5_2" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(3, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="Belt-0.5_3" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(5, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="Belt-0.5_4" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(7, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="Belt-0.5_5" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(9, 0, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="BeltCargo-0.5_0" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(0, 0.4, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
-
-[node name="BeltCargo-0.5_1" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(3.5, 0.4, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
-
-[node name="BeltCargo-0.5_2" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(7, 0.4, -0.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(0.5, 0.5, 0.5)
-
-[node name="BeltReturn-3" parent="Details" instance=ExtResource("conveyor_stripe")]
-position = Vector3(10.5, 0, -3)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="BeltReturn-2" parent="Details" instance=ExtResource("conveyor_stripe")]
-position = Vector3(10.5, 0, -2)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="BeltCornerNorth" parent="Details" instance=ExtResource("conveyor_stripe_corner")]
-position = Vector3(10.5, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="BeltCornerSouth" parent="Details" instance=ExtResource("conveyor_stripe_corner")]
-position = Vector3(10.5, 0, -0.5)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="LoadingBelt-10" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(-10, 0, -1.9)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="LoadingBelt-8" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(-8, 0, -1.9)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="LoadingBelt-6" parent="Details" instance=ExtResource("conveyor_long_stripe_sides")]
-position = Vector3(-6, 0, -1.9)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[node name="LoadingControl" parent="Workstations" instance=ExtResource("machine_window_bar")]
-position = Vector3(-2.5, 0, -6)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="LoadingControl" parent="Workstations" unique_id=641004379 instance=ExtResource("machine_window_bar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -3.3984983)
 fault_type = 1
 
-[node name="AssemblyControl" parent="Workstations" instance=ExtResource("machine")]
-position = Vector3(2, 0, -6.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="AssemblyControl" parent="Workstations" unique_id=1255230291 instance=ExtResource("machine")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6.5)
 fault_type = 2
 
-[node name="DispatchControl" parent="Workstations" instance=ExtResource("machine_fortified")]
-position = Vector3(11, 0, 2)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="DispatchControl" parent="Workstations" unique_id=1939675479 instance=ExtResource("machine_fortified")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2)
 fault_type = 3
 
-[node name="CoolingControl" parent="Workstations" instance=ExtResource("machine_window_bar")]
-position = Vector3(-9, 0, 7.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="CoolingControl" parent="Workstations" unique_id=1887189527 instance=ExtResource("machine_window_bar")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 7.5)
 fault_type = 1
 
-[node name="PipeControl" parent="Workstations" instance=ExtResource("machine")]
-position = Vector3(-3, 0, 9)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="PipeControl" parent="Workstations" unique_id=290832387 instance=ExtResource("machine")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 9)
 fault_type = 2
 
-[node name="RobotControl" parent="Workstations" instance=ExtResource("machine_fortified")]
-position = Vector3(7, 0, -8.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RobotControl" parent="Workstations" unique_id=2107233094 instance=ExtResource("machine_fortified")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -8.5)
 fault_type = 3
 
-[node name="AssemblyRobot" parent="Details" instance=ExtResource("robot_arm_a")]
-position = Vector3(3.5, 0, -8.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.35, 1.35, 1.35)
+[node name="FloorMarkings" type="Node3D" parent="." unique_id=366148277]
 
-[node name="WeldingRobot" parent="Details" instance=ExtResource("robot_arm_b")]
-position = Vector3(10.5, 0, -7.5)
-rotation = Vector3(0, 3.14159, 0)
-scale = Vector3(1.35, 1.35, 1.35)
+[node name="SafetyMark0" parent="FloorMarkings" unique_id=1678114554 instance=ExtResource("indicator_special_cross")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, -2, 0.025, 2)
 
-[node name="WeldingVat" parent="Details" instance=ExtResource("hopper_high_round")]
-position = Vector3(9, 0, -7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.35, 1.35, 1.35)
+[node name="SafetyMark1" parent="FloorMarkings" unique_id=796690306 instance=ExtResource("indicator_special_lines")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, 2, 0.025, 2)
 
-[node name="GantryFoot1" type="StaticBody3D" parent="Details"]
-position = Vector3(1, 0.18, -10)
+[node name="SafetyMark2" parent="FloorMarkings" unique_id=450556546 instance=ExtResource("indicator_special_cross")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, 6, 0.025, 2)
+
+[node name="SafetyMark3" parent="FloorMarkings" unique_id=1073004105 instance=ExtResource("indicator_special_lines")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, 10, 0.025, 4)
+
+[node name="SafetyMark4" parent="FloorMarkings" unique_id=158604564 instance=ExtResource("indicator_special_cross")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, -8, 0.025, 5.7)
+
+[node name="SafetyMark5" parent="FloorMarkings" unique_id=961050051 instance=ExtResource("indicator_special_lines")]
+transform = Transform3D(1.6, 0, 0, 0, 1, 0, 0, 0, 1.6, -2, 0.025, -9)
+
+[node name="RouteArrow0" parent="FloorMarkings" unique_id=1636727789 instance=ExtResource("arrow_basic")]
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0.03, 9)
+
+[node name="RouteArrow1" parent="FloorMarkings" unique_id=1052052006 instance=ExtResource("arrow_basic")]
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0.03, 5)
+
+[node name="RouteArrow2" parent="FloorMarkings" unique_id=227203333 instance=ExtResource("arrow_basic")]
+transform = Transform3D(-1, 0, 2.5351817e-06, 0, 1, 0, -2.5351817e-06, 0, -1, 0, 0.03, 2)
+
+[node name="RouteArrow3" parent="FloorMarkings" unique_id=1408519671 instance=ExtResource("arrow_basic")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 5, 0.03, 4)
+
+[node name="RouteArrow4" parent="FloorMarkings" unique_id=1152492209 instance=ExtResource("arrow_basic")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 12, 0.03, 6)
+
+[node name="Details" type="Node3D" parent="." unique_id=1100719551]
+
+[node name="AssemblyBuildingCornice" type="MeshInstance3D" parent="Details" unique_id=2103365836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.9, -7)
+mesh = SubResource("Box235")
+
+[node name="AssemblyBuildingRoof" type="MeshInstance3D" parent="Details" unique_id=1939480189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 4.05, -7)
+mesh = SubResource("Box236")
+
+[node name="AssemblyBuildingSafetyBand" type="MeshInstance3D" parent="Details" unique_id=1900745364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.9, -3.975)
+mesh = SubResource("Box237")
+
+[node name="AssemblyBuildingWindow-10.5" type="MeshInstance3D" parent="Details" unique_id=1296166696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 2.8, -3.945)
+mesh = SubResource("Box238")
+
+[node name="AssemblyBuildingWindow-5.5" type="MeshInstance3D" parent="Details" unique_id=1662581308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.8, -3.945)
+mesh = SubResource("Box238")
+
+[node name="ServiceTerraceCornice" type="MeshInstance3D" parent="Details" unique_id=2118793276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.7, 0)
+mesh = SubResource("Box241")
+
+[node name="ServiceTerraceRoof" type="MeshInstance3D" parent="Details" unique_id=1904083066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.85, 0)
+mesh = SubResource("Box242")
+
+[node name="ServiceTerraceSafetyBand" type="MeshInstance3D" parent="Details" unique_id=1207321883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.9, 2.525)
+mesh = SubResource("Box237")
+
+[node name="ServiceTerraceWindow-10.5" type="MeshInstance3D" parent="Details" unique_id=465322848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 1.2, 2.555)
+mesh = SubResource("Box238")
+
+[node name="ServiceTerraceWindow-5.5" type="MeshInstance3D" parent="Details" unique_id=47285415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 1.2, 2.555)
+mesh = SubResource("Box238")
+
+[node name="AssemblyLoadingDoor" parent="Details" unique_id=585134584 instance=ExtResource("door_wide_closed")]
+transform = Transform3D(1.6, 0, 0, 0, 1.8, 0, 0, 0, 1, -8, 0, -4.377463)
+
+[node name="ServiceDoor" parent="Details" unique_id=914765338 instance=ExtResource("door_wide_closed")]
+transform = Transform3D(1.1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 2.57)
+
+[node name="TerraceRail-11.7" type="MeshInstance3D" parent="Details" unique_id=633602168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7, 2.6, 0)
+mesh = SubResource("Box246")
+
+[node name="Post-11.7_-2" type="MeshInstance3D" parent="Details" unique_id=1239945080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7, 2.2, -2)
+mesh = SubResource("Box247")
+
+[node name="Post-11.7_0" type="MeshInstance3D" parent="Details" unique_id=1980728909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7, 2.2, 0)
+mesh = SubResource("Box247")
+
+[node name="Post-11.7_2" type="MeshInstance3D" parent="Details" unique_id=1054835277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7, 2.2, 2)
+mesh = SubResource("Box247")
+
+[node name="TerraceRail-4.3" type="MeshInstance3D" parent="Details" unique_id=615896340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 2.6, 0)
+mesh = SubResource("Box246")
+
+[node name="Post-4.3_-2" type="MeshInstance3D" parent="Details" unique_id=1360045656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 2.2, -2)
+mesh = SubResource("Box247")
+
+[node name="Post-4.3_0" type="MeshInstance3D" parent="Details" unique_id=1865093892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 2.2, 0)
+mesh = SubResource("Box247")
+
+[node name="Post-4.3_2" type="MeshInstance3D" parent="Details" unique_id=1575998934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 2.2, 2)
+mesh = SubResource("Box247")
+
+[node name="TerraceFrontRail" type="MeshInstance3D" parent="Details" unique_id=355217364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.6, 2.3)
+mesh = SubResource("Box254")
+
+[node name="StairTread0" type="MeshInstance3D" parent="Details" unique_id=277257939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.08, 6.62083)
+mesh = SubResource("Box255")
+
+[node name="StairEdge0" type="MeshInstance3D" parent="Details" unique_id=1614098777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.155, 6.74083)
+mesh = SubResource("Box256")
+
+[node name="StairTread1" type="MeshInstance3D" parent="Details" unique_id=561863837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.23, 6.2625)
+mesh = SubResource("Box255")
+
+[node name="StairEdge1" type="MeshInstance3D" parent="Details" unique_id=949938647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.305, 6.3825)
+mesh = SubResource("Box256")
+
+[node name="StairTread2" type="MeshInstance3D" parent="Details" unique_id=2040553408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.38, 5.90417)
+mesh = SubResource("Box255")
+
+[node name="StairEdge2" type="MeshInstance3D" parent="Details" unique_id=301322959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.455, 6.02417)
+mesh = SubResource("Box256")
+
+[node name="StairTread3" type="MeshInstance3D" parent="Details" unique_id=451440263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.53, 5.54583)
+mesh = SubResource("Box255")
+
+[node name="StairEdge3" type="MeshInstance3D" parent="Details" unique_id=596661817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.605, 5.66583)
+mesh = SubResource("Box256")
+
+[node name="StairTread4" type="MeshInstance3D" parent="Details" unique_id=647424577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.68, 5.1875)
+mesh = SubResource("Box255")
+
+[node name="StairEdge4" type="MeshInstance3D" parent="Details" unique_id=390271126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.755, 5.3075)
+mesh = SubResource("Box256")
+
+[node name="StairTread5" type="MeshInstance3D" parent="Details" unique_id=683397833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.83, 4.82917)
+mesh = SubResource("Box255")
+
+[node name="StairEdge5" type="MeshInstance3D" parent="Details" unique_id=1473745169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.905, 4.94917)
+mesh = SubResource("Box256")
+
+[node name="StairTread6" type="MeshInstance3D" parent="Details" unique_id=1882058735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.98, 4.47083)
+mesh = SubResource("Box255")
+
+[node name="StairEdge6" type="MeshInstance3D" parent="Details" unique_id=2127291292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.055, 4.59083)
+mesh = SubResource("Box256")
+
+[node name="StairTread7" type="MeshInstance3D" parent="Details" unique_id=317181912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.13, 4.1125)
+mesh = SubResource("Box255")
+
+[node name="StairEdge7" type="MeshInstance3D" parent="Details" unique_id=1013351144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.205, 4.2325)
+mesh = SubResource("Box256")
+
+[node name="StairTread8" type="MeshInstance3D" parent="Details" unique_id=15475294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.28, 3.75417)
+mesh = SubResource("Box255")
+
+[node name="StairEdge8" type="MeshInstance3D" parent="Details" unique_id=109787838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.355, 3.87417)
+mesh = SubResource("Box256")
+
+[node name="StairTread9" type="MeshInstance3D" parent="Details" unique_id=1477436864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.43, 3.39583)
+mesh = SubResource("Box255")
+
+[node name="StairEdge9" type="MeshInstance3D" parent="Details" unique_id=478200638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.505, 3.51583)
+mesh = SubResource("Box256")
+
+[node name="StairTread10" type="MeshInstance3D" parent="Details" unique_id=197860642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.58, 3.0375)
+mesh = SubResource("Box255")
+
+[node name="StairEdge10" type="MeshInstance3D" parent="Details" unique_id=653095936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.655, 3.1575)
+mesh = SubResource("Box256")
+
+[node name="StairTread11" type="MeshInstance3D" parent="Details" unique_id=1166024595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.73, 2.67917)
+mesh = SubResource("Box255")
+
+[node name="StairEdge11" type="MeshInstance3D" parent="Details" unique_id=406685971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.805, 2.79917)
+mesh = SubResource("Box256")
+
+[node name="Belt-4_0" parent="Details" unique_id=699757634 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3.47298)
+
+[node name="Belt-4_1" parent="Details" unique_id=1285966410 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3.47298)
+
+[node name="Belt-4_2" parent="Details" unique_id=637730656 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.47298)
+
+[node name="Belt-4_3" parent="Details" unique_id=644785226 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3.47298)
+
+[node name="Belt-4_4" parent="Details" unique_id=508945020 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -3.47298)
+
+[node name="Belt-4_5" parent="Details" unique_id=1470229089 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -3.47298)
+
+[node name="BeltCargo-4_0" parent="Details" unique_id=1488051277 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.4, -3.473024)
+
+[node name="BeltCargo-4_1" parent="Details" unique_id=1111220335 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.5, 0.4, -3.473024)
+
+[node name="BeltCargo-4_2" parent="Details" unique_id=1798048652 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0.4, -3.473024)
+
+[node name="Belt-0.5_0" parent="Details" unique_id=1661683684 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -0.5)
+
+[node name="Belt-0.5_1" parent="Details" unique_id=1107030154 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -0.5)
+
+[node name="Belt-0.5_2" parent="Details" unique_id=1139771459 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.5)
+
+[node name="Belt-0.5_3" parent="Details" unique_id=755786704 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -0.5)
+
+[node name="Belt-0.5_4" parent="Details" unique_id=1631881054 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -0.5)
+
+[node name="Belt-0.5_5" parent="Details" unique_id=378434258 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -0.5)
+
+[node name="BeltCargo-0.5_0" parent="Details" unique_id=670367789 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.4, -0.5)
+
+[node name="BeltCargo-0.5_1" parent="Details" unique_id=345401659 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.5, 0.4, -0.5)
+
+[node name="BeltCargo-0.5_2" parent="Details" unique_id=411576277 instance=ExtResource("box_small")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7, 0.4, -0.5)
+
+[node name="BeltReturn-3" parent="Details" unique_id=630977750 instance=ExtResource("conveyor_stripe")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 10.5, 0, -2.4941256)
+
+[node name="BeltReturn-2" parent="Details" unique_id=200688143 instance=ExtResource("conveyor_stripe")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 10.5, 0, -1.4941256)
+
+[node name="BeltCornerNorth" parent="Details" unique_id=1951850024 instance=ExtResource("conveyor_stripe_corner")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, -3.4915516)
+
+[node name="BeltCornerSouth" parent="Details" unique_id=444889059 instance=ExtResource("conveyor_stripe_corner")]
+transform = Transform3D(0.014132701, 0, -0.9999001, 0, 1, 0, 0.9999001, 0, 0.014132701, 10.5, 0, -0.5)
+
+[node name="LoadingBelt-10" parent="Details" unique_id=714143422 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1.9)
+
+[node name="LoadingBelt-8" parent="Details" unique_id=1033391752 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.9)
+
+[node name="LoadingBelt-6" parent="Details" unique_id=1573756373 instance=ExtResource("conveyor_long_stripe_sides")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.9)
+
+[node name="WeldingRobot" parent="Details" unique_id=1724297350 instance=ExtResource("robot_arm_b")]
+transform = Transform3D(-1.35, 0, 3.4224954e-06, 0, 1.35, 0, -3.4224954e-06, 0, -1.35, 10.5, 0, -7.5)
+
+[node name="WeldingVat" parent="Details" unique_id=1043818740 instance=ExtResource("hopper_high_round")]
+transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 9, 0, -7)
+
+[node name="GantryFoot1" type="StaticBody3D" parent="Details" unique_id=868275399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.18, -10)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot1"]
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot1" unique_id=690611726]
 mesh = SubResource("Box279")
 
-[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot1"]
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot1" unique_id=2049656601]
 shape = SubResource("Shape279")
 
-[node name="GantryColumn1" type="StaticBody3D" parent="Details"]
-position = Vector3(1, 3.3, -10)
+[node name="GantryColumn1" type="StaticBody3D" parent="Details" unique_id=2110700977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.3, -10)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn1"]
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn1" unique_id=1179941677]
 mesh = SubResource("Box280")
 
-[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn1"]
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn1" unique_id=217659185]
 shape = SubResource("Shape280")
 
-[node name="GantryFoot11" type="StaticBody3D" parent="Details"]
-position = Vector3(11, 0.18, -10)
+[node name="GantryFoot11" type="StaticBody3D" parent="Details" unique_id=1445808787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.18, -10)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot11"]
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryFoot11" unique_id=1756752925]
 mesh = SubResource("Box279")
 
-[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot11"]
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryFoot11" unique_id=1106550261]
 shape = SubResource("Shape281")
 
-[node name="GantryColumn11" type="StaticBody3D" parent="Details"]
-position = Vector3(11, 3.3, -10)
+[node name="GantryColumn11" type="StaticBody3D" parent="Details" unique_id=1656014443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3.3, -10)
 collision_mask = 2
 
-[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn11"]
+[node name="Mesh" type="MeshInstance3D" parent="Details/GantryColumn11" unique_id=1082374276]
 mesh = SubResource("Box280")
 
-[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn11"]
+[node name="Collision" type="CollisionShape3D" parent="Details/GantryColumn11" unique_id=437196522]
 shape = SubResource("Shape282")
 
-[node name="GantryBeam" type="MeshInstance3D" parent="Details"]
-position = Vector3(6, 6.25, -10)
+[node name="GantryBeam" type="MeshInstance3D" parent="Details" unique_id=1824490515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6.25, -10)
 mesh = SubResource("Box283")
 
-[node name="GantryBrace0" type="MeshInstance3D" parent="Details"]
-position = Vector3(1.5, 6.25, -9.66)
+[node name="GantryBrace0" type="MeshInstance3D" parent="Details" unique_id=1614508492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace1" type="MeshInstance3D" parent="Details"]
-position = Vector3(2.5, 6.25, -9.66)
+[node name="GantryBrace1" type="MeshInstance3D" parent="Details" unique_id=1930753701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace2" type="MeshInstance3D" parent="Details"]
-position = Vector3(3.5, 6.25, -9.66)
+[node name="GantryBrace2" type="MeshInstance3D" parent="Details" unique_id=1111835616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace3" type="MeshInstance3D" parent="Details"]
-position = Vector3(4.5, 6.25, -9.66)
+[node name="GantryBrace3" type="MeshInstance3D" parent="Details" unique_id=1971022702]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace4" type="MeshInstance3D" parent="Details"]
-position = Vector3(5.5, 6.25, -9.66)
+[node name="GantryBrace4" type="MeshInstance3D" parent="Details" unique_id=1595862762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace5" type="MeshInstance3D" parent="Details"]
-position = Vector3(6.5, 6.25, -9.66)
+[node name="GantryBrace5" type="MeshInstance3D" parent="Details" unique_id=1380628011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace6" type="MeshInstance3D" parent="Details"]
-position = Vector3(7.5, 6.25, -9.66)
+[node name="GantryBrace6" type="MeshInstance3D" parent="Details" unique_id=1443831290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace7" type="MeshInstance3D" parent="Details"]
-position = Vector3(8.5, 6.25, -9.66)
+[node name="GantryBrace7" type="MeshInstance3D" parent="Details" unique_id=1751693866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace8" type="MeshInstance3D" parent="Details"]
-position = Vector3(9.5, 6.25, -9.66)
+[node name="GantryBrace8" type="MeshInstance3D" parent="Details" unique_id=511686219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryBrace9" type="MeshInstance3D" parent="Details"]
-position = Vector3(10.5, 6.25, -9.66)
+[node name="GantryBrace9" type="MeshInstance3D" parent="Details" unique_id=594138889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 6.25, -9.66)
 mesh = SubResource("Box284")
 
-[node name="GantryHoist" parent="Details" instance=ExtResource("crane_lift")]
-position = Vector3(6, 6, -10)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.3, 1.3, 1.3)
+[node name="GantryHoist" parent="Details" unique_id=726422225 instance=ExtResource("crane_lift")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 6, 6, -10)
 
-[node name="GantryMagnet" parent="Details" instance=ExtResource("crane_magnet")]
-position = Vector3(6, 3.3, -10)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="GantryMagnet" parent="Details" unique_id=2023177747 instance=ExtResource("crane_magnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3.3, -10)
 
-[node name="FrontPipe-11" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(-11, 0, 10.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="FrontPipe-11" parent="Details" unique_id=1019477504 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 10.8)
 
-[node name="FrontPipe-9" parent="Details" instance=ExtResource("pipe_glass_large_long")]
-position = Vector3(-9, 0, 10.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="FrontPipe-9" parent="Details" unique_id=2010461093 instance=ExtResource("pipe_glass_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 10.8)
 
-[node name="FrontPipe-7" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(-7, 0, 10.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="FrontPipe-7" parent="Details" unique_id=515760175 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 10.8)
 
-[node name="FrontPipe-5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
-position = Vector3(-5, 0, 10.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="FrontPipe-5" parent="Details" unique_id=684327532 instance=ExtResource("pipe_glass_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 10.8)
 
-[node name="PipeCorner" parent="Details" instance=ExtResource("pipe_glass_large_curve")]
-position = Vector3(-12, 0, 9.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="PipeCorner" parent="Details" unique_id=1654557643 instance=ExtResource("pipe_glass_large_curve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 9.8)
 
-[node name="SidePipe4.5" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(-12.5, 0, 4.5)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
+[node name="SidePipe4.5" parent="Details" unique_id=1124479394 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, -12.5, 0, 4.5)
 
-[node name="SidePipe6.5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
-position = Vector3(-12.5, 0, 6.5)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
+[node name="SidePipe6.5" parent="Details" unique_id=1118623176 instance=ExtResource("pipe_glass_large_long")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, -12.5, 0, 6.5)
 
-[node name="SidePipe8.5" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(-12.5, 0, 8.5)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
+[node name="SidePipe8.5" parent="Details" unique_id=377835788 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, -12.5, 0, 8.5)
 
-[node name="CoolingValve" parent="Details" instance=ExtResource("pipe_glass_large_valve")]
-position = Vector3(-12.5, 0, 3.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="CoolingValve" parent="Details" unique_id=279017619 instance=ExtResource("pipe_glass_large_valve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0, 3.5)
 
-[node name="RightPipe3" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(3, 0, 7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RightPipe3" parent="Details" unique_id=752831441 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
 
-[node name="RightPipe5" parent="Details" instance=ExtResource("pipe_glass_large_long")]
-position = Vector3(5, 0, 7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RightPipe5" parent="Details" unique_id=1550479101 instance=ExtResource("pipe_glass_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
 
-[node name="RightPipe7" parent="Details" instance=ExtResource("pipe_large_long")]
-position = Vector3(7, 0, 7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RightPipe7" parent="Details" unique_id=1402470605 instance=ExtResource("pipe_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7)
 
-[node name="RightPipe9" parent="Details" instance=ExtResource("pipe_glass_large_long")]
-position = Vector3(9, 0, 7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RightPipe9" parent="Details" unique_id=1087606280 instance=ExtResource("pipe_glass_large_long")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 7)
 
-[node name="RightPipeCorner" parent="Details" instance=ExtResource("pipe_glass_large_curve")]
-position = Vector3(11, 0, 6)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="RightPipeCorner" parent="Details" unique_id=1295140048 instance=ExtResource("pipe_glass_large_curve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 6)
 
-[node name="Crate0" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(-10.5, 0, 4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate0" parent="Details" unique_id=59956396 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 4)
 
-[node name="StackedCrate0" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(-10.5, 0.5, 4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="StackedCrate0" parent="Details" unique_id=388246729 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0.5, 4)
 
-[node name="Crate1" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(-9.5, 0, 4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate1" parent="Details" unique_id=584544913 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 4)
 
-[node name="StackedCrate1" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(-9.5, 0.5, 4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="StackedCrate1" parent="Details" unique_id=138360969 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0.5, 4)
 
-[node name="Crate2" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(-10.5, 0, 5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate2" parent="Details" unique_id=28809411 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 0, 5)
 
-[node name="Crate3" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(12, 0, -3)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate3" parent="Details" unique_id=1724794225 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -3)
 
-[node name="Crate4" parent="Details" instance=ExtResource("box_small")]
-position = Vector3(12, 0, -4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate5" parent="Details" unique_id=698017734 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.641835, -3)
 
-[node name="SpareGear0" parent="Details" instance=ExtResource("cog_b")]
-position = Vector3(12, 0, -8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.5, 1.5, 1.5)
+[node name="Crate6" parent="Details" unique_id=1754149367 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -3)
 
-[node name="SpareGear1" parent="Details" instance=ExtResource("cog_a")]
-position = Vector3(12.8, 0, -9.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.5, 1.5, 1.5)
+[node name="Crate4" parent="Details" unique_id=1044386871 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -2.3484883)
 
-[node name="SpareGear2" parent="Details" instance=ExtResource("cog_b")]
-position = Vector3(11.5, 0, -10.8)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.5, 1.5, 1.5)
+[node name="Crate11" parent="Details" unique_id=1138619766 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.664449, 0, -2.7686875)
 
-[node name="SafetyMark0" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
-position = Vector3(-2, 0.025, 2)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate7" parent="Details" unique_id=596826847 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -1.5003016)
 
-[node name="SafetyMark1" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
-position = Vector3(2, 0.025, 2)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate8" parent="Details" unique_id=931054532 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -1.672632)
 
-[node name="SafetyMark2" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
-position = Vector3(6, 0.025, 2)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate14" parent="Details" unique_id=264697707 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.637136, 0, -2.1171758)
 
-[node name="SafetyMark3" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
-position = Vector3(10, 0.025, 4)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate9" parent="Details" unique_id=1117798422 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -1.672632)
 
-[node name="SafetyMark4" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
-position = Vector3(-8, 0.025, 5.7)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate17" parent="Details" unique_id=975656556 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.06548774, -1.4413195)
 
-[node name="SafetyMark5" parent="FloorMarkings" instance=ExtResource("indicator_special_lines")]
-position = Vector3(-2, 0.025, -9)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate20" parent="Details" unique_id=930449603 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.641835, -1.0783696)
 
-[node name="SafetyMark6" parent="FloorMarkings" instance=ExtResource("indicator_special_cross")]
-position = Vector3(4, 0.025, -10.5)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1.6, 1, 1.6)
+[node name="Crate10" parent="Details" unique_id=557370561 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -2.104911)
 
-[node name="RouteArrow0" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
-position = Vector3(0, 0.03, 9)
-rotation = Vector3(0, 3.14159, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate23" parent="Details" unique_id=2066862194 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, 0.42132878)
 
-[node name="RouteArrow1" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
-position = Vector3(0, 0.03, 5)
-rotation = Vector3(0, 3.14159, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate24" parent="Details" unique_id=1560631935 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, 0.2489984)
 
-[node name="RouteArrow2" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
-position = Vector3(0, 0.03, 2)
-rotation = Vector3(0, 3.14159, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate25" parent="Details" unique_id=1191529050 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, 0.2489984)
 
-[node name="RouteArrow3" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
-position = Vector3(5, 0.03, 4)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate15" parent="Details" unique_id=930929430 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.1993685, 0, -1.2689891)
 
-[node name="RouteArrow4" parent="FloorMarkings" instance=ExtResource("arrow_basic")]
-position = Vector3(12, 0.03, 6)
-rotation = Vector3(0, 1.5708, 0)
-scale = Vector3(1, 1, 1)
+[node name="Crate18" parent="Details" unique_id=1546412062 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -1.8735986)
 
-[node name="AssemblyLabel" type="Label3D" parent="Details"]
-position = Vector3(-8, 3.3, -3.92)
+[node name="Crate16" parent="Details" unique_id=214264623 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.641835, -1.4413195)
+
+[node name="Crate27" parent="Details" unique_id=505490520 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.664449, 0, -0.8470571)
+
+[node name="Crate30" parent="Details" unique_id=1272746817 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.637136, 0, -0.19554543)
+
+[node name="Crate12" parent="Details" unique_id=1353536996 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -2.7686875)
+
+[node name="Crate13" parent="Details" unique_id=44755314 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -2.7686875)
+
+[node name="Crate31" parent="Details" unique_id=824123481 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.1993685, 0, 0.6526413)
+
+[node name="Crate32" parent="Details" unique_id=1341945624 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.06548774, 0.48031092)
+
+[node name="Crate33" parent="Details" unique_id=161041719 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, 0.048031807)
+
+[node name="SpareGear0" parent="Details" unique_id=403244684 instance=ExtResource("cog_b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.618077, 0.22912884, -5.4686146)
+
+[node name="SpareGear4" parent="Details" unique_id=665424237 instance=ExtResource("cog_b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.176514, 0.33621657, -4.9675627)
+
+[node name="SpareGear3" parent="Details" unique_id=1577598632 instance=ExtResource("cog_b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 8.055134, 0.69701993, -5.535717)
+
+[node name="SpareGear1" parent="Details" unique_id=2058876857 instance=ExtResource("cog_a")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 9.537583, 0.69127417, -5.3340807)
+
+[node name="Crate19" parent="Details" unique_id=1775371645 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -1.0783696)
+
+[node name="SpareGear2" parent="Details" unique_id=459326545 instance=ExtResource("cog_b")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 7.444441, 0.35575795, -6.1117783)
+
+[node name="Crate21" parent="Details" unique_id=1888545328 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -1.0783696)
+
+[node name="Crate22" parent="Details" unique_id=154673090 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -0.42685795)
+
+[node name="AssemblyLabel" type="Label3D" parent="Details" unique_id=128938573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 3.3, -3.92)
+pixel_size = 0.008
+modulate = Color(1, 0.83, 0.48, 1)
 text = "MONTAGEM"
 font_size = 48
-pixel_size = 0.008
-modulate = Color(1, 0.83, 0.48, 1)
 outline_size = 4
 
-[node name="FinalLabel" type="Label3D" parent="Details"]
-position = Vector3(4, 2.5, -12.53)
+[node name="FinalLabel" type="Label3D" parent="Details" unique_id=512120173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -12.53)
+pixel_size = 0.008
+modulate = Color(1, 0.83, 0.48, 1)
 text = "01  /  MONTAGEM"
 font_size = 48
-pixel_size = 0.008
-modulate = Color(1, 0.83, 0.48, 1)
 outline_size = 4
 
-[node name="Player" parent="." instance=ExtResource("player")]
-position = Vector3(0, 0.08, 10)
+[node name="CoolingSteam" parent="Details" unique_id=1591998247 instance=ExtResource("steam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 1.15, 3.5)
 
-[node name="CameraRig" parent="." node_paths=PackedStringArray("target") instance=ExtResource("camera")]
+[node name="AssemblyExhaust" parent="Details" unique_id=1421354024 instance=ExtResource("steam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 4.2, -8)
+
+[node name="Crate26" parent="Details" unique_id=1965545930 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -0.1832807)
+
+[node name="WeldingSteam" parent="Details" unique_id=1492030427 instance=ExtResource("steam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.9, -7)
+
+[node name="Crate28" parent="Details" unique_id=1293261124 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -0.8470571)
+
+[node name="Crate29" parent="Details" unique_id=1798528967 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -0.8470571)
+
+[node name="Crate34" parent="Details" unique_id=770759884 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -3)
+
+[node name="Crate35" parent="Details" unique_id=2031568959 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.641835, -3)
+
+[node name="Crate36" parent="Details" unique_id=411763123 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -3)
+
+[node name="Crate37" parent="Details" unique_id=319218737 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -2.3484883)
+
+[node name="Crate38" parent="Details" unique_id=1530024637 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -1.5003016)
+
+[node name="Crate39" parent="Details" unique_id=160510246 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -1.672632)
+
+[node name="Crate40" parent="Details" unique_id=1530273975 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -1.672632)
+
+[node name="Crate41" parent="Details" unique_id=385632063 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.641835, -1.0783696)
+
+[node name="Crate42" parent="Details" unique_id=1903011214 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -2.104911)
+
+[node name="Crate43" parent="Details" unique_id=1556877907 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, 0.42132878)
+
+[node name="Crate44" parent="Details" unique_id=2078292651 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, 0.2489984)
+
+[node name="Crate45" parent="Details" unique_id=2144067255 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, 0.2489984)
+
+[node name="Crate46" parent="Details" unique_id=1170986722 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.1993685, 0, -1.2689891)
+
+[node name="Crate47" parent="Details" unique_id=2131516031 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -1.8735986)
+
+[node name="Crate48" parent="Details" unique_id=1824799119 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.641835, -1.4413195)
+
+[node name="Crate49" parent="Details" unique_id=596574763 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -2.7686875)
+
+[node name="Crate50" parent="Details" unique_id=1701025699 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -2.7686875)
+
+[node name="Crate51" parent="Details" unique_id=991546858 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, 0.048031807)
+
+[node name="Crate52" parent="Details" unique_id=1885917065 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -1.0783696)
+
+[node name="Crate53" parent="Details" unique_id=1920260425 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -1.0783696)
+
+[node name="Crate54" parent="Details" unique_id=2028793296 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -0.42685795)
+
+[node name="Crate55" parent="Details" unique_id=1285825935 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -0.1832807)
+
+[node name="Crate56" parent="Details" unique_id=298185586 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -0.8470571)
+
+[node name="Crate57" parent="Details" unique_id=302305710 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -0.8470571)
+
+[node name="Crate58" parent="Details" unique_id=275079290 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -8.65287)
+
+[node name="Crate59" parent="Details" unique_id=781834135 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -8.65287)
+
+[node name="Crate60" parent="Details" unique_id=1098367707 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -8.001358)
+
+[node name="Crate61" parent="Details" unique_id=1899260256 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -7.1531715)
+
+[node name="Crate62" parent="Details" unique_id=1032419656 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -7.3255014)
+
+[node name="Crate63" parent="Details" unique_id=1225135607 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -7.3255014)
+
+[node name="Crate64" parent="Details" unique_id=1510693241 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -7.757781)
+
+[node name="Crate65" parent="Details" unique_id=370145478 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -5.2315407)
+
+[node name="Crate66" parent="Details" unique_id=158153346 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -7.5264683)
+
+[node name="Crate67" parent="Details" unique_id=1090474531 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.641835, -7.094189)
+
+[node name="Crate68" parent="Details" unique_id=405309707 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -8.421557)
+
+[node name="Crate69" parent="Details" unique_id=297008468 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -8.421557)
+
+[node name="Crate70" parent="Details" unique_id=1137389585 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -5.604838)
+
+[node name="Crate71" parent="Details" unique_id=69360313 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -6.7312393)
+
+[node name="Crate72" parent="Details" unique_id=2030592139 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -6.7312393)
+
+[node name="Crate73" parent="Details" unique_id=2131484540 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -6.0797276)
+
+[node name="Crate74" parent="Details" unique_id=187513599 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -5.83615)
+
+[node name="Crate75" parent="Details" unique_id=51682508 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -6.4999266)
+
+[node name="Crate76" parent="Details" unique_id=1932117247 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -6.4999266)
+
+[node name="Crate77" parent="Details" unique_id=2014005941 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -8.65287)
+
+[node name="Crate78" parent="Details" unique_id=1933651680 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -8.65287)
+
+[node name="Crate79" parent="Details" unique_id=875931818 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -8.001358)
+
+[node name="Crate80" parent="Details" unique_id=785217392 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -7.1531715)
+
+[node name="Crate81" parent="Details" unique_id=1092894988 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -7.3255014)
+
+[node name="Crate82" parent="Details" unique_id=19434083 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -7.3255014)
+
+[node name="Crate83" parent="Details" unique_id=1877975176 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -7.757781)
+
+[node name="Crate84" parent="Details" unique_id=1582515744 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.1577425, 0, -5.2315407)
+
+[node name="Crate85" parent="Details" unique_id=1154137280 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -7.5264683)
+
+[node name="Crate86" parent="Details" unique_id=1650054141 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.715346, 0.641835, -7.094189)
+
+[node name="Crate87" parent="Details" unique_id=1336653866 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -8.421557)
+
+[node name="Crate88" parent="Details" unique_id=445864947 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -8.421557)
+
+[node name="Crate134" parent="Details" unique_id=1243681075 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -11.66839)
+
+[node name="Crate135" parent="Details" unique_id=506273431 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -11.66839)
+
+[node name="Crate136" parent="Details" unique_id=515792094 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -11.016878)
+
+[node name="Crate137" parent="Details" unique_id=247977880 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -10.341021)
+
+[node name="Crate138" parent="Details" unique_id=2089673104 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -10.341021)
+
+[node name="Crate139" parent="Details" unique_id=1969934662 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -10.7733)
+
+[node name="Crate140" parent="Details" unique_id=187704142 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -10.541988)
+
+[node name="Crate141" parent="Details" unique_id=103528271 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -11.437077)
+
+[node name="Crate142" parent="Details" unique_id=1460180969 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -11.66839)
+
+[node name="Crate143" parent="Details" unique_id=704390939 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -11.66839)
+
+[node name="Crate144" parent="Details" unique_id=1149634492 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -11.016878)
+
+[node name="Crate145" parent="Details" unique_id=98169276 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.641835, -10.341021)
+
+[node name="Crate146" parent="Details" unique_id=1873858376 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.67372, 0.06548774, -10.341021)
+
+[node name="Crate147" parent="Details" unique_id=111528977 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -10.7733)
+
+[node name="Crate148" parent="Details" unique_id=796222303 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -10.541988)
+
+[node name="Crate149" parent="Details" unique_id=1388804738 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -11.437077)
+
+[node name="Crate89" parent="Details" unique_id=1439237604 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4436245, 0, -5.604838)
+
+[node name="Crate90" parent="Details" unique_id=1535518092 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.622823, 0, -6.7312393)
+
+[node name="Crate91" parent="Details" unique_id=3857919 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.136608, 0.06548774, -6.7312393)
+
+[node name="Crate92" parent="Details" unique_id=1161633508 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5955105, 0, -6.0797276)
+
+[node name="Crate93" parent="Details" unique_id=556086810 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 13.4019985, 0, -5.83615)
+
+[node name="Crate94" parent="Details" unique_id=1135040659 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.641835, -6.4999266)
+
+[node name="Crate95" parent="Details" unique_id=886501099 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.178234, 0.06548774, -6.4999266)
+
+[node name="Crate96" parent="Details" unique_id=1038297311 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.643524, 0, -7.2207046)
+
+[node name="Crate97" parent="Details" unique_id=755492617 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.15731, 0.06548774, -7.2207046)
+
+[node name="Crate98" parent="Details" unique_id=2134434242 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.616212, 0, -6.5691924)
+
+[node name="Crate99" parent="Details" unique_id=1369655270 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.178444, 0, -5.721006)
+
+[node name="Crate100" parent="Details" unique_id=1340417216 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.694422, 0.641835, -5.893336)
+
+[node name="Crate101" parent="Details" unique_id=2017507381 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.694422, 0.06548774, -5.893336)
+
+[node name="Crate102" parent="Details" unique_id=329484780 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4227, 0, -6.3256154)
+
+[node name="Crate103" parent="Details" unique_id=947633439 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.178444, 0, -3.799375)
+
+[node name="Crate104" parent="Details" unique_id=1021380514 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.464326, 0, -6.0943027)
+
+[node name="Crate105" parent="Details" unique_id=1552338016 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 10.736048, 0.641835, -5.6620235)
+
+[node name="Crate106" parent="Details" unique_id=528832568 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.641835, -6.989392)
+
+[node name="Crate107" parent="Details" unique_id=359559445 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.06548774, -6.989392)
+
+[node name="Crate108" parent="Details" unique_id=1256299260 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.464326, 0, -4.1726723)
+
+[node name="Crate109" parent="Details" unique_id=2081569277 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.643524, 0, -5.2990737)
+
+[node name="Crate110" parent="Details" unique_id=1617960138 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.15731, 0.06548774, -5.2990737)
+
+[node name="Crate111" parent="Details" unique_id=935917981 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.616212, 0, -4.647562)
+
+[node name="Crate112" parent="Details" unique_id=1013163092 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4227, 0, -4.4039845)
+
+[node name="Crate113" parent="Details" unique_id=405585697 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.641835, -5.067761)
+
+[node name="Crate114" parent="Details" unique_id=557636357 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.06548774, -5.067761)
+
+[node name="Crate115" parent="Details" unique_id=286271651 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.643524, 0, -7.2207046)
+
+[node name="Crate116" parent="Details" unique_id=1449420843 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.15731, 0.06548774, -7.2207046)
+
+[node name="Crate117" parent="Details" unique_id=1821696706 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.616212, 0, -6.5691924)
+
+[node name="Crate118" parent="Details" unique_id=522992325 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.178444, 0, -5.721006)
+
+[node name="Crate119" parent="Details" unique_id=1479882815 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.694422, 0.641835, -5.893336)
+
+[node name="Crate120" parent="Details" unique_id=705549723 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.694422, 0.06548774, -5.893336)
+
+[node name="Crate121" parent="Details" unique_id=360339810 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4227, 0, -6.3256154)
+
+[node name="Crate122" parent="Details" unique_id=1522713259 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.178444, 0, -3.799375)
+
+[node name="Crate123" parent="Details" unique_id=2093614912 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.464326, 0, -6.0943027)
+
+[node name="Crate124" parent="Details" unique_id=303612282 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 10.736048, 0.641835, -5.6620235)
+
+[node name="Crate125" parent="Details" unique_id=606383328 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.641835, -6.989392)
+
+[node name="Crate126" parent="Details" unique_id=1447279768 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.06548774, -6.989392)
+
+[node name="Crate127" parent="Details" unique_id=289325105 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 11.464326, 0, -4.1726723)
+
+[node name="Crate128" parent="Details" unique_id=328122145 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.643524, 0, -5.2990737)
+
+[node name="Crate129" parent="Details" unique_id=1787884988 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.15731, 0.06548774, -5.2990737)
+
+[node name="Crate130" parent="Details" unique_id=1610485216 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.616212, 0, -4.647562)
+
+[node name="Crate131" parent="Details" unique_id=902360400 instance=ExtResource("box_small")]
+transform = Transform3D(-0.9420712, 0, 0.33541295, 0, 1, 0, -0.33541295, 0, -0.9420712, 12.4227, 0, -4.4039845)
+
+[node name="Crate132" parent="Details" unique_id=552815390 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.641835, -5.067761)
+
+[node name="Crate133" parent="Details" unique_id=195913122 instance=ExtResource("box_small")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1989355, 0.06548774, -5.067761)
+
+[node name="Player" parent="." unique_id=860432642 instance=ExtResource("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 10)
+
+[node name="CameraRig" parent="." unique_id=458618618 node_paths=PackedStringArray("target") instance=ExtResource("camera")]
 target = NodePath("../Player")
-map_bounds = Rect2(-16, -14, 32, 28)
 
-[node name="Spawn" type="Marker3D" parent="."]
-position = Vector3(0, 0.08, 10)
+[node name="Spawn" type="Marker3D" parent="." unique_id=1028347354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 10)
 
-[node name="GameMenu" parent="." instance=ExtResource("menu")]
+[node name="GameMenu" parent="." unique_id=1935611400 instance=ExtResource("menu")]
 
+[node name="BackgroundMusic" parent="." unique_id=2065487017 instance=ExtResource("music")]
 
-[node name="BackgroundMusic" parent="." instance=ExtResource("music")]
-
-[node name="CoolingSteam" parent="Details" instance=ExtResource("steam")]
-position = Vector3(-12.5, 1.15, 3.5)
-
-[node name="AssemblyExhaust" parent="Details" instance=ExtResource("steam")]
-position = Vector3(-9.5, 4.2, -8)
-
-[node name="WeldingSteam" parent="Details" instance=ExtResource("steam")]
-position = Vector3(9, 1.9, -7)
+[node name="Tutorial" parent="." unique_id=1320494767 instance=ExtResource("tutorial")]

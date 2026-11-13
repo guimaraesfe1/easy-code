@@ -46,10 +46,14 @@ text = "Proposições"
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 
-[node name="Proposition" type="Label" parent="Margin/Panel/Content"]
+[node name="Proposition" type="RichTextLabel" parent="Margin/Panel/Content"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
 autowrap_mode = 3
 horizontal_alignment = 1
 
